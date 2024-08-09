@@ -9,7 +9,7 @@
     <?php
     if(isset($_GET['id'])){
         $id=$_GET['id'];
-        include_once('../Conexao.php');
+        include_once('../../Conexao.php');
         $sql="SELECT * FROM tb_aviso WHERE id=$id";
         $query=mysqli_query($con,$sql);
         $ret=mysqli_fetch_assoc($query);

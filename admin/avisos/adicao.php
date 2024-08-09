@@ -9,12 +9,12 @@
     function futuro($dias){
     $date = date_create(date('Y-m-d'));
     date_add($date, date_interval_create_from_date_string("$dias days"));
-    echo date_format($date, "Y-m-d");}
+    echo date_format($date, 'Y-m-d');}
     ?>
 </head>
 <body>
 
-    <form method="post" action="AddAviso.php" enctype="multipart/form-data">
+    <form method="post" action="adicao.php" enctype="multipart/form-data">
 
         <h1>Adicionar Aviso</h1>
 
@@ -40,7 +40,7 @@
             $corpo=$_POST['corpo'];
             $inicio=$_POST['inicio'];
             $fim=$_POST['fim'];
-            include('../Conexao.php');
+            include('../../Conexao.php');
             $sql="INSERT INTO tb_aviso(titulo,corpo,inicio,fim) VALUES('$titulo','$corpo','$inicio','$fim')";
             $query=mysqli_query($con,$sql);
             echo "Aviso adicionado";

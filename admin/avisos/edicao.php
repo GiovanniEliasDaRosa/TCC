@@ -10,37 +10,37 @@
     if(isset($_GET['id']))
     {
         $id=$_GET['id'];
-        include_once('../Conexao.php');
+        include_once('../../Conexao.php');
         $sql="SELECT * FROM tb_aviso WHERE id=$id";
         $query=mysqli_query($con,$sql);
         $ret=mysqli_fetch_assoc($query);
         $id=$ret['id'];
         $titulo=$ret['titulo'];
         $corpo=$ret['corpo'];
-        $dia=$ret['dia'];
-        $exp=$ret['exp'];
+        $inicio=$ret['inicio'];
+        $fim=$ret['fim'];
     }
     ?>
 <body>
     <h1>Edição de Aviso</h1>
-    <form method='post' action="AltAviso.php" enctype='multipart/form-data'>
+    <form method='post' action="confirmaredicao.php" enctype='multipart/form-data'>
         <p><input type="hidden" name="id" value="<?php echo $id;?>"></p>
 
         <p><label for="titulo">TíTulo</label>
         <input type="text" name="titulo" value="<?php echo $titulo;?>"></p>
 
         <p><label for="corpo">Corpo</label>
-        <textarea name="corpo" value="<?php echo $corpo;?>"></textarea></p>
+        <textarea type="text" name="corpo"><?php echo $corpo;?></textarea></p>
 
-        <p><label for="dia">Data da Postagem</label>
-        <input type="date" name="dia" value="<?php echo $dia;?>"></p>
+        <p><label for="inicio">Data da Postagem</label>
+        <input type="date" name="inicio" value="<?php echo $inicio;?>"></p>
 
-        <p><label for="exp">Data de Expiração</label>
-        <input type="date" name="exp" value="<?php echo $exp;?>"></p>
+        <p><label for="fim">Data de Expiração</label>
+        <input type="date" name="fim" value="<?php echo $fim;?>"></p>
 
-        <p><input type="submit" name="salvar" value="salvar">
+        <p><input type="submit" name="Salvar" value="salvar">
         <input type="button" value="Voltar" onclick="history.back()">
-        <button><a href='ExAviso.php?id=<?php echo $id;?>'>Excluir</a></button></p>
+        <button><a href='delecao.php?id=<?php echo $id;?>'>Excluir</a></button></p>
     </form>
     </div>
 </body>

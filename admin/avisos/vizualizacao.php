@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avisos</title>
     <style>
-        tr,td{
+        table,th{
             border: 1px solid;
             margin: 4px;
         }
@@ -15,7 +15,7 @@
     <?php
     date_default_timezone_set('America/Sao_Paulo');
     echo '<meta charset="UTF-8">';
-    include ('..\Conexao.php');
+    include ('..\..\Conexao.php');
     $sql="SELECT titulo,id,corpo,inicio,fim FROM tb_aviso ORDER BY inicio DESC";
     $query=mysqli_query($con,$sql);
     while($ret=mysqli_fetch_array($query)){
@@ -25,19 +25,19 @@
         $id=$ret['id'];
         $inicio=$ret['inicio'];
         $fim=$ret['fim'];
-        if($date>=$dia && $date<=$exp){
-            echo "<table> <tr> <td>$titulo $inicio</td><td><a href='EditAviso.php?id=$id'>Editar</a> ";
+        if($date>=$inicio && $date<=$fim){
+            echo "<table> <tr> <th>$titulo $inicio</th><th><a href='edicao.php?id=$id'>Editar</a> ";
             if($corpo!=null){
-                echo "<td><a href='MaisAviso.php?id=$id'>Ler Mais</a></td></tr></table>";
+                echo "<th><a href='lermais.php?id=$id'>Ler Mais</a></th></tr></table>";
             }else{
                 echo "</tr></table>";}
-        }elseif($date>=$exp){
-            include_once('../Conexao.php');
+        }elseif($date>=$fim){
+            include_once('../../Conexao.php');
             $delsql="DELETE FROM tb_aviso WHERE id=$id";
             $delquery=mysqli_query($con,$delsql) or die (mysqli_error($con));
         }else{}
         }
-        echo "<table><tr><td><a href='AddAviso.php'>Adicionar aviso</a></td></tr></table>";
+        echo "<table><tr><td><a href='adicao.php'>Adicionar aviso</a></td></tr></table>";
     mysqli_close($con)
     ?>
 </body>
