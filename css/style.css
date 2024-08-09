@@ -1,1 +1,13 @@
 /* Estilos gerais, onde o aplicativo inteiro vai usar */
+:root {
+  --bg-color: #17171c;
+  --text-color: #ffffff;
+  --primary: #2545a8;
+  --secundary: #152b70;
+  --terciary: #152b70;
+  --header-bg: #11204e;
+  --header-option-text-color: #e0e0e0;
+  --border: #5e5e6e;
+  --input-color: #11204e;
+  --input-border-color: #3c5cc1;
+}
