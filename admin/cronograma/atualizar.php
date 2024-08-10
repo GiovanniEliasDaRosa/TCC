@@ -25,31 +25,57 @@ $columnCount = $work->getHighestDataColumn();
 
 $lastColumn = Coordinate::columnIndexFromString($columnCount);
 
-$query = "INSERT INTO tb_horario (horario, turma, segunda, terca, quarta, quinta, sexta) VALUES ";
+$queries = array();
+$columnsItems = [
+  "",
+  "horario",
+  "turma",
+  "segunda",
+  "terca",
+  "quarta",
+  "quinta",
+  "sexta"
+];
 
-for ($row = 2; $row <= $lastRow; $row++) {
-  $query .= "(";
 
+echo "<h1>2UPDATE.PHP</h1>";
+for ($row = 1; $row <= $lastRow; $row++) {
+  $query = "UPDATE tb_horario SET ";
+  echo "<tr>";
   for ($col = 1; $col <= $lastColumn; $col++) {
     $value = $work->getCell([$col, $row])->getCalculatedValue();
+    $valueatpos = $columnsItems[$col];
     if ($col != 7) {
-      $query .= "'$value',";
+      $query .= "$valueatpos='$value',";
     } else {
-      $query .= "'$value'";
+      $query .= "$valueatpos='$value'";
     }
   }
-  if ($row != $lastRow) {
-    $query .= "),\n";
-  } else {
-    $query .= ")";
-  }
+  $query .= " WHERE id_horario = " . $row - 1;
+
+  array_push($queries, $query);
 }
 
 $response = $con->query("SELECT * FROM tb_horario");
 
 if ($response->num_rows == 0) {
-  // Doesn't have data, then add
   $response = $con->query($query);
 }
 
-header('Location: index.php');
+
+if ($response->num_rows > 0) {
+  // Has data, then update it
+  array_splice($queries, 0, 1);
+
+  foreach ($queries as $currentquery) {
+    $query = $con->query($currentquery);
+    if ($query == 0) {
+      echo '<h1>erro</h1>';
+    }
+  }
+
+  header('Location: index.php');
+} else {
+  // Doesn't have data, then redirect to add
+  header('Location: adicao.php');
+}
