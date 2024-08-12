@@ -4,12 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avisos</title>
-    <style>
-        table,th{
-            border: 1px solid;
-            margin: 4px;
-        }
-    </style>
 </head>
 <body>
     <?php
@@ -26,13 +20,18 @@
         $inicio=$ret['inicio'];
         $fim=$ret['fim'];
         if($date<=$fim){
-            echo "<table><tr><th>$titulo $inicio</th><th><a href='edicao.php?id=$id'>Editar</a></th></table>";
+            echo "<form action='edicao.php' method='post'>
+                <p><input type='hidden' name='id' value='$id'></p>
+                <p><label for='célula'>$titulo $inicio
+                <input type='submit' name='editar' value='editar'></label></p>
+                </form>";
         }elseif($date>=$fim){
             $delsql="DELETE FROM tb_aviso WHERE id=$id";
             $delquery=mysqli_query($con,$delsql) or die (mysqli_error($con));
         }else{}
         }
         echo "<table><td><a href='adicao.php'>Adicionar aviso</a></td></table>";
+        
     mysqli_close($con)
     ?>
 </body>

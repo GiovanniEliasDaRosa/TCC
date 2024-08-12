@@ -6,42 +6,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edição de Aviso</title>
 </head>
+
+<body>
 <?php
-    if(isset($_GET['id']))
-    {
-        $id=$_GET['id'];
+    if(isset($_POST['editar'])){
+        $id=$_POST['id'];
         include_once('../../Conexao.php');
         $sql="SELECT * FROM tb_aviso WHERE id=$id";
         $query=mysqli_query($con,$sql);
         $ret=mysqli_fetch_assoc($query);
-        $id=$ret['id'];
         $titulo=$ret['titulo'];
         $corpo=$ret['corpo'];
         $inicio=$ret['inicio'];
         $fim=$ret['fim'];
+        echo "<h1>Edição de Aviso</h1>
+            <form method='post' action='edicao.php' enctype='multipart/form-data'>
+                <p><input type='hidden' name='id' value='$id'></p>
+        
+                <p><label for='titulo'>Título</label>
+                <input type='text' name='titulo' value='$titulo'></p>
+        
+                <p><label for='corpo'>Corpo</label>
+                <textarea type='text' name='corpo'>$corpo</textarea></p>
+        
+                <p><label for='inicio'>Data da Postagem</label>
+                <input type='date' name='inicio' value='$inicio'></p>
+        
+                <p><label for='fim'>Data de Expiração</label>
+                <input type='date' name='fim' value='$fim'></p>
+        
+                <p><input type='submit' name='salvar' value='salvar'>
+                <input type='button' value='voltar' onclick='history.back()'>
+                <input type='submit' name='excluir' value='excluir'></p>
+            </form>";
+    }
+    if (isset($_POST['salvar'])){
+        $id=$_POST['id'];
+        $titulo=$_POST['titulo'];
+        $corpo=$_POST['corpo'];
+        $inicio=$_POST['inicio'];
+        $fim=$_POST['fim'];
+        include_once('../../Conexao.php');
+        $sqlalt="UPDATE tb_aviso SET titulo='$titulo',corpo='$corpo',inicio='$inicio',fim='$fim' WHERE id='$id'";
+        $query=mysqli_query($con,$sqlalt) or die (mysqli_error($con));
+        mysqli_close($con);
+        if($query){
+            echo'Alteração efetuada com sucesso';
+            echo "<meta HTTP-EQUIV='refresh' CONTENT='0.75;URL=vizualizacao.php'>";
+        }
+    }
+    if (isset($_POST['excluir'])){
+        $id=$_POST['id'];
+        include_once('../../Conexao.php');
+        $sql="SELECT titulo,inicio,fim FROM tb_aviso WHERE id=$id";
+        $query=mysqli_query($con,$sql);
+        $ret=mysqli_fetch_assoc($query);
+        $titulo=$ret['titulo'];
+        $inicio=$ret['inicio'];
+        $fim=$ret['fim'];
+        echo "<h1>Exclusão de aviso</h1>
+        <form method='post' action='processamento.php' enctype='multipart/form-data'>
+
+            <p>$titulo - postada em $inicio com exclusão agendada para  $fim</p>
+
+            <input name='id' type='hidden' value='$id'>
+
+            <p>tem certeza que deseja excluir o aviso selecionado antes do prazo de expiração?</p>
+
+            <p><input type='submit' name='confirmar' value='Confirmar'/>
+            <input type='button' value='Cancelar' onclick='history.back()'></p>
+        </form>";
+    }
+    if (isset($_POST['confirmar'])){
+        $id=$_POST['id'];
+        include_once('../../Conexao.php');
+        $sql="DELETE FROM tb_aviso WHERE id=$id";
+        $query=mysqli_query($con,$sql) or die (mysqli_error($con));
+        if($query){
+            echo 'Aviso foi excluido com sucesso';
+            echo "<meta HTTP-EQUIV='refresh' CONTENT='0.75;URL=vizualizacao.php'";
+        }
     }
     ?>
-<body>
-    <h1>Edição de Aviso</h1>
-    <form method='post' action="confirmaredicao.php" enctype='multipart/form-data'>
-        <p><input type="hidden" name="id" value="<?php echo $id;?>"></p>
-
-        <p><label for="titulo">TíTulo</label>
-        <input type="text" name="titulo" value="<?php echo $titulo;?>"></p>
-
-        <p><label for="corpo">Corpo</label>
-        <textarea type="text" name="corpo"><?php echo $corpo;?></textarea></p>
-
-        <p><label for="inicio">Data da Postagem</label>
-        <input type="date" name="inicio" value="<?php echo $inicio;?>"></p>
-
-        <p><label for="fim">Data de Expiração</label>
-        <input type="date" name="fim" value="<?php echo $fim;?>"></p>
-
-        <p><input type="submit" name="salvar" value="salvar">
-        <input type="button" value="voltar" onclick="history.back()">
-        <button><a href='delecao.php?id=<?php echo $id;?>'>Excluir</a></button></p>
-    </form>
-    </div>
 </body>
 </html>
