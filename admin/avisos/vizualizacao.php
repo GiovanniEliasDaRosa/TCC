@@ -16,7 +16,7 @@
     date_default_timezone_set('America/Sao_Paulo');
     echo '<meta charset="UTF-8">';
     include ('..\..\Conexao.php');
-    $sql="SELECT titulo,id,corpo,inicio,fim FROM tb_aviso ORDER BY inicio DESC";
+    $sql="SELECT titulo,id,corpo,inicio,fim FROM tb_aviso ORDER BY id DESC";
     $query=mysqli_query($con,$sql);
     while($ret=mysqli_fetch_array($query)){
         $date=date('Y-m-d');
@@ -25,19 +25,13 @@
         $id=$ret['id'];
         $inicio=$ret['inicio'];
         $fim=$ret['fim'];
-        if($date>=$inicio && $date<=$fim){
-            echo "<table> <tr> <th>$titulo $inicio</th><th><a href='edicao.php?id=$id'>Editar</a> ";
-            if($corpo!=null){
-                echo "<th><a href='lermais.php?id=$id'>Ler Mais</a></th></tr></table>";
-            }else{
-                echo "</tr></table>";}
+        if($date<=$fim){
+            echo "<table><tr><th>$titulo $inicio</th><th><a href='edicao.php?id=$id'>Editar</a></th><th><a href='adicao.php'>Adicionar aviso</a></th></table";
         }elseif($date>=$fim){
-            include_once('../../Conexao.php');
             $delsql="DELETE FROM tb_aviso WHERE id=$id";
             $delquery=mysqli_query($con,$delsql) or die (mysqli_error($con));
         }else{}
         }
-        echo "<table><tr><td><a href='adicao.php'>Adicionar aviso</a></td></tr></table>";
     mysqli_close($con)
     ?>
 </body>

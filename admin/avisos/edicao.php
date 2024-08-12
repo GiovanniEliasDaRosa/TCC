@@ -38,8 +38,8 @@
         <p><label for="fim">Data de Expiração</label>
         <input type="date" name="fim" value="<?php echo $fim;?>"></p>
 
-        <p><input type="submit" name="Salvar" value="salvar">
-        <input type="button" value="Voltar" onclick="history.back()">
+        <p><input type="submit" name="salvar" value="salvar">
+        <input type="button" value="voltar" onclick="history.back()">
         <button><a href='delecao.php?id=<?php echo $id;?>'>Excluir</a></button></p>
     </form>
     </div>
