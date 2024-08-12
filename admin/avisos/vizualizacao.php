@@ -26,12 +26,13 @@
         $inicio=$ret['inicio'];
         $fim=$ret['fim'];
         if($date<=$fim){
-            echo "<table><tr><th>$titulo $inicio</th><th><a href='edicao.php?id=$id'>Editar</a></th><th><a href='adicao.php'>Adicionar aviso</a></th></table";
+            echo "<table><tr><th>$titulo $inicio</th><th><a href='edicao.php?id=$id'>Editar</a></th></table>";
         }elseif($date>=$fim){
             $delsql="DELETE FROM tb_aviso WHERE id=$id";
             $delquery=mysqli_query($con,$delsql) or die (mysqli_error($con));
         }else{}
         }
+        echo "<table><td><a href='adicao.php'>Adicionar aviso</a></td></table>";
     mysqli_close($con)
     ?>
 </body>
