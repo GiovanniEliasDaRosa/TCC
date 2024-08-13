@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina inicial</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mobile.css">
-    <link rel="stylesheet" href="pc.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cronograma.css">
 </head>
 <body>
 <div class="header">
     <div class="logo_header">
-        <img src="img/logo3.jpg" alt="logo">
+        <img src="../img/logo.png" alt="logo">
     </div>
         <div class="navegacao_header">
             <a href="index.html" class="active">Horários</a>
@@ -21,7 +21,8 @@
     <div class="content">
 
     <form action="" method="post">
-      <select name="selectedClass" id="selectedClass">
+      <div class="mude">
+        <select name="selectedClass" id="selectedClass">
         <option value="1ºA">1ºA</option>
         <option value="1ºB">1ºB</option>
         <option value="1ºC">1ºC</option>
@@ -38,47 +39,52 @@
         <option value="3ºC">3ºC</option>
         <option value="EJA">EJA</option>
       </select>
-      <input type="submit" value="selecionar" name="selected" select="" />
+      <input type="submit" value="selecionar" name="selected" select="" /></div>
+      
+<div class="acorrdeon">
+  <div>
+    <input type="checkbox" id="faq-1">
+    <h2><label for="faq-1">Segunda</label></h2>
 
-      <div>
-        <h2>Segunda</h2>
-        <table>
-          <tbody>
-            <tr>
-              <td>07:00:00</td>
-              <td>TEC - CARLOS</td>
-            </tr>
-            <tr>
-              <td>07:45:00</td>
-              <td>TEC - CARLOS</td>
-            </tr>
-            <tr>
-              <td>08:30:00</td>
-              <td>TEC - CARLOS</td>
-            </tr>
-            <tr>
-              <td>09:15:00</td>
-              <td>TEC - CARLOS</td>
-            </tr>
-            <tr>
-              <td>10:00:00</td>
-              <td>Intervalo</td>
-            </tr>
-            <tr>
-              <td>10:20:00</td>
-              <td>TEC - FERNANDO</td>
-            </tr>
-            <tr>
-              <td>11:05:00</td>
-              <td>TEC - FERNANDO</td>
-            </tr>
-            <tr>
-              <td>11:50:00</td>
-              <td>TEC - FERNANDO</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  <table>
+    <tbody>
+      <tr>
+        <td>07:00:00</td>
+        <td>TEC - CARLOS</td>
+      </tr>
+      <tr>
+        <td>07:45:00</td>
+        <td>TEC - CARLOS</td>
+      </tr>
+      <tr>
+        <td>08:30:00</td>
+        <td>TEC - CARLOS</td>
+      </tr>
+      <tr>
+        <td>09:15:00</td>
+        <td>TEC - CARLOS</td>
+      </tr>
+      <tr>
+        <td>10:00:00</td>
+        <td>Intervalo</td>
+      </tr>
+      <tr>
+        <td>10:20:00</td>
+        <td>TEC - FERNANDO</td>
+      </tr>
+      <tr>
+        <td>11:05:00</td>
+        <td>TEC - FERNANDO</td>
+      </tr>
+      <tr>
+        <td>11:50:00</td>
+        <td>TEC - FERNANDO</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+      
       <div>
         <h2>Terça</h2>
         <table>
