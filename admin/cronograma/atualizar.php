@@ -37,10 +37,8 @@ $columnsItems = [
   "sexta"
 ];
 
-
-echo "<h1>2UPDATE.PHP</h1>";
 for ($row = 1; $row <= $lastRow; $row++) {
-  $query = "UPDATE tb_horario SET ";
+  $query = "UPDATE Tb_horario SET ";
   echo "<tr>";
   for ($col = 1; $col <= $lastColumn; $col++) {
     $value = $work->getCell([$col, $row])->getCalculatedValue();
@@ -56,7 +54,7 @@ for ($row = 1; $row <= $lastRow; $row++) {
   array_push($queries, $query);
 }
 
-$response = $con->query("SELECT * FROM tb_horario");
+$response = $con->query("SELECT * FROM Tb_horario");
 
 if ($response->num_rows == 0) {
   $response = $con->query($query);
@@ -70,7 +68,7 @@ if ($response->num_rows > 0) {
   foreach ($queries as $currentquery) {
     $query = $con->query($currentquery);
     if ($query == 0) {
-      echo '<h1>erro</h1>';
+      echo '<h1>Erro</h1>';
     }
   }
 

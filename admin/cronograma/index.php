@@ -2,7 +2,7 @@
 // Import connection to DB, if an error occurs the rest of the whole project will fail
 require_once '../../conexao.php';
 
-$sql = "SELECT * FROM tb_horario";
+$sql = "SELECT * FROM Tb_horario";
 $query = $con->query($sql);
 $datagot = array();
 
@@ -11,7 +11,7 @@ while ($data = mysqli_fetch_assoc($query)) {
 }
 
 $sql = "SELECT MIN(id_horario) AS id_horario, turma
-FROM `tb_horario`
+FROM `Tb_horario`
 GROUP BY turma
 ORDER BY id_horario";
 $query = $con->query($sql);
@@ -49,40 +49,45 @@ $dayShow = [
 ];
 
 $times = [
-  '07:00:00',
-  '07:45:00',
-  '08:30:00',
-  '09:15:00',
-  '10:20:00',
-  '11:05:00',
-  '11:50:00',
+  '07:00',
+  '07:45',
+  '08:30',
+  '09:15',
+  '10:20',
+  '11:05',
+  '11:50',
 ];
 
 $nighttimes = [
-  '19:00:00',
-  '19:45:00',
-  '20:50:00',
-  '21:35:00',
-  '22:15:00',
+  '19:00',
+  '19:45',
+  '20:50',
+  '21:35',
+  '22:15',
 ];
 
 $tables = ["", ""];
 
+// Repeate for 2 tables day and night
 for ($i = 0; $i < 2; $i++) {
   $tables[$i] .= "<table>";
   $classStart = 0;
   $quantClasses = $posstartnightclass;
+
   if ($i == 1) {
+    // if night
     $night = true;
     $quantClasses = count($classes);
     $classStart = $posstartnightclass;
 
     $tables[$i] .= "<tr><td class='dayNight' colspan='$quantClasses'>Noite</td></tr>";
   } else {
+    // if day
     $night = false;
     $tables[$i] .= "<tr><td class='dayNight' colspan='" . $quantClasses + 1 . "'>Manhã</td></tr>";
   }
 
+  // For each day
   for ($day = 0; $day < 5; $day++) {
     $currentDay = $days[$day];
 
@@ -145,7 +150,7 @@ for ($i = 0; $i < 2; $i++) {
 $result = [];
 
 if (empty($classes)) {
-  $result['data'] = "<p style='font-weight: 900'><br>Não há um cronograma salvo adicione um</p>";
+  $result['data'] = "<p style='font-weight: 900'><br>Não há um cronograma salvo, adicione um</p>";
   $result['link'] = "<a href='adicao.php'>Adicionar</a>";
 } else {
   $result['data'] = "<div id='tables'>" . $tables[0] . $tables[1] . "</div>";

@@ -25,7 +25,7 @@ $columnCount = $work->getHighestDataColumn();
 
 $lastColumn = Coordinate::columnIndexFromString($columnCount);
 
-$query = "INSERT INTO tb_horario (horario, turma, segunda, terca, quarta, quinta, sexta) VALUES ";
+$query = "INSERT INTO Tb_horario (horario, turma, segunda, terca, quarta, quinta, sexta) VALUES ";
 
 for ($row = 2; $row <= $lastRow; $row++) {
   $query .= "(";
@@ -45,7 +45,7 @@ for ($row = 2; $row <= $lastRow; $row++) {
   }
 }
 
-$response = $con->query("SELECT * FROM tb_horario");
+$response = $con->query("SELECT * FROM Tb_horario");
 
 if ($response->num_rows == 0) {
   // Doesn't have data, then add

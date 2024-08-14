@@ -2,7 +2,7 @@
 $svr = '127.0.0.1';
 $usuario = 'root';
 $senha = '';
-$banco = 'HorarioEscolarDB';
+$banco = 'HORARIOESCOLARDB';
 
 try {
   $con = @mysqli_connect($svr, $usuario, $senha, $banco);
