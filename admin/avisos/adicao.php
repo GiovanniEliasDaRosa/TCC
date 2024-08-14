@@ -24,11 +24,11 @@
         <p><label for="corpo">Corpo</label>
         <textarea name="corpo"></textarea></p>
 
-        <p><label for="inicio">Data da Postagem</label>
-        <input type="date" name="inicio" value="<?php $data=date('Y-m-d'); echo $data;?>" required></p>
+        <p><label for="dt_inicio">Data da Postagem</label>
+        <input type="date" name="dt_inicio" value="<?php $data=date('Y-m-d'); echo $data;?>" required></p>
 
-        <p><label for="fim">Data de expiração</label>
-        <input type="date" name="fim" value="<?php echo futuro(7);?>"required></p>
+        <p><label for="dt_fim">Data de expiração</label>
+        <input type="date" name="dt_fim" value="<?php echo futuro(7);?>"required></p>
 
         <p><input type="submit" name="Enviar">
         <button><a href="vizualizacao.php">Voltar</a></button></p>
@@ -38,10 +38,10 @@
         if(isset($_POST['Enviar'])){
             $titulo=$_POST['titulo'];
             $corpo=$_POST['corpo'];
-            $inicio=$_POST['inicio'];
-            $fim=$_POST['fim'];
+            $dt_inicio=$_POST['dt_inicio'];
+            $dt_fim=$_POST['dt_fim'];
             include('../../Conexao.php');
-            $sql="INSERT INTO tb_aviso(titulo,corpo,inicio,fim) VALUES('$titulo','$corpo','$inicio','$fim')";
+            $sql="INSERT INTO tb_aviso(titulo,corpo,dt_inicio,dt_fim) VALUES('$titulo','$corpo','$dt_inicio','$dt_fim')";
             $query=mysqli_query($con,$sql);
             echo "Aviso adicionado";
         }

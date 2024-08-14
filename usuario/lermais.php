@@ -7,17 +7,17 @@
 </head>
 <body>
     <?php
-    if(isset($_GET['id'])){
-        $id=$_GET['id'];
-        include_once('../../Conexao.php');
-        $sql="SELECT * FROM tb_aviso WHERE id=$id";
+    if(isset($_GET['id_aviso'])){
+        $id_aviso=$_GET['id_aviso'];
+        include_once('../Conexao.php');
+        $sql="SELECT * FROM tb_aviso WHERE id_aviso=$id_aviso";
         $query=mysqli_query($con,$sql);
         $ret=mysqli_fetch_assoc($query);
         $titulo=$ret['titulo'];
         $corpo=$ret['corpo'];
-        $inicio=$ret['inicio'];
-        $fim=$ret['fim'];
-        echo "<h1>$titulo</h1><p>$inicio até $fim</p><br>
+        $dt_inicio=$ret['dt_inicio'];
+        $dt_fim=$ret['dt_fim'];
+        echo "<h1>$titulo</h1><p>$dt_inicio até $dt_fim</p><br>
         <p>$corpo</p>";
         echo "<input type='button' value='Voltar' onclick='history.back()'>";
     }
