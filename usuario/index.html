@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cronograma.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 <div class="header">
@@ -40,53 +41,63 @@
         <option value="EJA">EJA</option>
       </select>
       <input type="submit" value="selecionar" name="selected" select="" /></div>
+      </form>
       
-<div class="acorrdeon">
-  <div>
-    <input type="checkbox" id="faq-1">
-    <h2><label for="faq-1">Segunda</label></h2>
+<div class="container">
+  <div class="container">
+  <div class="accordion">
+    <button class="accordion-hearder">
+      <span>Segunda</span>
+      <i class="fa-sharp fa-solid fa-chevron-down"></i>
+    </button>
 
-  <table>
-    <tbody>
-      <tr>
-        <td>07:00:00</td>
-        <td>TEC - CARLOS</td>
-      </tr>
-      <tr>
-        <td>07:45:00</td>
-        <td>TEC - CARLOS</td>
-      </tr>
-      <tr>
-        <td>08:30:00</td>
-        <td>TEC - CARLOS</td>
-      </tr>
-      <tr>
-        <td>09:15:00</td>
-        <td>TEC - CARLOS</td>
-      </tr>
-      <tr>
-        <td>10:00:00</td>
-        <td>Intervalo</td>
-      </tr>
-      <tr>
-        <td>10:20:00</td>
-        <td>TEC - FERNANDO</td>
-      </tr>
-      <tr>
-        <td>11:05:00</td>
-        <td>TEC - FERNANDO</td>
-      </tr>
-      <tr>
-        <td>11:50:00</td>
-        <td>TEC - FERNANDO</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
+    <div class="accordion-body">
+      <table>
+        <tbody>
+          <tr>
+            <td>07:00:00</td>
+            <td>TEC - CARLOS</td>
+          </tr>
+          <tr>
+            <td>07:45:00</td>
+            <td>TEC - CARLOS</td>
+          </tr>
+          <tr>
+            <td>08:30:00</td>
+            <td>TEC - CARLOS</td>
+          </tr>
+          <tr>
+            <td>09:15:00</td>
+            <td>TEC - CARLOS</td>
+          </tr>
+          <tr>
+            <td>10:00:00</td>
+            <td>Intervalo</td>
+          </tr>
+          <tr>
+            <td>10:20:00</td>
+            <td>TEC - FERNANDO</td>
+          </tr>
+          <tr>
+            <td>11:05:00</td>
+            <td>TEC - FERNANDO</td>
+          </tr>
+          <tr>
+            <td>11:50:00</td>
+            <td>TEC - FERNANDO</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+  <div class="accordion">
+    <button class="accordion-hearder">
+      <span>Terça</span>
+      <i class="fa-sharp fa-solid fa-chevron-down"></i>
+    </button>
+    <div class="accordion-body">
       
-      <div>
-        <h2>Terça</h2>
         <table>
           <tbody>
             <tr>
@@ -123,127 +134,146 @@
             </tr>
           </tbody>
         </table>
-      </div>
-      <div>
-        <h2>Quarta</h2>
-        <table>
-          <tbody>
-            <tr>
-              <td>07:00:00</td>
-              <td>TEC - FERNANDO</td>
-            </tr>
-            <tr>
-              <td>07:45:00</td>
-              <td>TEC - FERNANDO</td>
-            </tr>
-            <tr>
-              <td>08:30:00</td>
-              <td>FLAVIO ELETIVAS SALA 13</td>
-            </tr>
-            <tr>
-              <td>09:15:00</td>
-              <td>FLAVIO ELETIVAS SALA 13</td>
-            </tr>
-            <tr>
-              <td>10:00:00</td>
-              <td>Intervalo</td>
-            </tr>
-            <tr>
-              <td>10:20:00</td>
-              <td>TEC - CARLOS</td>
-            </tr>
-            <tr>
-              <td>11:05:00</td>
-              <td>TEC - CARLOS</td>
-            </tr>
-            <tr>
-              <td>11:50:00</td>
-              <td>GRAZI - SALA 4 MATEMÁTICA</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div>
-        <h2>Quinta</h2>
-        <table>
-          <tbody>
-            <tr>
-              <td>07:00:00</td>
-              <td>TEC - CARLOS</td>
-            </tr>
-            <tr>
-              <td>07:45:00</td>
-              <td>TEC - CARLOS</td>
-            </tr>
-            <tr>
-              <td>08:30:00</td>
-              <td>PAULO EDUCAÇÃO FÍSICA</td>
-            </tr>
-            <tr>
-              <td>09:15:00</td>
-              <td>PAULO EDUCAÇÃO FÍSICA</td>
-            </tr>
-            <tr>
-              <td>10:00:00</td>
-              <td>Intervalo</td>
-            </tr>
-            <tr>
-              <td>10:20:00</td>
-              <td>GRAZI - SALA 4 MATEMÁTICA</td>
-            </tr>
-            <tr>
-              <td>11:05:00</td>
-              <td>GRAZI - SALA 4 MATEMÁTICA</td>
-            </tr>
-            <tr>
-              <td>11:50:00</td>
-              <td>ELAINE - SALA 2 PORTUGUÊS</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div>
-        <h2>Sexta</h2>
-        <table>
-          <tbody>
-            <tr>
-              <td>07:00:00</td>
-              <td>MURILO ARTE SALA 01</td>
-            </tr>
-            <tr>
-              <td>07:45:00</td>
-              <td>TEC - FLAVIO</td>
-            </tr>
-            <tr>
-              <td>08:30:00</td>
-              <td>ELAINE - SALA 2 PORTUGUÊS</td>
-            </tr>
-            <tr>
-              <td>09:15:00</td>
-              <td>ELAINE - SALA 2 PORTUGUÊS</td>
-            </tr>
-            <tr>
-              <td>10:00:00</td>
-              <td>Intervalo</td>
-            </tr>
-            <tr>
-              <td>10:20:00</td>
-              <td>CARLA INGLÊS SALA 06</td>
-            </tr>
-            <tr>
-              <td>11:05:00</td>
-              <td>TEC - CARLOS</td>
-            </tr>
-            <tr>
-              <td>11:50:00</td>
-              <td>TEC - CARLOS</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </form>
-  </body>
     </div>
-    
+  </div>
+  </div>
+  
+  <div class="accordion">
+    <button class="accordion-hearder">
+      <span>Quarta</span>
+      <i class="fa-sharp fa-solid fa-chevron-down"></i>
+    </button>
+    <div class="accordion-body"><table>
+      <tbody>
+        <tr>
+          <td>07:00:00</td>
+          <td>TEC - FERNANDO</td>
+        </tr>
+        <tr>
+          <td>07:45:00</td>
+          <td>TEC - FERNANDO</td>
+        </tr>
+        <tr>
+          <td>08:30:00</td>
+          <td>FLAVIO ELETIVAS SALA 13</td>
+        </tr>
+        <tr>
+          <td>09:15:00</td>
+          <td>FLAVIO ELETIVAS SALA 13</td>
+        </tr>
+        <tr>
+          <td>10:00:00</td>
+          <td>Intervalo</td>
+        </tr>
+        <tr>
+          <td>10:20:00</td>
+          <td>TEC - CARLOS</td>
+        </tr>
+        <tr>
+          <td>11:05:00</td>
+          <td>TEC - CARLOS</td>
+        </tr>
+        <tr>
+          <td>11:50:00</td>
+          <td>GRAZI - SALA 4 MATEMÁTICA</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+
+  <div class="accordion">
+    <button class="accordion-hearder">
+      <span>Quinta</span>
+      <i class="fa-sharp fa-solid fa-chevron-down"></i>
+    </button>
+    <div class="accordion-body">
+      <table>
+        <tbody>
+          <tr>
+            <td>07:00:00</td>
+            <td>TEC - CARLOS</td>
+          </tr>
+          <tr>
+            <td>07:45:00</td>
+            <td>TEC - CARLOS</td>
+          </tr>
+          <tr>
+            <td>08:30:00</td>
+            <td>PAULO EDUCAÇÃO FÍSICA</td>
+          </tr>
+          <tr>
+            <td>09:15:00</td>
+            <td>PAULO EDUCAÇÃO FÍSICA</td>
+          </tr>
+          <tr>
+            <td>10:00:00</td>
+            <td>Intervalo</td>
+          </tr>
+          <tr>
+            <td>10:20:00</td>
+            <td>GRAZI - SALA 4 MATEMÁTICA</td>
+          </tr>
+          <tr>
+            <td>11:05:00</td>
+            <td>GRAZI - SALA 4 MATEMÁTICA</td>
+          </tr>
+          <tr>
+            <td>11:50:00</td>
+            <td>ELAINE - SALA 2 PORTUGUÊS</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="accordion-hearder">
+      <span>Sexta</span>
+      <i class="fa-sharp fa-solid fa-chevron-down"></i>
+    </button>
+    <div class="accordion-body">
+      <table>
+        <tbody>
+          <tr>
+            <td>07:00:00</td>
+            <td>MURILO ARTE SALA 01</td>
+          </tr>
+          <tr>
+            <td>07:45:00</td>
+            <td>TEC - FLAVIO</td>
+          </tr>
+          <tr>
+            <td>08:30:00</td>
+            <td>ELAINE - SALA 2 PORTUGUÊS</td>
+          </tr>
+          <tr>
+            <td>09:15:00</td>
+            <td>ELAINE - SALA 2 PORTUGUÊS</td>
+          </tr>
+          <tr>
+            <td>10:00:00</td>
+            <td>Intervalo</td>
+          </tr>
+          <tr>
+            <td>10:20:00</td>
+            <td>CARLA INGLÊS SALA 06</td>
+          </tr>
+          <tr>
+            <td>11:05:00</td>
+            <td>TEC - CARLOS</td>
+          </tr>
+          <tr>
+            <td>11:50:00</td>
+            <td>TEC - CARLOS</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
