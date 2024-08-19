@@ -17,8 +17,8 @@ body{
 }
 
 img{
-    width: 50px;
-    height: 50px;
+    width: 4em;
+    height: 4em;
     border-radius: 50%;
 }
 .header,
@@ -30,7 +30,7 @@ img{
 .header{
     background-color: #2545a8;
     height: 5em;
-    box-shadow: 1px 4px 8px #152b70;
+    box-shadow: 0.06em 0.25em 0.5em #152b70;
     justify-content: space-between;
     padding:0 6%;
 
@@ -47,8 +47,8 @@ img{
 }
 .active{
     background-color:#152b70;
-    padding: 15px;
-    border-radius: 15px;
+    padding: 1em;
+    border-radius: 1em;
 }
 .content{
     padding-top: 5em;
@@ -58,14 +58,14 @@ img{
 }
 
 #selectedClass{
-    border-radius: 5px;
+    border-radius: 0.31em;
     background-color:#49516b;
     color: aliceblue;
    
 }
 
 input{
-    border-radius: 5px;
+    border-radius: 0.31em;
     background-color:#646b80;
     color: aliceblue;
 }
@@ -81,14 +81,14 @@ input{
     display: flex;
     flex-direction: column;
     gap: 1em;
-    width: 300px;
+    width: 18.75em;
 }
 
 .accordion{
-  border-radius: 8px;
-  padding: 12px;
+  border-radius: 0.5em;
+  padding: 0.75em;
   cursor: pointer;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0.31em 0.31em 0.31em rgba(0, 0, 0, 0.1);
  background-color:#2545a8;
  color: #e0e0e0;
 }
@@ -100,7 +100,7 @@ input{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 16px;
+    font-size: 1em;
     cursor: pointer;
     background-color: #2545a8;
     color: #e0e0e0;
@@ -115,14 +115,14 @@ input{
 }
 
 .accordion-body{
-    font-size: 14px;
+    font-size: 0.87em;
     opacity: 0;
     height: 0;
 
 }
 
-.accordion-body ative{
+.accordion-body.ative{
     height: 100%;
     opacity: 1;
-    padding: 5px 0px;
+    padding: 0.31em 0em;
 }
