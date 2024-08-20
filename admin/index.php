@@ -10,7 +10,7 @@
 <body>
   <h1>Menu Admin</h1>
   <a href="avisos/vizualizacao.php">Avisos</a>
-  <a href="cronograma/vizualizacao.php">Cronograma</a>
+  <a href="cronograma/index.php">Cronograma</a>
 
   <a href="loginlogout/logout.php">Log out</a>
 </body>
