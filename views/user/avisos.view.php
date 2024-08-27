@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <!-- <link rel="stylesheet" href="public/css/avisos/style.css" /> -->
-  <!-- <link rel="stylesheet" href="public/css/avisos/avisos.css" /> -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/user/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/user/avisos.css" />
 </head>
+
 <body>
   <div class="header">
     <div class="logo_header">
@@ -29,4 +31,14 @@
     </div>
   <?php endforeach; ?>
 </body>
+
 </html>
+
+<!-- # Allow access to files in the public directory
+
+RewriteCond %{REQUEST_URI} ^/css/ [OR]
+RewriteCond %{REQUEST_URI} ^/js/ [OR]
+RewriteCond %{REQUEST_URI} ^/img/
+RewriteRule ^ - [L]
+
+# Route all other requests to index.php -->
