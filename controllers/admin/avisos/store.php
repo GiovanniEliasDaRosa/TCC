@@ -14,12 +14,16 @@ $dt_fim = $_POST['dt_fim'];
 $errors = [];
 
 if (!Validator::string($titulo, 1, 40)) {
-  $errors['body'] =  'Um título com mais de 40 caracteres não é necessário';
+  $errors['titulo'] =  'Um título com mais de 40 caracteres não é necessário';
 }
 
 if (!empty($errors)) {
   return view('admin/avisos/create.view.php', [
-    'errors' => $errors
+    'errors' => $errors,
+    'titulo' => $titulo,
+    'corpo' => $corpo,
+    'data' => $dt_inicio,
+    'expiracao' => $dt_fim,
   ]);
 }
 

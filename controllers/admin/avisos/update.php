@@ -15,13 +15,13 @@ $aviso = $db->query('SELECT * FROM Tb_aviso WHERE id_aviso=:id_aviso', [
 $errors = [];
 
 if (!Validator::string($titulo, 1, 40)) {
-  $errors['body'] =  'Um título com mais de 40 caracteres não é necessário';
+  $errors['titulo'] =  'Um título com mais de 40 caracteres não é necessário';
 }
 
 if (!empty($errors)) {
   return view('admin/avisos/edit.view.php', [
     'errors' => $errors,
-    'aviso' => $aviso
+    'aviso' => $_POST
   ]);
 }
 

@@ -16,6 +16,9 @@
 
     <p><label for="titulo">Título</label>
       <input type="text" name="titulo" value="<?= $aviso['titulo'] ?>" required />
+      <?php if (isset($errors['titulo'])) : ?>
+        <p><?= $errors['titulo'] ?></p>
+      <?php endif; ?>
     </p>
 
     <p><label for="corpo">Corpo</label>
