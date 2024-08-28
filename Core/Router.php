@@ -56,8 +56,12 @@ class Router
 
   public function route($uri, $method)
   {
+    $normalizedUri = rtrim($uri, '/');
+
     foreach ($this->routes as $route) {
-      if ($route['uri'] === $uri && $route['method'] == strtoupper($method)) {
+      $normalizedRouteUri = rtrim($route['uri'], '/');
+
+      if ($normalizedRouteUri === $normalizedUri && $route['method'] == strtoupper($method)) {
         Middleware::resolve($route['middleware']);
 
         return require base_path($route['controller']);

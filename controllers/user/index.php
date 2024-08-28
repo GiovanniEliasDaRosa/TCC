@@ -5,26 +5,44 @@ use Core\Database;
 
 $db = App::resolve(Database::class);
 
+function saveSelectedClass($selectedClass)
+{
+  $days = time() + 60 * 60 * 24 * 30; // 30 days
+  $params = session_get_cookie_params();
+  setcookie('selectedClass', $selectedClass, $days, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+}
+
 $turmas = $db->query("SELECT MIN(id_horario) AS id_horario, turma
 FROM `Tb_horario`
 GROUP BY turma
 ORDER BY id_horario")->get();
 
-$userselected = false;
 $selectedClass = '1ºA';
-$selectClasses = "";
+$selectClasses = '';
 $classesOnScreen = array();
+$validCookie = false;
 
 if (isset($_POST['selectedClass'])) {
+  // Loaded from POST
   if ($_POST['selectedClass'] != null) {
     $selectedClass = $_POST['selectedClass'];
-    $userselected = true;
+  }
+  saveSelectedClass($selectedClass);
+} else if (isset($_COOKIE['selectedClass']) && $_COOKIE['selectedClass'] != '') {
+  // Loaded from GET
+  $savedSelectedClass = $_COOKIE['selectedClass'];
+  foreach ($turmas as $data) {
+    if ($data['turma'] == $savedSelectedClass) {
+      $validCookie = true;
+      $selectedClass = $savedSelectedClass;
+      saveSelectedClass($selectedClass);
+      break;
+    }
   }
 }
 
-
 foreach ($turmas as $data) {
-  if ($userselected && $selectedClass == $data['turma']) {
+  if ($selectedClass == $data['turma']) {
     $selectClasses .= "<option value='" . $data['turma'] . "' selected>" . $data['turma'] . "</option>";
   } else {
     $selectClasses .= "<option value='" . $data['turma'] . "'>" . $data['turma'] . "</option>";
