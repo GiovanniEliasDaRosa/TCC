@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in</title>
+  </head>
+  <body>
+    <form action="/session" method="POST">
+      <label for="name">Nome</label>
+      <input id="name" name="name" type="name" autocomplete="name" data-required="" />
+
+      <p style="display: none">Por favor informe um nome válido</p>
+
+      <label for="password">Senha</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        autocomplete="current-password"
+        data-required=""
+      />
+
+      <p>Por favor informe uma senha válida</p>
+      <p style="display: none">Senha ou nome incorretos</p>
+
+      <button type="submit">Log In</button>
+    </form>
+  </body>
+</html>
