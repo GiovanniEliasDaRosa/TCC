@@ -1,6 +1,10 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css);
+
 /* Estilos gerais, onde o aplicativo inteiro vai usar */
 :root {
+  --acess-outline: #ffffff;
   --bg-color: #17171c;
+  --bg-color-smooth: #19274e;
   --text-color: #ffffff;
   --primary: #2545a8;
   --secundary: #152b70;
@@ -8,6 +12,82 @@
   --header-bg: #11204e;
   --header-option-text-color: #e0e0e0;
   --border: #5e5e6e;
+  --border-smooth: #3e3e46;
   --input-color: #11204e;
   --input-border-color: #3c5cc1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+main {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin: 0 auto;
+  width: min(50em, 100%);
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 0.25em solid var(--acess-outline);
+  z-index: 100;
+}
+
+/* buttons */
+button,
+a,
+select {
+  background-color: var(--terciary);
+  color: var(--header-option-text-color);
+  border: none;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+:is(button, a):is(:focus-visible, :hover) {
+  background-color: var(--primary);
+}
+
+/* icons */
+.icons::before {
+  display: inline-block;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  margin-right: 0.5rem;
+}
+
+.icons.nomargin::before {
+  margin-right: 0;
+}
+
+.icons.plus::before {
+  content: "\2b";
+}
+
+.icons.xmark::before {
+  content: "\f00d";
+}
+
+.icons.down::before {
+  content: "\f078";
 }

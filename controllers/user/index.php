@@ -4,38 +4,32 @@ use Core\App;
 use Core\Database;
 
 $db = App::resolve(Database::class);
-$selectedClass = "1ºA";
-$select = "";
-$table = "";
 
 $turmas = $db->query("SELECT MIN(id_horario) AS id_horario, turma
 FROM `Tb_horario`
 GROUP BY turma
 ORDER BY id_horario")->get();
 
-// $selectedClass = '1ºA';
 $userselected = false;
 $selectedClass = '1ºA';
-if (isset($_POST['selected'])) {
-  if ($_POST['selected'] != null) {
+$selectClasses = "";
+$classesOnScreen = array();
+
+if (isset($_POST['selectedClass'])) {
+  if ($_POST['selectedClass'] != null) {
     $selectedClass = $_POST['selectedClass'];
     $userselected = true;
   }
 }
 
-$select .= "<form action'/' method='post'><select name='selectedClass' id='selectedClass'>";
 
 foreach ($turmas as $data) {
   if ($userselected && $selectedClass == $data['turma']) {
-    $select .= "<option value='" . $data['turma'] . "' selected>" . $data['turma'] . "</option>";
+    $selectClasses .= "<option value='" . $data['turma'] . "' selected>" . $data['turma'] . "</option>";
   } else {
-    $select .= "<option value='" . $data['turma'] . "'>" . $data['turma'] . "</option>";
+    $selectClasses .= "<option value='" . $data['turma'] . "'>" . $data['turma'] . "</option>";
   }
 }
-
-$select .= "<input type='submit' value='selecionar' name='selected'
-</select>
-<form>";
 
 $datagot = $db->query(
   'SELECT * FROM Tb_horario WHERE turma = :turma',
@@ -89,32 +83,33 @@ if ($datagot[0]['horario'] != "07:00") {
   $breakHour = '20:30';
 }
 
-echo "<h1>Searching from class $selectedClass</h1>";
 for ($col = 0; $col < 5; $col++) {
   $currentday = $days[$col];
-  $open = '';
+
+  $current = array();
+  $current['open'] = '';
   if ($getpossay == $col) {
-    $open = 'open';
+    $current['open'] = 'active';
   }
 
-  echo "<details $open>
-  <summary>" . $dayShow[$col] . "</summary>
-  <table>";
+  $current['day'] = $dayShow[$col];
+  $result = '<table>';
 
   for ($time = 0; $time < $classes; $time++) {
     if ($time == $break) {
-      echo "<tr><td>$breakHour</td><td>Intervalo</td></tr>";
+      $result .= "<tr><td>$breakHour</td><td>Intervalo</td></tr>";
     }
 
-    echo "<tr><td>" . $datagot[$time]['horario'] . "</td>";
-    echo "<td>" . $datagot[$time][$currentday] . "</td></tr>";
+    $result .= '<tr><td>' . $datagot[$time]['horario'] . '</td>';
+    $result .= '<td>' . $datagot[$time][$currentday] . '</td></tr>';
   }
+  $result .= '</table>';
+  $current['content'] = $result;
 
-  // echo "<tr><td colspan='2'>$row</td></tr>";
-  echo "</table></details>";
+  array_push($classesOnScreen, $current);
 }
 
 view('user/index.view.php', [
-  'select' => $select,
-  'table' => $table
+  'selectClasses' => $selectClasses,
+  'classesOnScreen' => $classesOnScreen
 ]);
