@@ -17,26 +17,31 @@
     <p><label for="titulo">Título</label>
       <input type="text" name="titulo" value="<?= $aviso['titulo'] ?>" required />
       <?php if (isset($errors['titulo'])) : ?>
-        <p><?= $errors['titulo'] ?></p>
-      <?php endif; ?>
-    </p>
+    <p><?= $errors['titulo'] ?></p>
+  <?php endif; ?>
+  </p>
 
-    <p><label for="corpo">Corpo</label>
-      <textarea name="corpo"><?= $aviso['corpo'] ?></textarea>
-    </p>
+  <p><label for="corpo">Corpo</label>
+    <textarea name="corpo"><?= $aviso['corpo'] ?></textarea>
+  </p>
 
-    <p><label for="dt_inicio">Data da Postagem</label>
-      <input type="date" name="dt_inicio" value="<?= $aviso['dt_inicio'] ?>" required>
-    </p>
+  <p><label for="dt_inicio">Data da Postagem</label>
+    <input type="date" name="dt_inicio" value="<?= $aviso['dt_inicio'] ?>" required>
+  </p>
 
-    <p><label for="dt_fim">Data de expiração</label>
-      <input type="date" name="dt_fim" value="<?= $aviso['dt_fim'] ?>" required>
-    </p>
+  <p><label for="dt_fim">Data de expiração</label>
+    <input type="date" name="dt_fim" value="<?= $aviso['dt_fim'] ?>" required>
+  </p>
 
-    <p>
-      <a href="/admin/avisos">Voltar</a>
-      <input type="submit" value="Salvar">
-    </p>
+  <p>
+    <a href="/admin/avisos">Voltar</a>
+    <input type="submit" value="Salvar">
+  </p>
+  </form>
+  <form method="post" action="/admin/avisos/delete" enctype="multipart/form-data">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="id_aviso" value="<?= $aviso['id_aviso'] ?>">
+    <button type="submit">Excluir</button>
   </form>
 </body>
 

@@ -4,9 +4,9 @@ use Core\App;
 use Core\Database;
 
 $db = App::resolve(Database::class);
+date_default_timezone_set('America/Sao_Paulo');
 
 $avisos = $db->query('SELECT * FROM Tb_aviso ORDER BY id_aviso DESC')->get();
-date_default_timezone_set('America/Sao_Paulo');
 
 $date = date('Y-m-d');
 foreach ($avisos as $aviso) {

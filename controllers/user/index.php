@@ -4,6 +4,7 @@ use Core\App;
 use Core\Database;
 
 $db = App::resolve(Database::class);
+date_default_timezone_set('America/Sao_Paulo');
 
 function saveSelectedClass($selectedClass)
 {

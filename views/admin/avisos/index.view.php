@@ -19,11 +19,6 @@
       <span><?= $aviso['dt_inicio'] ?></span>
       <span><?= $aviso['dt_fim'] ?></span>
       <a href="/admin/avisos/edit?id=<?= $aviso['id_aviso'] ?>">Editar</a>
-      <form method="post" action="/admin/avisos/delete" enctype="multipart/form-data">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="hidden" name="id_aviso" value="<?= $aviso['id_aviso'] ?>">
-        <button type="submit">Excluir</button>
-      </form>
     </div>
   <?php endforeach; ?>
 
