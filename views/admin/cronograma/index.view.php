@@ -71,7 +71,7 @@
 <body>
   <h1>Cronograma Admin</h1>
 
-  <form method="post" action="/admin/logout" enctype="multipart/form-data">
+  <form method="post" action="/logout" enctype="multipart/form-data">
     <button type="submit">Log out</button>
   </form>
 

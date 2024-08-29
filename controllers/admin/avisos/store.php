@@ -27,6 +27,8 @@ if (!empty($errors)) {
   ]);
 }
 
+// To-do: Validar datas inválidas ( $dt_inicio $dt_fim )
+
 $db->query(
   'INSERT INTO Tb_aviso(titulo, corpo, dt_inicio, dt_fim) VALUES(:titulo, :corpo, :dt_inicio, :dt_fim)',
   [

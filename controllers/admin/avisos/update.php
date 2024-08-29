@@ -7,6 +7,8 @@ use Core\Validator;
 $db = App::resolve(Database::class);
 $id_aviso = $_POST['id_aviso'];
 $titulo = $_POST['titulo'];
+$dt_inicio = $_POST['dt_inicio'];
+$dt_fim = $_POST['dt_fim'];
 
 $aviso = $db->query('SELECT * FROM Tb_aviso WHERE id_aviso=:id_aviso', [
   ':id_aviso' => $id_aviso
@@ -25,12 +27,14 @@ if (!empty($errors)) {
   ]);
 }
 
+// To-do: Validar datas inválidas ( $dt_inicio $dt_fim )
+
 $db->query('UPDATE `tb_aviso` SET id_aviso = :id_aviso, dt_inicio = :dt_inicio, dt_fim = :dt_fim, titulo = :titulo, corpo = :corpo WHERE id_aviso = :id_aviso', [
   ':id_aviso' => $id_aviso,
   ':titulo' => $titulo,
   ':corpo' => $_POST['corpo'],
-  ':dt_inicio' => $_POST['dt_inicio'],
-  ':dt_fim' => $_POST['dt_fim']
+  ':dt_inicio' => $dt_inicio,
+  ':dt_fim' => $dt_fim
 ]);
 
 header('location: /admin/avisos');

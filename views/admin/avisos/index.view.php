@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <form method="post" action="/admin/logout" enctype="multipart/form-data">
+  <form method="post" action="/logout" enctype="multipart/form-data">
     <button type="submit">Log out</button>
   </form>
 

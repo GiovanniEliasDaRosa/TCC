@@ -10,4 +10,10 @@
 //   'password' => password_hash('123', PASSWORD_BCRYPT),
 // ]);
 
+
+if ($_SESSION['user'] ?? false) {
+  header('location: /admin');
+  exit();
+}
+
 view('session/create.view.php');

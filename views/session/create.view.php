@@ -1,4 +1,4 @@
-<form action="/session" method="POST">
+<form action="/login" method="POST">
   <label for="name">Nome</label>
   <input id="name" name="name" type="name" autocomplete="name" data-required>
   <br>
@@ -7,7 +7,7 @@
     <p><?= $errors['name'] ?></p>
   <?php endif; ?>
 
-  <label for="password">Password</label>
+  <label for="password">Senha</label>
   <input id="password" name="password" type="password" autocomplete="current-password" data-required>
   <br>
 
