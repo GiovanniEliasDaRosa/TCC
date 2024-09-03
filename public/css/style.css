@@ -60,7 +60,7 @@ select {
   cursor: pointer;
 }
 
-:is(button, a):is(:focus-visible, :hover) {
+:is(button, a, select):is(:focus-visible, :hover) {
   background-color: var(--primary);
 }
 

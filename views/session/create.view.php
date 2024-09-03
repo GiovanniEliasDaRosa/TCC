@@ -1,8 +1,7 @@
 <form action="/login" method="POST">
   <label for="name">Nome</label>
-  <input id="name" name="name" type="name" autocomplete="name" data-required>
+  <input type="text" id="name" name="name" autocomplete="name" value="<?= old('name') ?>" data-required>
   <br>
-
   <?php if (isset($errors['name'])) : ?>
     <p><?= $errors['name'] ?></p>
   <?php endif; ?>

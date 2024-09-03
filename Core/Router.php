@@ -64,11 +64,16 @@ class Router
       if ($normalizedRouteUri === $normalizedUri && $route['method'] == strtoupper($method)) {
         Middleware::resolve($route['middleware']);
 
-        return require base_path($route['controller']);
+        return require base_path('Http/controllers/' . $route['controller']);
       }
     }
 
     $this->abort();
+  }
+
+  public function previousUrl()
+  {
+    return $_SERVER['HTTP_REFERER'];
   }
 
   protected function abort($code = 404)
