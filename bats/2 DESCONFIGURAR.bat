@@ -1,11 +1,8 @@
 @echo off
-color 0A
 cls
-@echo   [o- - - - - -] (0/1)   0%%
+@echo   [o- - - - - - - -] (0/2)  0%%
 @echo  ^> Desconfigurando sistema de roteador...
 echo.
-
-Timeout /t 1
 
 :: Copia o arquivo php.ini
 copy "C:\xampp\htdocs\TCC\bats\revert\php.ini" "C:\xampp\php"
@@ -16,13 +13,14 @@ copy "C:\xampp\htdocs\TCC\bats\revert\httpd.conf" "C:\xampp\apache\conf"
 :: Copia o arquivo httpd-vhosts.conf
 copy "C:\xampp\htdocs\TCC\bats\revert\httpd-vhosts.conf" "C:\xampp\apache\conf\extra"
 
-color 0A
 cls
-@echo   [===========o] (1/1) 100%%
+@echo   [=======o - - - -] (1/2) 50%%
 @echo  - Sistema de roteador desconfigurado com sucesso!
+@echo  ^> Desconfigurando o banco de dados...
 echo.
-@echo          :::::::::::::::
-@echo          : Tudo certo! :
-@echo          :::::::::::::::
-echo.
+
+cd revert/
+call php revert.php
+cd /
+
 pause
