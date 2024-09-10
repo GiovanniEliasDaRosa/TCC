@@ -10,12 +10,12 @@ class Authenticator
 {
   public function attempt($name, $password)
   {
-    $user = (App::resolve(Database::class))->query('select * from users where name = :name', [
-      ':name' => $name,
+    $user = (App::resolve(Database::class))->query('select * from Tb_usuario where nome = :nome', [
+      ':nome' => $name,
     ])->find();
 
     // See if normal password is equals to hashed password on database
-    if ($user && password_verify($password, $user['password'])) {
+    if ($user && password_verify($password, $user['senha'])) {
       $this->login([
         'name' => $name
       ]);
@@ -30,7 +30,7 @@ class Authenticator
   public function login($user)
   {
     $_SESSION['user'] = [
-      'email' => $user['email']
+      'name' => $user['nome']
     ];
 
     session_regenerate_id(true);

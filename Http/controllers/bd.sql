@@ -19,8 +19,14 @@ CREATE TABLE `Tb_aviso` (
   `corpo` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
-CREATE TABLE `users` (
-  `id` smallint NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+CREATE TABLE `Tb_usuario` (
+  `id_usuario` smallint NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
+  `senha` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- CREATE TABLE `users` (
+--   `id` smallint NOT NULL PRIMARY KEY AUTO_INCREMENT,
+--   `name` varchar(255) NOT NULL,
+--   `password` varchar(255) NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
