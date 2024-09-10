@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="edicao.css">
+    <script src="edicao.js" defer></script>
+    <meta charset="UTF-8" />
+  </head>
+    <title>Editar Aviso</title>
+</head>
+<body>
+    
+    <div class="header">
+        <div class="logo_header">
+          <img src="../../img/logo3.jpg" alt="logo" />
+        </div>
+        <h1>Tela de Administrador</h1>
+        <div class="navegacao_header">
+          <a href="../../admin/avisos_admin.html">Horários</a>
+          <a href="../avisos_admin.html" class="active">Avisos</a>
+        </div>
+      </div>
+        
+        <form method="post" action="adicao.php" enctype="multipart/form-data" class="div1" id="formu">
+
+        <div class="div3">
+        <a href="../avisos_admin.html" id="divs">◀</a>
+          <h1>Editar o Aviso</h1>
+        </div>        
+
+        <div id="wow">
+          <div id="oh">
+            <div id="tituloDiv" class="querobr">
+              <p><label for="titulo">Título</label>
+              <input type="text" id="titulo"  class="input"/></p>
+              <p class="gf" style="display: none;" id="tituloMensagem">Adicione um título ⬆</p>
+            </div>
+
+            <p><label for="corpo">Corpo</label>
+            <textarea name="corpo"></textarea></p>
+        </div>
+
+        <div id="oh">
+          <div id="data1Div">
+            <p><label>Data da Postagem</label>
+            <input type="date" name="dt_inicio"  class="datas" id="data1" ></p>
+            <p class="gf2" style="display: none;" id="data1Mensagem">Adicione a data de postagem ⬆</p>
+          </div>
+          
+          <div id="data2Div">
+          <p><label for="dt_fim">Data de Expiração</label>
+          <input type="date" name="dt_fim"  class="datas" id="data2" ></p>
+          <p class="gf2" style="display: none;" id="data2Mensagem">Adicione a data de expiração ⬆</p>
+          </div>
+        </div>
+    </div>
+        <div id="uhh">
+          <p><input type="submit" name="Enviar" class="input"></p>
+            <div id="excluirdiv">
+              <button type="button" class="b"
+              id="excluir" onclick="excluiraviso()">Excluir</button>
+            </div>
+        </div>
+
+    </form>
+</body>
+
+</html>
