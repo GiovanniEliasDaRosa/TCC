@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src='login.js' defer></script>
+  </head>
+  <body>
+    <form action="/session" method="POST" id="enviar">
+      <h1>Login</h1>
+      <label for="name">Nome</label>
+      <input id="name" name="name" type="name" autocomplete="name" data-required=""  placeholder="Nome"/>
+
+      <p id="nome_vazio" style="display: none;">Por favor informe um nome válido</p>
+
+      <label for="password">Senha</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        autocomplete="current-password"
+        data-required=""
+        placeholder="Senha"
+      />
+
+      <p id="senha_vazia" style="display: none;">Por favor informe uma senha válida</p>
+      <p style="display: none;">Senha ou nome incorretos</p>
+
+      <button type="submit" >Entrar</button>
+    </form>
+  </body>
+</html>

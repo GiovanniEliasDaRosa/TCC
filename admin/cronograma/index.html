@@ -1,0 +1,956 @@
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cronograma Admin</title>
+    <link rel="stylesheet" href="../css/cronograma.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo_header">
+        <img src="../../img/logo.png" alt="logo" />
+      </div>
+
+      <h1>Tela administrativa</h1>
+
+      <div class="navegacao_header">
+        <a href="index.html" class="active">Horários</a>
+        <a href="avisos.html">Avisos</a>
+        <form method="post" action="/admin/logout" enctype="multipart/form-data">
+          <button type="submit" class="botao" id="deslog">Sair</button>
+        </form>
+      </div>
+    </div>
+
+    <main>
+      <a href="#" class="botao" id="botao__atualizar">Atualizar</a>
+
+      <div id="tables">
+        <table>
+          <tbody>
+            <tr>
+              <td class="dayNight" colspan="12">Manhã</td>
+            </tr>
+            <tr>
+              <td class="newday" colspan="17">Segunda</td>
+            </tr>
+            <tr>
+              <td>horario</td>
+              <td>1ºA</td>
+              <td>1ºB</td>
+              <td>1ºC</td>
+              <td>1ºD</td>
+              <td>2ºA</td>
+              <td>2ºB</td>
+              <td>2º NOV</td>
+              <td>3ºA</td>
+              <td>3ºB</td>
+              <td>3ºNOV A</td>
+              <td>3ºNOV N</td>
+            </tr>
+            <tr>
+              <td>07:00</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>LEANDRO SALA 01 PORTUGUÊS</td>
+              <td>CARLA REDAÇÃO SALA 05</td>
+              <td>GABRIEL - SALA 11 GEOGRAFIA</td>
+              <td>GIOVANA FÍSICA SALA 12</td>
+              <td>TEC - FERNANDO SALA 06</td>
+              <td>CINTIA SALA 12 EMPREENDEDORISMO</td>
+              <td>MÁGILA FIL. E SOC. MODERNA SALA 10</td>
+              <td>TEC - CARLOS</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+            </tr>
+            <tr>
+              <td>07:45</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>LEANDRO SALA 01 PORTUGUÊS</td>
+              <td>CARLA REDAÇÃO SALA 05</td>
+              <td>GABRIEL - SALA 11 GEOGRAFIA</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>PAULO EDUCAÇÃO FÍSICA</td>
+              <td>CINTIA SALA 12 EMPREENDEDORISMO</td>
+              <td>MÁGILA FIL. E SOC. MODERNA SALA 10</td>
+              <td>TEC - CARLOS</td>
+              <td>TEC - FERNANDO</td>
+            </tr>
+            <tr>
+              <td>08:30</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>CARLA REDAÇÃO SALA 05</td>
+              <td>GIOVANA FÍSICA SALA 06</td>
+              <td>LEANDRO SALA 01 PORTUGUÊS</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>CINTIA SALA 12 QUÍMICA</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>PAULO EDUCAÇÃO FÍSICA</td>
+              <td>GABRIEL - SALA 11 GEOGRAFIA</td>
+              <td>TEC - CARLOS</td>
+              <td>TEC - FERNANDO</td>
+            </tr>
+            <tr>
+              <td>09:15</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>CARLA REDAÇÃO SALA 05</td>
+              <td>GIOVANA FÍSICA SALA 06</td>
+              <td>LEANDRO SALA 01 PORTUGUÊS</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>CINTIA SALA 12 QUÍMICA</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>PAULO EDUCAÇÃO FÍSICA</td>
+              <td>GABRIEL - SALA 11 GEOGRAFIA</td>
+              <td>TEC - CARLOS</td>
+              <td>TEC - FERNANDO</td>
+            </tr>
+            <tr class="break">
+              <td>10:00:00</td>
+              <td colspan="11">Intervalo</td>
+            </tr>
+            <tr>
+              <td>10:20</td>
+              <td>GIOVANA FÍSICA SALA 06</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>CARLA INGLÊS SALA 05</td>
+              <td>MÁGILA FILOSOFIA SALA 10</td>
+              <td>LEANDRO INGLÊS SALA 01</td>
+              <td>GABRIEL - SALA 11 GEOGRAFIA</td>
+              <td>TEC - CARLOS SALA 12</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>FLAVIO PV SALA 13</td>
+              <td>TEC - FERNANDO</td>
+              <td>PAULO EDUCAÇÃO FÍSICA</td>
+            </tr>
+            <tr>
+              <td>11:05</td>
+              <td>CARLA REDAÇÃO SALA 05</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>GIOVANA FÍSICA SALA 06</td>
+              <td>CINTIA SALA 12 EMPREENDEDORISMO</td>
+              <td>MÁGILA FIL. E SOC. MODERNA SALA 10</td>
+              <td>TEC - CARLOS</td>
+              <td>GABRIEL - SALA 11 GEOGRAFIA</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>TEC - FERNANDO</td>
+              <td>PAULO EDUCAÇÃO FÍSICA</td>
+            </tr>
+            <tr>
+              <td>11:50</td>
+              <td>CARLA REDAÇÃO SALA 05</td>
+              <td>GABRIELA SALA 03 MATEMÁTICA</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>GIOVANA FÍSICA SALA 06</td>
+              <td>CINTIA SALA 12 EMPREENDEDORISMO</td>
+              <td>MÁGILA FIL. E SOC. MODERNA SALA 10</td>
+              <td>TEC - CARLOS</td>
+              <td>GABRIEL - SALA 11 GEOGRAFIA</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>TEC - FERNANDO</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+            </tr>
+            <tr>
+              <td class="newday" colspan="17">Terça</td>
+            </tr>
+            <tr>
+              <td>horario</td>
+              <td>1ºA</td>
+              <td>1ºB</td>
+              <td>1ºC</td>
+              <td>1ºD</td>
+              <td>2ºA</td>
+              <td>2ºB</td>
+              <td>2º NOV</td>
+              <td>3ºA</td>
+              <td>3ºB</td>
+              <td>3ºNOV A</td>
+              <td>3ºNOV N</td>
+            </tr>
+            <tr>
+              <td>07:00</td>
+              <td>CINTIA SALA 12 QUÍMICA</td>
+              <td>ROSANA ED. FINANCEIRA SALA 11</td>
+              <td>MARINA ARTE SALA 06</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>CARLA REDAÇÃO SALA 01</td>
+              <td>LEANDRO INGLÊS SALA 05</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>MARCOS TEC. E ROBÓTICA SALA 03</td>
+              <td>HUMBERTO ORATÓRIA SALA 10</td>
+              <td>MURILO ARTE SALA 04</td>
+              <td>TEC - RUBENS</td>
+            </tr>
+            <tr>
+              <td>07:45</td>
+              <td>CINTIA SALA 12 QUÍMICA</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>RAFA SALA 05 PV</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>CARLA REDAÇÃO SALA 01</td>
+              <td>ROSANA ED. FINANCEIRA SALA 04</td>
+              <td>TEC - ELAINE SALA 06</td>
+              <td>MARCOS TEC. E ROBÓTICA SALA 03</td>
+              <td>HUMBERTO ORATÓRIA SALA 10</td>
+              <td>TEC - CARLOS</td>
+              <td>TEC - RUBENS</td>
+            </tr>
+            <tr>
+              <td>08:30</td>
+              <td>MARINA ARTE SALA 06</td>
+              <td>CINTIA SALA 12 QUÍMICA</td>
+              <td>RAFA SALA 05 PV</td>
+              <td>CARLA INGLÊS SALA 01</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>LEANDRO INGLÊS SALA 05</td>
+              <td>TEC - ELAINE</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>ROSANA ED. FINANCEIRA SALA 04</td>
+              <td>TEC - CARLOS</td>
+              <td>TEC - RUBENS</td>
+            </tr>
+            <tr>
+              <td>09:15</td>
+              <td>CARLA INGLÊS SALA 01</td>
+              <td>CINTIA SALA 12 QUÍMICA</td>
+              <td>MARCOS TEC. E ROBÓTICA SALA 03</td>
+              <td>RAFA SALA 05 PV</td>
+              <td>ROSANA ED. FINANCEIRA SALA 04</td>
+              <td>MARINA EDUCAÇÃO FÍSICA</td>
+              <td>TEC - ELAINE</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>LEANDRO INGLÊS SALA 03</td>
+              <td>TEC - RUBENS</td>
+              <td>TEC - CARLOS</td>
+            </tr>
+            <tr class="break">
+              <td>10:00:00</td>
+              <td colspan="11">Intervalo</td>
+            </tr>
+            <tr>
+              <td>10:20</td>
+              <td>RAFA SALA 05 PV</td>
+              <td>MARINA ARTE SALA 06</td>
+              <td>MARCOS TEC. E ROBÓTICA SALA 03</td>
+              <td>CINTIA SALA 12 QUÍMICA</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>CARLA REDAÇÃO SALA 01</td>
+              <td>TEC - SERGIO SALA 11</td>
+              <td>ELAINE - SALA 2 REDAÇÃO</td>
+              <td>ROSANA ED. FINANCEIRA SALA 04</td>
+              <td>TEC - RUBENS</td>
+              <td>TEC - ELAINE</td>
+            </tr>
+            <tr>
+              <td>11:05</td>
+              <td>RAFA SALA 05 PV</td>
+              <td>MARINA ARTE SALA 06</td>
+              <td>LEANDRO SALA 01 PORTUGUÊS</td>
+              <td>MARCOS TEC. E ROBÓTICA SALA 03</td>
+              <td>CINTIA SALA 12 BIOTECNOLOGIA</td>
+              <td>HUMBERTO ORATÓRIA SALA 10</td>
+              <td>TEC - SERGIO SALA 11</td>
+              <td>ELAINE - SALA 2 REDAÇÃO</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>TEC - RUBENS</td>
+              <td>TEC - ELAINE</td>
+            </tr>
+            <tr>
+              <td>11:50</td>
+              <td>MARINA ARTE SALA 06</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>LEANDRO SALA 01 PORTUGUÊS</td>
+              <td>MARCOS TEC. E ROBÓTICA SALA 03</td>
+              <td>CINTIA SALA 12 BIOTECNOLOGIA</td>
+              <td>HUMBERTO ORATÓRIA SALA 10</td>
+              <td>TEC - SERGIO SALA 11</td>
+              <td>RAFA ACELERAÇÃO VESTIBULAR SALA 05</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>CARLA INGLÊS SALA 04</td>
+              <td>TEC - CARLOS</td>
+            </tr>
+            <tr>
+              <td class="newday" colspan="17">Quarta</td>
+            </tr>
+            <tr>
+              <td>horario</td>
+              <td>1ºA</td>
+              <td>1ºB</td>
+              <td>1ºC</td>
+              <td>1ºD</td>
+              <td>2ºA</td>
+              <td>2ºB</td>
+              <td>2º NOV</td>
+              <td>3ºA</td>
+              <td>3ºB</td>
+              <td>3ºNOV A</td>
+              <td>3ºNOV N</td>
+            </tr>
+            <tr>
+              <td>07:00</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>MÁGILA FILOSOFIA SALA 10</td>
+              <td>GABRIELA SALA 03 MATEMÁTICA</td>
+              <td>MARINA EDUCAÇÃO FÍSICA</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>DANIEL BIOLOGIA SALA 11</td>
+              <td>MARCOS TEC. E ROBÓTICA SALA 06</td>
+              <td>GABRIEL - SALA 01 GEOPOLITICA</td>
+              <td>TEC - FERNANDO</td>
+              <td>TEC - CARLOS</td>
+            </tr>
+            <tr>
+              <td>07:45</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>MÁGILA FILOSOFIA SALA 10</td>
+              <td>GABRIELA SALA 03 MATEMÁTICA</td>
+              <td>MARINA EDUCAÇÃO FÍSICA</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>DANIEL BIOLOGIA SALA 11</td>
+              <td>MARCOS TEC. E ROBÓTICA SALA 06</td>
+              <td>GABRIEL - SALA 01 GEOPOLITICA</td>
+              <td>TEC - FERNANDO</td>
+              <td>TEC - CARLOS</td>
+            </tr>
+            <tr>
+              <td>08:30</td>
+              <td>MÁGILA FILOSOFIA SALA 10</td>
+              <td>RAFA SALA 05 PV</td>
+              <td>MARINA EDUCAÇÃO FÍSICA</td>
+              <td>GABRIELA SALA 03 MATEMÁTICA</td>
+              <td>DANIEL BIOLOGIA SALA 11</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>TEC - FERNANDO SALA 01</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>VINICIUS AC. VESTIBULAR SALA 06</td>
+              <td>FLAVIO ELETIVAS SALA 13</td>
+              <td>TEC - CARLOS</td>
+            </tr>
+            <tr>
+              <td>09:15</td>
+              <td>MÁGILA FILOSOFIA SALA 10</td>
+              <td>RAFA SALA 05 PV</td>
+              <td>MARINA EDUCAÇÃO FÍSICA</td>
+              <td>GABRIELA SALA 03 MATEMÁTICA</td>
+              <td>DANIEL BIOLOGIA SALA 11</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>TEC - FERNANDO</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>VINICIUS AC. VESTIBULAR SALA 06</td>
+              <td>FLAVIO ELETIVAS SALA 13</td>
+              <td>TEC - CARLOS</td>
+            </tr>
+            <tr class="break">
+              <td>10:00:00</td>
+              <td colspan="11">Intervalo</td>
+            </tr>
+            <tr>
+              <td>10:20</td>
+              <td>MARINA EDUCAÇÃO FÍSICA</td>
+              <td>GABRIELA SALA 03 MATEMÁTICA</td>
+              <td>MÁGILA FILOSOFIA SALA 10</td>
+              <td>DANIEL BIOLOGIA SALA 11</td>
+              <td>RAFA SALA 05 PV</td>
+              <td>CARLA REDAÇÃO SALA 01</td>
+              <td>TEC - FERNANDO SALA 11</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>FLAVIO PV SALA 13</td>
+              <td>TEC - CARLOS</td>
+              <td>MURILO ARTE SALA 06</td>
+            </tr>
+            <tr>
+              <td>11:05</td>
+              <td>MARINA EDUCAÇÃO FÍSICA</td>
+              <td>GABRIELA SALA 03 MATEMÁTICA</td>
+              <td>MÁGILA FILOSOFIA SALA 10</td>
+              <td>DANIEL BIOLOGIA SALA 11</td>
+              <td>BRUNO TEC. E ROBÓTICA SALA 06</td>
+              <td>MURILO ARTE E MÍDIAS DIGITAIS SALA 01</td>
+              <td>TEC - FERNANDO SALA 11</td>
+              <td>FLAVIO PV SALA 13</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>TEC - CARLOS</td>
+              <td>CARLA INGLÊS SALA 05</td>
+            </tr>
+            <tr>
+              <td>11:50</td>
+              <td>GABRIELA SALA 03 MATEMÁTICA</td>
+              <td>CARLA INGLÊS SALA 05</td>
+              <td>MARINA ARTE SALA 03</td>
+              <td>MÁGILA FILOSOFIA SALA 10</td>
+              <td>BRUNO TEC. E ROBÓTICA SALA 06</td>
+              <td>MURILO ARTE E MÍDIAS DIGITAIS SALA 01</td>
+              <td>TEC - FERNANDO</td>
+              <td>FLAVIO PV SALA 13</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>TEC - CARLOS</td>
+            </tr>
+            <tr>
+              <td class="newday" colspan="17">Quinta</td>
+            </tr>
+            <tr>
+              <td>horario</td>
+              <td>1ºA</td>
+              <td>1ºB</td>
+              <td>1ºC</td>
+              <td>1ºD</td>
+              <td>2ºA</td>
+              <td>2ºB</td>
+              <td>2º NOV</td>
+              <td>3ºA</td>
+              <td>3ºB</td>
+              <td>3ºNOV A</td>
+              <td>3ºNOV N</td>
+            </tr>
+            <tr>
+              <td>07:00</td>
+              <td>DANIEL BIOLOGIA SALA 10</td>
+              <td>GIOVANA FÍSICA SALA 13</td>
+              <td>GABRIELA MATEMÁTICA SALA 6</td>
+              <td>MURILO GEOGRAFIA SALA 03</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>CINTIA SALA QUÍMICA SALA 12</td>
+              <td>BIOTECNOLOGIA PAULO SALA 11</td>
+              <td>RAFA LIDERANÇA SALA 05</td>
+              <td>TEC - CARLOS</td>
+              <td>CARLA INGLÊS SALA 1</td>
+            </tr>
+            <tr>
+              <td>07:45</td>
+              <td>DANIEL BIOLOGIA SALA 10</td>
+              <td>GIOVANA FÍSICA SALA 13</td>
+              <td>CARLA REDAÇÃO SALA 03</td>
+              <td>GABRIELA MATEMÁTICA SALA 6</td>
+              <td>LEANDRO INGLÊS SALA 01</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>CINTIA SALA QUÍMICA SALA 12</td>
+              <td>BIOTECNOLOGIA PAULO SALA 11</td>
+              <td>RAFA LIDERANÇA SALA 05</td>
+              <td>TEC - CARLOS</td>
+              <td>MURILO ARTE SALA 4</td>
+            </tr>
+            <tr>
+              <td>08:30</td>
+              <td>GABRIELA MATEMÁTICA SALA 6</td>
+              <td>BRUNO TEC. E ROBÓTICA SALA 11</td>
+              <td>CARLA REDAÇÃO SALA 03</td>
+              <td>LEANDRO PORTUGUÊS SALA 01</td>
+              <td>CINTIA SALA QUÍMICA SALA 12</td>
+              <td>GIOVANA FÍSICA SALA 13</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>RAFA ACELERAÇÃO VESTIBULAR SALA 05</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>PAULO EDUCAÇÃO FÍSICA</td>
+              <td>TEC - CARLOS</td>
+            </tr>
+            <tr>
+              <td>09:15</td>
+              <td>GABRIELA MATEMÁTICA SALA 6</td>
+              <td>BRUNO TEC. E ROBÓTICA SALA 11</td>
+              <td>MURILO GEOGRAFIA SALA 03</td>
+              <td>LEANDRO PORTUGUÊS SALA 01</td>
+              <td>ROSANA ED. FINANCEIRA SALA 12</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>GIOVANA FÍSICA SALA 13</td>
+              <td>RAFA ACELERAÇÃO VESTIBULAR SALA 05</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>PAULO EDUCAÇÃO FÍSICA</td>
+              <td>TEC - CARLOS</td>
+            </tr>
+            <tr class="break">
+              <td>10:00:00</td>
+              <td colspan="11">Intervalo</td>
+            </tr>
+            <tr>
+              <td>10:20</td>
+              <td>GABRIELA ED. FINANCEIRA SALA 06</td>
+              <td>CARLA INGLÊS SALA 10</td>
+              <td>MURILO GEOGRAFIA SALA 03</td>
+              <td>RAFA PV SALA 05</td>
+              <td>CINTIA SALA QUÍMICA SALA 12</td>
+              <td>ROSANA ED. FINANCEIRA SALA 11</td>
+              <td>GIOVANA FÍSICA SALA 13</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>LEANDRO INGLÊS SALA 01</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>TEC - CARLOS</td>
+            </tr>
+            <tr>
+              <td>11:05</td>
+              <td>GABRIELA ED. FINANCEIRA SALA 06</td>
+              <td>ROSANA ED. FINANCEIRA SALA 10</td>
+              <td>CINTIA SALA QUÍMICA SALA 12</td>
+              <td>CARLA INGLÊS SALA 03</td>
+              <td>BRUNO TEC. E ROBÓTICA SALA 11</td>
+              <td>RAFA LIDERANÇA SALA 05</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>LEANDRO INGLÊS SALA 01</td>
+              <td>GIOVANA FÍSICA SALA 13</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>TEC - CARLOS</td>
+            </tr>
+            <tr>
+              <td>11:50</td>
+              <td>CARLA INGLÊS SALA 10</td>
+              <td>GABRIELA MATEMÁTICA SALA 6</td>
+              <td>CINTIA SALA QUÍMICA SALA 12</td>
+              <td>MURILO GEOGRAFIA SALA 03</td>
+              <td>BRUNO TEC. E ROBÓTICA SALA 11</td>
+              <td>RAFA LIDERANÇA SALA 05</td>
+              <td>GRAZI - SALA 4 MATEMÁTICA</td>
+              <td>LEANDRO INGLÊS SALA 01</td>
+              <td>GIOVANA FÍSICA SALA 13</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>TEC - CARLOS</td>
+            </tr>
+            <tr>
+              <td class="newday" colspan="17">Sexta</td>
+            </tr>
+            <tr>
+              <td>horario</td>
+              <td>1ºA</td>
+              <td>1ºB</td>
+              <td>1ºC</td>
+              <td>1ºD</td>
+              <td>2ºA</td>
+              <td>2ºB</td>
+              <td>2º NOV</td>
+              <td>3ºA</td>
+              <td>3ºB</td>
+              <td>3ºNOV A</td>
+              <td>3ºNOV N</td>
+            </tr>
+            <tr>
+              <td>07:00</td>
+              <td>GABRIELA SALA 04 MATEMÁTICA</td>
+              <td>DANIEL BIOLOGIA SALA 11</td>
+              <td>BRUNO ED. FINANCEIRA SALA 03</td>
+              <td>MARINA ARTE SALA 06</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>RAFA SALA 05 SOCIOLOGIA</td>
+              <td>GABRIEL - SALA 10 GEOGRAFIA</td>
+              <td>CINTIA SALA 12 QUÍMICA APLICADA</td>
+              <td>ELAINE - SALA 2 REDAÇÃO</td>
+              <td>MURILO ARTE SALA 01</td>
+              <td>TEC - SERGIO</td>
+            </tr>
+            <tr>
+              <td>07:45</td>
+              <td>GABRIELA SALA 04 MATEMÁTICA</td>
+              <td>DANIEL BIOLOGIA SALA 11</td>
+              <td>BRUNO ED. FINANCEIRA SALA 03</td>
+              <td>MARINA ARTE SALA 06</td>
+              <td>GIOVANA FÍSICA SALA 01</td>
+              <td>RAFA SALA 05 SOCIOLOGIA</td>
+              <td>GABRIEL - SALA 10 GEOGRAFIA</td>
+              <td>CINTIA SALA 12 QUÍMICA APLICADA</td>
+              <td>ELAINE - SALA 2 REDAÇÃO</td>
+              <td>TEC - FLAVIO</td>
+              <td>TEC - SERGIO</td>
+            </tr>
+            <tr>
+              <td>08:30</td>
+              <td>GABRIEL - SALA 10 GEOGRAFIA</td>
+              <td>MARINA EDUCAÇÃO FÍSICA</td>
+              <td>FRANCIELE BIOLOGIA SALA 11</td>
+              <td>GABRIELA SALA 04 MATEMÁTICA</td>
+              <td>GIOVANA FÍSICA SALA 01</td>
+              <td>CINTIA SALA 12 PV</td>
+              <td>FLAVIO HISTÓRIA SALA 13</td>
+              <td>MARCOS ED. FINANCEIRA SALA 03</td>
+              <td>MURILO ARTE E MÍDIAS D. SALA 06</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>TEC - SERGIO</td>
+            </tr>
+            <tr>
+              <td>09:15</td>
+              <td>GABRIEL - SALA 10 GEOGRAFIA</td>
+              <td>MARINA EDUCAÇÃO FÍSICA</td>
+              <td>FRANCIELE BIOLOGIA SALA 11</td>
+              <td>GABRIELA SALA 04 MATEMÁTICA</td>
+              <td>RAFA SALA 05 SOCIOLOGIA</td>
+              <td>CINTIA SALA 12 PV</td>
+              <td>TEC - SERGIO</td>
+              <td>GIOVANA FÍSICA SALA 01</td>
+              <td>MURILO ARTE E MÍDIAS D. SALA 06</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>TEC - FLAVIO</td>
+            </tr>
+            <tr class="break">
+              <td>10:00:00</td>
+              <td colspan="11">Intervalo</td>
+            </tr>
+            <tr>
+              <td>10:20</td>
+              <td>MARCOS TEC. E ROBÓTICA SALA 13</td>
+              <td>GABRIEL - SALA 10 GEOGRAFIA</td>
+              <td>GABRIELA SALA 04 MATEMÁTICA</td>
+              <td>BRUNO ED. FINANCEIRA SALA 03</td>
+              <td>CINTIA SALA 12 PV</td>
+              <td>FRANCIELE BIOLOGIA SALA 11</td>
+              <td></td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+              <td>MARINA EDUCAÇÃO FÍSICA</td>
+              <td>CARLA INGLÊS SALA 06</td>
+              <td>TEC - CARLOS</td>
+            </tr>
+            <tr>
+              <td>11:05</td>
+              <td>MARCOS TEC. E ROBÓTICA SALA 13</td>
+              <td>GABRIEL - SALA 10 GEOGRAFIA</td>
+              <td>GABRIELA SALA 04 MATEMÁTICA</td>
+              <td>BRUNO ED. FINANCEIRA SALA 03</td>
+              <td>CINTIA SALA 12 PV</td>
+              <td>FRANCIELE BIOLOGIA SALA 11</td>
+              <td>FLAVIO HISTÓRIA SALA 05</td>
+              <td>GIOVANA FÍSICA SALA 01</td>
+              <td>MARINA EDUCAÇÃO FÍSICA</td>
+              <td>TEC - CARLOS</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+            </tr>
+            <tr>
+              <td>11:50</td>
+              <td>GIOVANA FÍSICA SALA 01</td>
+              <td>GABRIELA SALA 04 MATEMÁTICA</td>
+              <td>CARLA INGLÊS SALA 06</td>
+              <td>CINTIA SALA 12 QUÍMICA</td>
+              <td>MARINA EDUCAÇÃO FÍSICA</td>
+              <td>GABRIEL - SALA 10 GEOGRAFIA</td>
+              <td>RAFA SALA 05 SOCIOLOGIA</td>
+              <td>MARCOS ED. FINANCEIRA SALA 13</td>
+              <td>VINICIUS AC. VESTIBULAR SALA 03</td>
+              <td>TEC - CARLOS</td>
+              <td>ELAINE - SALA 2 PORTUGUÊS</td>
+            </tr>
+          </tbody>
+        </table>
+        <table>
+          <tbody>
+            <tr>
+              <td class="dayNight" colspan="15">Noite</td>
+            </tr>
+            <tr>
+              <td class="newday" colspan="17">Segunda</td>
+            </tr>
+            <tr>
+              <td>horario</td>
+              <td>1ºE</td>
+              <td>2ºC</td>
+              <td>3ºC</td>
+              <td>EJA</td>
+            </tr>
+            <tr>
+              <td>19:00</td>
+              <td>LEANDRO PORTUGUÊS</td>
+              <td>EDERSON FÍSICA</td>
+              <td>RAQUEL ORATÓRIA</td>
+              <td>BRUNO ED. FINANCEIRA</td>
+            </tr>
+            <tr>
+              <td>19:45</td>
+              <td>ROSANA ED. FINANCEIRA</td>
+              <td>EDERSON FÍSICA</td>
+              <td>RAQUEL ORATÓRIA</td>
+              <td>BRUNO ED. FINANCEIRA</td>
+            </tr>
+            <tr class="break">
+              <td>20:30:00</td>
+              <td colspan="15">Intervalo</td>
+            </tr>
+            <tr>
+              <td>20:50</td>
+              <td>ROSANA ED. FINANCEIRA</td>
+              <td>LEANDRO PORTUGUÊS</td>
+              <td>EDERSON FÍSICA</td>
+              <td>CARLA PORTUGUÊS</td>
+            </tr>
+            <tr>
+              <td>21:35</td>
+              <td>LEANDRO PORTUGUÊS</td>
+              <td>ROSANA ED. FINANCEIRA</td>
+              <td>EDERSON FÍSICA</td>
+              <td>CARLA PORTUGUÊS</td>
+            </tr>
+            <tr>
+              <td>22:15</td>
+              <td>EDERSON FÍSICA</td>
+              <td>ROSANA ED. FINANCEIRA</td>
+              <td>LEANDRO PORTUGUÊS</td>
+              <td>CARLA PORTUGUÊS</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="newday" colspan="17">Terça</td>
+            </tr>
+            <tr>
+              <td>horario</td>
+              <td>1ºE</td>
+              <td>2ºC</td>
+              <td>3ºC</td>
+              <td>EJA</td>
+            </tr>
+            <tr>
+              <td>19:00</td>
+              <td>LEANDRO PORTUGUÊS</td>
+              <td>EDERSON TECNOLIGIA E ROBÓTICA</td>
+              <td>GABRIEL GEOPOLÍTICA</td>
+              <td>FLAVIO HISTÓRIA</td>
+            </tr>
+            <tr>
+              <td>19:45</td>
+              <td>LEANDRO PORTUGUÊS</td>
+              <td>CÍNTIA BIOTECNOLOGIA</td>
+              <td>GABRIEL GEOPOLÍTICA</td>
+              <td>FLAVIO HISTÓRIA</td>
+            </tr>
+            <tr class="break">
+              <td>20:30:00</td>
+              <td colspan="15">Intervalo</td>
+            </tr>
+            <tr>
+              <td>20:50</td>
+              <td>GABRIEL GEOGRAFIA</td>
+              <td>CÍNTIA QUÍMICA</td>
+              <td>LEANDRO INGLÊS</td>
+              <td>BRUNO EMPREENDEDORISMO</td>
+            </tr>
+            <tr>
+              <td>21:35</td>
+              <td>CÍNTIA QUÍMICA</td>
+              <td>GABRIEL GEOGRAFIA</td>
+              <td>LEANDRO INGLÊS</td>
+              <td>BRUNO MATEMÁTICA</td>
+            </tr>
+            <tr>
+              <td>22:15</td>
+              <td>CÍNTIA QUÍMICA</td>
+              <td>LEANDRO INGLÊS</td>
+              <td>GABRIEL GEOGRAFIA</td>
+              <td>BRUNO MATEMÁTICA</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="newday" colspan="17">Quarta</td>
+            </tr>
+            <tr>
+              <td>horario</td>
+              <td>1ºE</td>
+              <td>2ºC</td>
+              <td>3ºC</td>
+              <td>EJA</td>
+            </tr>
+            <tr>
+              <td>19:00</td>
+              <td>RAQUEL ARTE</td>
+              <td>BRUNO EMPREENDEDORISMO</td>
+              <td>LEANDRO PORTUGUÊS</td>
+              <td>LARISSA FILOSOFIA</td>
+            </tr>
+            <tr>
+              <td>19:45</td>
+              <td>GIOVANA MATEMÁTICA</td>
+              <td>BRUNO EMPREENDEDORISMO</td>
+              <td>RAQUEL ARTE E MÍDIAS DIGITAIS</td>
+              <td>LARISSA SOCIOLOGIA</td>
+            </tr>
+            <tr class="break">
+              <td>20:30:00</td>
+              <td colspan="15">Intervalo</td>
+            </tr>
+            <tr>
+              <td>20:50</td>
+              <td>RAQUEL PV</td>
+              <td>LEANDRO PORTUGUÊS</td>
+              <td>LARISSA FILOSOFIA E SOC. MODERNA</td>
+              <td>BRUNO MATEMÁTICA</td>
+            </tr>
+            <tr>
+              <td>21:35</td>
+              <td>GIOVANA MATEMÁTICA</td>
+              <td>RAQUEL PV</td>
+              <td>LEANDRO PORTUGUÊS</td>
+              <td>BRUNO MATEMÁTICA</td>
+            </tr>
+            <tr>
+              <td>22:15</td>
+              <td>GIOVANA MATEMÁTICA</td>
+              <td>LEANDRO PORTUGUÊS</td>
+              <td>RAQUEL PV</td>
+              <td>BRUNO EMPREENDEDORISMO</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="newday" colspan="17">Quinta</td>
+            </tr>
+            <tr>
+              <td>horario</td>
+              <td>1ºE</td>
+              <td>2ºC</td>
+              <td>3ºC</td>
+              <td>EJA</td>
+            </tr>
+            <tr>
+              <td>19:00</td>
+              <td>GIOVANA MATEMÁTICA</td>
+              <td>GRAZI MATEMÁTICA</td>
+              <td>RAFA LIDERANAÇA</td>
+              <td>SILVANA BIOLOGIA</td>
+            </tr>
+            <tr>
+              <td>19:45</td>
+              <td>GIOVANA MATEMÁTICA</td>
+              <td>GRAZI MATEMÁTICA</td>
+              <td>RAFA LIDERANAÇA</td>
+              <td>SILVANA BIOLOGIA</td>
+            </tr>
+            <tr class="break">
+              <td>20:30:00</td>
+              <td colspan="15">Intervalo</td>
+            </tr>
+            <tr>
+              <td>20:50</td>
+              <td>LARISSA FILOSOFIA</td>
+              <td>RAFA SOCIOLOGIA</td>
+              <td>GRAZI MATEMÁTICA</td>
+              <td>CARLA INGLÊS</td>
+            </tr>
+            <tr>
+              <td>21:35</td>
+              <td>LEANDRO INGLÊS</td>
+              <td>CARLA REDAÇÃO</td>
+              <td>GRAZI MATEMÁTICA</td>
+              <td>LARISSA GEOGRAFIA</td>
+            </tr>
+            <tr>
+              <td>22:15</td>
+              <td>LEANDRO INGLÊS</td>
+              <td>CARLA REDAÇÃO</td>
+              <td>GRAZI MATEMÁTICA</td>
+              <td>LARISSA GEOGRAFIA</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="newday" colspan="17">Sexta</td>
+            </tr>
+            <tr>
+              <td>horario</td>
+              <td>1ºE</td>
+              <td>2ºC</td>
+              <td>3ºC</td>
+              <td>EJA</td>
+            </tr>
+            <tr>
+              <td>19:00</td>
+              <td>FLÁVIO HISTÓRIA</td>
+              <td>EDERSON TECNOLIGIA E ROBÓTICA</td>
+              <td>CARLA REDAÇÃO</td>
+              <td>MURILO ARTE</td>
+            </tr>
+            <tr>
+              <td>19:45</td>
+              <td>FLÁVIO HISTÓRIA</td>
+              <td>EDERSON TECNOLIGIA E ROBÓTICA</td>
+              <td>CARLA REDAÇÃO</td>
+              <td>BIOTECNOLOGIA DANIEL</td>
+            </tr>
+            <tr class="break">
+              <td>20:30:00</td>
+              <td colspan="15">Intervalo</td>
+            </tr>
+            <tr>
+              <td>20:50</td>
+              <td>CARLA REDAÇÃO</td>
+              <td>DANIEL BIOLOGIA</td>
+              <td>GRAZI MATEMÁTICA</td>
+              <td>EDERSON FÍSICA</td>
+            </tr>
+            <tr>
+              <td>21:35</td>
+              <td>DANIEL BIOLOGIA</td>
+              <td>FLÁVIO HISTÓRIA</td>
+              <td>GRAZI MATEMÁTICA</td>
+              <td>EDERSON QUIMICA</td>
+            </tr>
+            <tr>
+              <td>22:15</td>
+              <td>DANIEL BIOLOGIA</td>
+              <td>GRAZI MATEMÁTICA</td>
+              <td>FLÁVIO HISTÓRIA</td>
+              <td>CARLA PORTUGUÊS</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>

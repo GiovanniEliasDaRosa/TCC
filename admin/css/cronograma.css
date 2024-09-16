@@ -1,0 +1,172 @@
+:root {
+  color-scheme: dark;
+  --acess-outline: #ffffff;
+  --bg-color: #17171c;
+  --bg-color-smooth: #19274e;
+  --text-color: #ffffff;
+  --primary: #2545a8;
+  --secundary: #152b70;
+  --terciary: #152b70;
+  --header-bg: #11204e;
+  --header-option-text-color: #e0e0e0;
+  --border: #5e5e6e;
+  --border-smooth: #3e3e46;
+  --input-color: #11204e;
+  --input-border-color: #3c5cc1;
+
+  --table-bg: #17171c;
+  --table-bg-odd: #2e2e34;
+  --day-night: #26408d;
+  --new-day: #1d326e;
+  --break: #17172a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-color);
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* header */
+.header,
+.navegacao_header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header {
+  background-color: var(--header-bg);
+  height: 5em;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.navegacao_header {
+  gap: 1em;
+}
+
+.navegacao_header a {
+  text-decoration: none;
+  padding: 1em;
+  border-radius: 0.5em;
+  background-color: var(--secundary);
+}
+
+.navegacao_header a.active {
+  background-color: var(--bg-color);
+}
+
+#deslog {
+  padding: 1em 1.5em;
+}
+
+/* main */
+
+main {
+  margin: 1em;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#tables {
+  display: grid;
+  grid-template-columns: 8fr 2fr;
+  gap: 2em;
+  overflow: auto;
+}
+
+table {
+  border-spacing: 0;
+  border-color: transparent;
+  border-collapse: separate;
+}
+
+img {
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+}
+
+.botao {
+  background-color: var(--secundary);
+  border: none;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  width: fit-content;
+}
+
+.botao:is(:focus-visible, :hover) {
+  background-color: var(--primary);
+}
+
+#botao__atualizar {
+  margin-left: auto;
+}
+
+td {
+  background-color: var(--table-bg);
+}
+
+tr:nth-child(odd) td {
+  background-color: var(--table-bg-odd);
+}
+
+tr,
+td {
+  height: 5rem;
+  min-width: 8rem;
+}
+
+td:first-child {
+  border-left: solid 0.2rem var(--border-smooth);
+}
+
+td {
+  text-align: center;
+  padding-inline: 0.5rem;
+  border-right: solid 0.2rem var(--border-smooth);
+}
+
+.dayNight {
+  font-size: 1.5rem;
+  font-weight: 900;
+  height: 4em;
+  --line-bg-color: var(--day-night);
+  color: white;
+}
+
+.newday {
+  margin-top: 2em;
+  font-size: 1.5rem;
+  font-weight: 900;
+  --line-bg-color: var(--new-day);
+  color: white;
+}
+
+tr:has(.dayNight, .newday) td {
+  background-color: var(--line-bg-color);
+}
+
+tr.break td {
+  background-color: var(--break);
+}
