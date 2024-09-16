@@ -60,9 +60,9 @@ if ($trys == $maxTries) {
 
 echo "   Adicionando horário ao banco de dados...\n";
 
-$db->query("DROP TABLE IF EXISTS `tb_horario`")->get();
-$db->query("DROP TABLE IF EXISTS `tb_aviso`")->get();
-$db->query("DROP TABLE IF EXISTS `users`")->get();
+$db->query("DROP TABLE IF EXISTS `Tb_horario`")->get();
+$db->query("DROP TABLE IF EXISTS `Tb_aviso`")->get();
+$db->query("DROP TABLE IF EXISTS `Tb_usuario`")->get();
 
 $db->query(
   "CREATE TABLE `Tb_horario` (
@@ -93,7 +93,7 @@ $db->query(
 )->find();
 
 $db->query(
-  "INSERT INTO `tb_horario` (`id_horario`, `horario`, `turma`, `segunda`, `terca`, `quarta`, `quinta`, `sexta`) VALUES
+  "INSERT INTO `Tb_horario` (`id_horario`, `horario`, `turma`, `segunda`, `terca`, `quarta`, `quinta`, `sexta`) VALUES
   (1, '07:00', '1ºA', 'ELAINE - SALA 2 PORTUGUÊS ', 'CINTIA SALA 12 QUÍMICA ', 'ELAINE - SALA 2 PORTUGUÊS ', 'DANIEL BIOLOGIA SALA 10', 'GABRIELA SALA 04 MATEMÁTICA '),
   (2, '07:45', '1ºA', 'ELAINE - SALA 2 PORTUGUÊS ', 'CINTIA SALA 12 QUÍMICA ', 'ELAINE - SALA 2 PORTUGUÊS ', 'DANIEL BIOLOGIA SALA 10', 'GABRIELA SALA 04 MATEMÁTICA '),
   (3, '08:30', '1ºA', 'FLAVIO HISTÓRIA SALA 13', 'MARINA ARTE SALA 06', 'MÁGILA FILOSOFIA SALA 10', 'GABRIELA MATEMÁTICA SALA 6', 'GABRIEL - SALA 10 GEOGRAFIA'),
@@ -203,7 +203,7 @@ date_add($date, date_interval_create_from_date_string("7 days"));
 $expireDate = date_format($date, 'Y-m-d');
 
 $db->query(
-  "INSERT INTO `tb_aviso` (`id_aviso`, `dt_inicio`, `dt_fim`, `titulo`, `corpo`) VALUES
+  "INSERT INTO `Tb_aviso` (`id_aviso`, `dt_inicio`, `dt_fim`, `titulo`, `corpo`) VALUES
   (1, '$today', '$expireDate', 'Não haverá aula', ''),
   (2, '$today', '$expireDate', 'Viagem pra FETESP', 'O Flávio tem medo do motorista');"
 )->find();

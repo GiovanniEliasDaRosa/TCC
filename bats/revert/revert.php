@@ -55,9 +55,9 @@ if ($trys == $maxTries) {
 
 echo "   Removendo tabelas do banco de dados...\n";
 
-$db->query("DROP TABLE IF EXISTS `tb_horario`")->get();
-$db->query("DROP TABLE IF EXISTS `tb_aviso`")->get();
-$db->query("DROP TABLE IF EXISTS `users`")->get();
+$db->query("DROP TABLE IF EXISTS `Tb_horario`")->get();
+$db->query("DROP TABLE IF EXISTS `Tb_aviso`")->get();
+$db->query("DROP TABLE IF EXISTS `Tb_usuario`")->get();
 
 sleep(1);
 clearScreen();
