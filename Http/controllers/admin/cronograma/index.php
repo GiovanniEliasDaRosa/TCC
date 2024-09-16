@@ -16,7 +16,7 @@ $datagot = $db->query('SELECT * FROM Tb_horario')->get();
 if (empty($datagot)) {
   return view('admin/cronograma/index.view.php', [
     'result' => [
-      'data' => "<p style='font-weight: 900'><br>Não há um cronograma salvo, adicione um</p>",
+      'data' => "<p style='font-weight: 900' id='noData'>Não há um cronograma salvo, adicione um</p>",
       'link' => "<a href='/admin/new'>Adicionar</a>",
     ]
   ]);

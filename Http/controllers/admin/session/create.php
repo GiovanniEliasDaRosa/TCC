@@ -5,7 +5,7 @@
 
 // $db = App::resolve(Database::class);
 
-// $db->query('INSERT INTO users(name, password) VALUES(:name, :password)', [
+// $db->query('INSERT INTO Tb_usuario(nome, senha) VALUES(:name, :password)', [
 //   'name' => 'admin',
 //   'password' => password_hash('123', PASSWORD_BCRYPT),
 // ]);

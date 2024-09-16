@@ -2,10 +2,12 @@
 
 /* Estilos gerais, onde o aplicativo inteiro vai usar */
 :root {
+  color-scheme: dark;
   --acess-outline: #ffffff;
   --bg-color: #17171c;
   --bg-color-smooth: #19274e;
   --text-color: #ffffff;
+  --text-color-placeholder: #cccccc;
   --primary: #2545a8;
   --secundary: #152b70;
   --terciary: #152b70;
@@ -15,6 +17,12 @@
   --border-smooth: #3e3e46;
   --input-color: #11204e;
   --input-border-color: #3c5cc1;
+
+  --table-bg: #17171c;
+  --table-bg-odd: #2e2e34;
+  --day-night: #26408d;
+  --new-day: #1d326e;
+  --break: #17172a;
 }
 
 * {
@@ -29,6 +37,7 @@ body {
   background-color: var(--bg-color);
   min-height: 100vh;
   min-height: 100dvh;
+  justify-content: center;
 }
 
 main {
@@ -49,7 +58,8 @@ main {
 /* buttons */
 button,
 a,
-select {
+select,
+input[type="submit"] {
   background-color: var(--terciary);
   color: var(--header-option-text-color);
   border: none;
@@ -60,10 +70,33 @@ select {
   cursor: pointer;
 }
 
-:is(button, a, select):is(:focus-visible, :hover) {
+:is(button, a, select, input[type="submit"]):is(:focus-visible, :hover) {
   background-color: var(--primary);
 }
 
+/* inputs */
+:is(input, textarea)::placeholder {
+  color: var(--text-color-placeholder);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+textarea {
+  background-color: var(--input-color);
+  border: solid 0.25em var(--primary);
+  border-radius: 0.5em;
+  padding: 0.5em;
+  font-size: 1rem;
+}
+
+:is(input[type="text"], input[type="password"], input[type="date"], textarea):is(
+    :focus-visible,
+    :hover
+  ) {
+  background-color: var(--secundary);
+  border-color: var(--border);
+}
 /* icons */
 .icons::before {
   display: inline-block;
@@ -90,4 +123,89 @@ select {
 
 .icons.down::before {
   content: "\f078";
+}
+
+/* Header */
+img {
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+}
+
+header,
+.navegacao__header {
+  display: flex;
+  align-items: center;
+}
+
+/* header */
+header > h1 {
+  align-self: center;
+}
+
+@media (max-width: 55em) {
+  header > h1 {
+    display: none;
+  }
+}
+
+#deslog {
+  padding: 1em 1.5em;
+}
+
+header {
+  background-color: var(--header-bg);
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0.5em;
+
+  margin: 0 auto;
+  width: min(80em, 100%);
+  max-width: 100%;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4.25em;
+  background-color: var(--bg-color-smooth);
+  z-index: -1;
+}
+
+.navegacao__header {
+  gap: 1em;
+}
+
+.navegacao__header__button {
+  background-color: var(--terciary);
+  color: var(--header-option-text-color);
+  text-decoration: none;
+  transition: 0.2s;
+  border-radius: 0.5em;
+  cursor: pointer;
+  padding: 1em 1.5em;
+}
+
+.navegacao__header__button:hover {
+  background-color: var(--terciary);
+}
+
+.navegacao__header__button.active {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color);
+  transform: translateY(0.25em);
+  border-radius: 0.5em 0.5em 0 0;
+}
+
+.navegacao__header__button.active::after {
+  content: "";
+  position: absolute;
+  bottom: -0.7em;
+  left: 0;
+  right: 0;
+  height: 0.8em;
+  background-color: var(--bg-color);
 }

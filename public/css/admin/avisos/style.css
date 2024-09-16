@@ -1,0 +1,69 @@
+#form {
+  border: solid 0.25em var(--border-smooth);
+  padding: 1em;
+  border-radius: 0.5em;
+  gap: 0.5em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form__sections {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#inputs__div {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#titulo__div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.form__sections__div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+#datas {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 30em) {
+  .form__sections__div {
+    width: 100%;
+  }
+}
+
+#acoes__div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+}
+
+.mensagem__erro {
+  color: red;
+}
+
+#corpo {
+  resize: none;
+  width: 100%;
+}
+
+#deletaraviso__botao {
+  margin-right: auto;
+}
