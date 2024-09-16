@@ -1,0 +1,94 @@
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* main */
+main {
+  overflow: scroll;
+  width: 100vw;
+}
+
+#noData {
+  margin: 0 auto;
+  width: min(80em, 100%);
+  max-width: 100%;
+  text-align: center;
+  background-color: var(--table-bg-odd);
+  border: dashed 0.25em var(--border-smooth);
+  border-radius: 1em;
+  padding: 1em;
+}
+
+#tables {
+  display: grid;
+  grid-template-columns: 8fr 2fr;
+  gap: 2em;
+  overflow: auto;
+}
+
+table {
+  border-spacing: 0;
+  border-color: transparent;
+  border-collapse: separate;
+}
+
+#action {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 auto;
+  width: min(80em, 100%);
+  max-width: 100%;
+}
+
+td {
+  background-color: var(--table-bg);
+}
+
+tr:nth-child(odd) td {
+  background-color: var(--table-bg-odd);
+}
+
+tr,
+td {
+  height: 5rem;
+  min-width: 8rem;
+}
+
+td:first-child {
+  border-left: solid 0.2rem var(--border-smooth);
+}
+
+td {
+  text-align: center;
+  padding-inline: 0.5rem;
+  border-right: solid 0.2rem var(--border-smooth);
+}
+
+.dayNight {
+  font-size: 1.5rem;
+  font-weight: 900;
+  height: 4em;
+  --line-bg-color: var(--day-night);
+  color: white;
+}
+
+.newday {
+  margin-top: 2em;
+  font-size: 1.5rem;
+  font-weight: 900;
+  --line-bg-color: var(--new-day);
+  color: white;
+}
+
+tr:has(.dayNight, .newday) td {
+  background-color: var(--line-bg-color);
+}
+
+tr.break td {
+  background-color: var(--break);
+}

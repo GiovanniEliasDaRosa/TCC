@@ -1,0 +1,28 @@
+const popUpAviso = document.querySelector("#popUpAviso");
+const popUpAviso__header__title = popUpAviso.querySelector("#popUpAviso__header__title");
+const popUpAviso__content = popUpAviso.querySelector("#popUpAviso__content");
+
+const popUpAviso__header__close = document.querySelector("#popUpAviso__header__close");
+const popUpAviso__header__opens = document.querySelectorAll(".popUpAviso__header__open");
+let popupOpen = false;
+
+popUpAviso__header__opens.forEach((item) => {
+  item.onclick = () => {
+    let aviso = item.parentElement;
+    let title = aviso.querySelector(".aviso__title");
+    let content = aviso.querySelector(".aviso__content");
+
+    popUpAviso__header__title.innerText = title.innerText;
+    popUpAviso__content.innerText = content.innerText;
+
+    popUpAviso.style.display = "";
+    popUpAviso.removeAttribute("aria-disabled");
+    popupOpen = true;
+  };
+});
+
+popUpAviso__header__close.onclick = () => {
+  popUpAviso.style.display = "none";
+  popUpAviso.setAttribute("aria-disabled", "true");
+  popupOpen = false;
+};

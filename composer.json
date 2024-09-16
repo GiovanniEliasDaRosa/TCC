@@ -1,0 +1,19 @@
+{
+  "name": "giovanni/tcc",
+  "authors": [
+    {
+      "name": "GiovanniBolivoro",
+      "email": "giovanniedarosa@gmail.com"
+    }
+  ],
+  "require": {
+    "phpoffice/phpspreadsheet": "^2.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Core\\": "Core/",
+      "Http\\": "Http/",
+      "App\\": "app/"
+    }
+  }
+}

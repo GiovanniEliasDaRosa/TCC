@@ -1,0 +1,19 @@
+#adicionar {
+  align-self: flex-start;
+}
+
+.avisos__div {
+  border: solid 0.25em var(--border-smooth);
+  padding: 1em;
+  border-radius: 0.5em;
+  gap: 0.5em;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}
+
+.avisos__div__info__titulo {
+  padding-right: 1em;
+}

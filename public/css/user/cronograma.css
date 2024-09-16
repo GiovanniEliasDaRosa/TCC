@@ -1,0 +1,61 @@
+form {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5em;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.accordion {
+  border-radius: 0.5em;
+  padding: 0.5em;
+  cursor: pointer;
+  box-shadow: 0.31em 0.31em 0.31em rgba(0, 0, 0, 0.1);
+  background-color: var(--primary);
+}
+
+.accordion:has(> .active) {
+  background-color: var(--bg-color-smooth);
+}
+
+.accordion-hearder {
+  width: 100%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  padding: 0.5em;
+
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.accordion-hearder:is(:focus-visible, :hover) {
+  background-color: transparent;
+}
+
+.accordion-hearder span {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.accordion-body {
+  font-size: 0.87em;
+  opacity: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.accordion-body.active {
+  height: 100%;
+  opacity: 1;
+  padding: 0.31em 0em;
+  pointer-events: all;
+}
