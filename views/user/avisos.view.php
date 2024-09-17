@@ -18,14 +18,14 @@
     </div>
     <div class="navegacao__header">
       <a class="navegacao__header__button" href="/">Horários</a>
-      <a class="navegacao__header__button active" href="/avisos">Avisos</a>
+      <a class="navegacao__header__button active" href="/avisos" id="navegacao__header__avisos">Avisos</a>
     </div>
   </header>
 
   <main>
     <div id="avisos">
       <?php foreach ($avisos as $aviso) : ?>
-        <div class="aviso">
+        <div class="aviso" data-id="<?= $aviso['id_aviso'] ?>">
           <p>
             <strong class="aviso__title"><?= $aviso['titulo'] ?></strong>
             <span class="aviso__content" style="display: none;" aria-disabled="true"><?= htmlspecialchars($aviso['corpo']) ?></span>
@@ -53,12 +53,3 @@
 </body>
 
 </html>
-
-<!-- # Allow access to files in the public directory
-
-RewriteCond %{REQUEST_URI} ^/css/ [OR]
-RewriteCond %{REQUEST_URI} ^/js/ [OR]
-RewriteCond %{REQUEST_URI} ^/img/
-RewriteRule ^ - [L]
-
-# Route all other requests to index.php -->

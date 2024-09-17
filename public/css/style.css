@@ -90,10 +90,12 @@ textarea {
   font-size: 1rem;
 }
 
-:is(input[type="text"], input[type="password"], input[type="date"], textarea):is(
-    :focus-visible,
-    :hover
-  ) {
+:is(
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    textarea
+  ):is(:focus-visible, :hover) {
   background-color: var(--secundary);
   border-color: var(--border);
 }
@@ -208,4 +210,31 @@ header::before {
   right: 0;
   height: 0.8em;
   background-color: var(--bg-color);
+}
+
+#navegacao__header__avisos {
+  position: relative;
+}
+
+#navegacao__header__avisos[data-warning]::before {
+  content: "";
+  position: absolute;
+  right: -0.25em;
+  top: -0.25em;
+  width: 1em;
+  height: 1em;
+  display: block;
+  border-radius: 50%;
+  background-color: hsla(0, 100%, 50%, 0.8);
+  animation: 1s anim linear infinite;
+  pointer-events: none;
+}
+
+@keyframes anim {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
 }

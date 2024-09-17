@@ -128,7 +128,17 @@ for ($col = 0; $col < 5; $col++) {
   array_push($classesOnScreen, $current);
 }
 
+
+$lastAdQuery = $db->query('SELECT * FROM `tb_aviso` ORDER BY id_aviso DESC')->get();
+
+if (empty($lastAdQuery)) {
+  $lastAd = 'none';
+} else {
+  $lastAd = $lastAdQuery[0]["id_aviso"];
+}
+
 view('user/index.view.php', [
   'selectClasses' => $selectClasses,
-  'classesOnScreen' => $classesOnScreen
+  'classesOnScreen' => $classesOnScreen,
+  'lastAd' => $lastAd,
 ]);

@@ -18,7 +18,7 @@
     </div>
     <div class="navegacao__header">
       <a class="navegacao__header__button active" href="/">Horários</a>
-      <a class="navegacao__header__button" href="/avisos">Avisos</a>
+      <a class="navegacao__header__button" href="/avisos" id="navegacao__header__avisos">Avisos</a>
     </div>
   </header>
 
@@ -45,6 +45,17 @@
       <?php endforeach; ?>
     </div>
   </main>
+
+  <p style="display: none;" aria-disabled="true" id="ultimoAviso"><?= $lastAd ?></p>
+
+  <script>
+    let ultimoAviso = document.querySelector('#ultimoAviso')
+    let ultimoAvisoVisto = localStorage.getItem("lastWarningSaw");
+
+    if (ultimoAviso.textContent != ultimoAvisoVisto && ultimoAviso.textContent != 'none') {
+      navegacao__header__avisos.setAttribute("data-warning", "true");
+    }
+  </script>
 </body>
 
 </html>
