@@ -2,6 +2,7 @@
 
 use Core\App;
 use Core\Database;
+use Core\Session;
 
 $db = App::resolve(Database::class);
 date_default_timezone_set('America/Sao_Paulo');
@@ -19,7 +20,9 @@ foreach ($avisos as $aviso) {
     ])->get();
   }
 }
+$saved = Session::has('saved');
 
 view('admin/avisos/index.view.php', [
-  'avisos' => $avisos
+  'avisos' => $avisos,
+  'saved' => $saved
 ]);

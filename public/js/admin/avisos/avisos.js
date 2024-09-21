@@ -1,11 +1,11 @@
 const titulo = document.getElementById("titulo");
-const tituloMensagem = document.getElementById("tituloMensagem");
+const titulo__mensagem = document.getElementById("titulo__mensagem");
 
-const data1 = document.getElementById("data1");
-const data1Mensagem = document.getElementById("data1Mensagem");
+const dt_inicio = document.getElementById("dt_inicio");
+const dt_inicio__mensagem = document.getElementById("dt_inicio__mensagem");
 
-const data2 = document.getElementById("data2");
-const data2Mensagem = document.getElementById("data2Mensagem");
+const dt_fim = document.getElementById("dt_fim");
+const dt_fim__mensagem = document.getElementById("dt_fim__mensagem");
 
 const deletarAvisoBotao = document.getElementById("deletaraviso__botao");
 const deletar = document.getElementById("deletar");
@@ -13,29 +13,56 @@ const deletar = document.getElementById("deletar");
 const form = document.getElementById("form");
 
 form.addEventListener("submit", (e) => {
-  disable(tituloMensagem);
-  disable(data1Mensagem);
-  disable(data2Mensagem);
+  disable(titulo__mensagem);
+  disable(dt_inicio__mensagem);
+  disable(dt_fim__mensagem);
   if (titulo.value.trim() == "") {
     e.preventDefault();
-    tituloMensagem.innerText = "Adicione um título";
-    enable(tituloMensagem);
+    titulo__mensagem.innerText = "Adicione um título";
+    enable(titulo__mensagem);
   }
 
-  if (titulo.value.lenght > 40) {
+  if (titulo.value.length > 40) {
     e.preventDefault();
-    tituloMensagem.innerText = "Um título com mais de 40 caracteres não é necessário";
-    enable(tituloMensagem);
+    titulo__mensagem.innerText = "Um título com mais de 40 caracteres não é necessário";
+    enable(titulo__mensagem);
   }
 
-  if (data1.value == "") {
+  if (dt_inicio.value == "") {
     e.preventDefault();
-    enable(data1Mensagem);
+    dt_inicio__mensagem.innerText = "Adicione a data de postagem";
+    enable(dt_inicio__mensagem);
   }
 
-  if (data2.value == "") {
+  if (dt_fim.value == "") {
     e.preventDefault();
-    enable(data2Mensagem);
+    dt_fim__mensagem.innerText = "Adicione a data de expiração";
+    enable(dt_fim__mensagem);
+  }
+
+  // if (dt_inicio.value == "" || dt_fim.value == "") {
+  //   return;
+  // }
+
+  // Converte a string para um objeto Date em UTC
+  let postagem = new Date(dt_inicio.value + "T00:00:00").setHours(0, 0, 0, 0);
+  let expiracao = new Date(dt_fim.value + "T00:00:00").setHours(0, 0, 0, 0);
+  let agora = new Date().setHours(0, 0, 0, 0);
+
+  console.table([postagem, expiracao, agora]);
+
+  if (expiracao < postagem) {
+    e.preventDefault();
+    dt_fim__mensagem.innerText =
+      "A data de expiração deve ser após a data de postagem. Selecione uma data válida";
+    enable(dt_fim__mensagem);
+  }
+
+  if (postagem < agora) {
+    e.preventDefault();
+    dt_inicio__mensagem.innerText =
+      "A data de postagem não pode ser no passado. Selecione uma data de hoje ou futura";
+    enable(dt_inicio__mensagem);
   }
 });
 

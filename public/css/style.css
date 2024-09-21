@@ -23,6 +23,7 @@
   --day-night: #26408d;
   --new-day: #1d326e;
   --break: #17172a;
+  --color-error: #ff8080;
 }
 
 * {
@@ -90,12 +91,10 @@ textarea {
   font-size: 1rem;
 }
 
-:is(
-    input[type="text"],
-    input[type="password"],
-    input[type="date"],
-    textarea
-  ):is(:focus-visible, :hover) {
+:is(input[type="text"], input[type="password"], input[type="date"], textarea):is(
+    :focus-visible,
+    :hover
+  ) {
   background-color: var(--secundary);
   border-color: var(--border);
 }
@@ -109,6 +108,15 @@ textarea {
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   margin-right: 0.5rem;
+}
+
+.icons.square {
+  width: 2em;
+  height: 2em;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .icons.nomargin::before {

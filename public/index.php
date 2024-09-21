@@ -17,8 +17,14 @@ $router = new \Core\Router();
 
 $routes = require base_path('routes.php');
 
+$parsed = parse_url($_SERVER['REQUEST_URI']);
+
+if ($parsed == false) {
+  abort();
+}
+
+$uri = $parsed['path'];
 // Use _method if we have, for custom methods like PUT, DELETE | and if we don't have just get the SERVER method (GET/POST)
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
 try {

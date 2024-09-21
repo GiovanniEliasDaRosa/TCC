@@ -1,15 +1,9 @@
 const popUpAviso = document.querySelector("#popUpAviso");
-const popUpAviso__header__title = popUpAviso.querySelector(
-  "#popUpAviso__header__title"
-);
+const popUpAviso__header__title = popUpAviso.querySelector("#popUpAviso__header__title");
 const popUpAviso__content = popUpAviso.querySelector("#popUpAviso__content");
 
-const popUpAviso__header__close = document.querySelector(
-  "#popUpAviso__header__close"
-);
-const popUpAviso__header__opens = document.querySelectorAll(
-  ".popUpAviso__header__open"
-);
+const popUpAviso__header__close = document.querySelector("#popUpAviso__header__close");
+const popUpAviso__header__opens = document.querySelectorAll(".popUpAviso__header__open");
 let popupOpen = false;
 
 popUpAviso__header__opens.forEach((item) => {
@@ -32,14 +26,14 @@ popUpAviso__header__close.onclick = () => {
   popUpAviso.setAttribute("aria-disabled", "true");
   popupOpen = false;
 };
-s;
+
 const avisos = document.querySelector("#avisos");
-const navegacao__header__avisos = document.querySelector(
-  "#navegacao__header__avisos"
-);
+const navegacao__header__avisos = document.querySelector("#navegacao__header__avisos");
 
 if (avisos.children.length == 0) {
   localStorage.removeItem("lastWarningSaw");
 } else {
   localStorage.setItem("lastWarningSaw", avisos.children[0].dataset.id);
 }
+
+// Um título com mais de 40 caracteres não é necessário

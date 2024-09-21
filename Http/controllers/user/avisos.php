@@ -10,7 +10,12 @@ $avisos = $db->query('SELECT * FROM Tb_aviso ORDER BY id_aviso DESC')->get();
 
 $date = date('Y-m-d');
 foreach ($avisos as $aviso) {
+  $dt_inicio = $aviso['dt_inicio'];
   $dt_fim = $aviso['dt_fim'];
+
+  if ($dt_inicio > $date) {
+    array_splice($avisos, 0, 1);
+  }
 
   if ($date >= $dt_fim) {
     array_splice($avisos, 0, 1);

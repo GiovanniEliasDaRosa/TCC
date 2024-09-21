@@ -42,5 +42,5 @@ label {
 }
 
 .erros {
-  color: rgb(245, 57, 57);
+  color: var(--color-error);
 }

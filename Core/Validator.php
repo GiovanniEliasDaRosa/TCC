@@ -10,8 +10,13 @@ class Validator
     return strlen($value) >= $min && strlen($value) <= $max;
   }
 
-  public static function email(string $value): bool
+  public static function empty($value)
   {
-    return filter_var($value, FILTER_VALIDATE_EMAIL);
+    return trim($value) == "";
+  }
+
+  public static function dateIsLessThan($date1, $date2)
+  {
+    return strtotime($date1) < strtotime($date2);
   }
 }

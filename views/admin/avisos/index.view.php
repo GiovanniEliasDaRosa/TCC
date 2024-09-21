@@ -6,10 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Avisos Admin</title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/admin/avisos/style.css">
   <link rel="stylesheet" type="text/css" href="/css/admin/avisos/menu.css">
+
+  <script src="/js/admin/avisos/popupavisos.js" defer></script>
 </head>
 
 <body>
+  <?php if ($saved) : ?>
+    <div id="popup__saved">
+      Aviso salvo com sucesso!
+      <button class="icons square nomargin xmark" id="popup__button"></button>
+    </div>
+  <?php endif; ?>
+
   <header>
     <div class="logo__header">
       <img src="/img/logo.png" alt="logo" />

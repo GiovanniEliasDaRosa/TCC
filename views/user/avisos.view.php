@@ -5,16 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" type="text/css" href="css/user/avisos.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/user/avisos.css" />
 
-  <script src="js/avisos.js" defer></script>
+  <script src="/js/avisos.js" defer></script>
 </head>
 
 <body>
   <header>
     <div class="logo__header">
-      <img src="img/logo.png" alt="logo" />
+      <img src="/img/logo.png" alt="logo" />
     </div>
     <div class="navegacao__header">
       <a class="navegacao__header__button" href="/">Horários</a>

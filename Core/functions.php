@@ -53,3 +53,8 @@ function old($key, $default = '')
 {
   return Core\Session::get('old')[$key] ?? $default;
 }
+
+function ifOldValid($old, $default)
+{
+  return $old != "" ? $old : $default;
+}

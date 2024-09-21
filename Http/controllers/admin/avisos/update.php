@@ -2,40 +2,35 @@
 
 use Core\App;
 use Core\Database;
-use Core\Validator;
+use Http\Forms\WarnForm;
+use Core\Session;
+
+date_default_timezone_set('America/Sao_Paulo');
+
+$form = WarnForm::validate($attributes = [
+  'titulo' => $_POST['titulo'],
+  'corpo' => $_POST['corpo'],
+  'dt_inicio' => $_POST['dt_inicio'],
+  'dt_fim' => $_POST['dt_fim']
+]);
+
+$id_aviso = $_POST['id_aviso'];
 
 $db = App::resolve(Database::class);
-$id_aviso = $_POST['id_aviso'];
-$titulo = $_POST['titulo'];
-$dt_inicio = $_POST['dt_inicio'];
-$dt_fim = $_POST['dt_fim'];
 
 $aviso = $db->query('SELECT * FROM Tb_aviso WHERE id_aviso=:id_aviso', [
   ':id_aviso' => $id_aviso
 ])->findOrFail();
 
-$errors = [];
-
-if (!Validator::string($titulo, 1, 40)) {
-  $errors['titulo'] =  'Um título com mais de 40 caracteres não é necessário';
-}
-
-if (!empty($errors)) {
-  return view('admin/avisos/edit.view.php', [
-    'errors' => $errors,
-    'aviso' => $_POST
-  ]);
-}
-
-// To-do: Validar datas inválidas ( $dt_inicio $dt_fim )
-
 $db->query('UPDATE `tb_aviso` SET id_aviso = :id_aviso, dt_inicio = :dt_inicio, dt_fim = :dt_fim, titulo = :titulo, corpo = :corpo WHERE id_aviso = :id_aviso', [
   ':id_aviso' => $id_aviso,
-  ':titulo' => $titulo,
-  ':corpo' => $_POST['corpo'],
-  ':dt_inicio' => $dt_inicio,
-  ':dt_fim' => $dt_fim
+  ':titulo' => $attributes['titulo'],
+  ':corpo' => $attributes['corpo'],
+  ':dt_inicio' => $attributes['dt_inicio'],
+  ':dt_fim' => $attributes['dt_fim'],
 ]);
+
+Session::put('saved', true);
 
 header('location: /admin/avisos');
 exit();

@@ -38,11 +38,11 @@
         <div id="tituloecorpo" class="form__sections">
           <div id="titulo__div" class="form__sections__div">
             <label for="titulo">Título</label>
-            <input type="text" name="titulo" value="<?= $aviso['titulo'] ?>" id="titulo" />
+            <input type="text" name="titulo" value="<?= ifOldValid(old('titulo'), $aviso['titulo']) ?>" id="titulo" />
 
             <p
               <?= isset($errors['titulo']) ? '' : 'style="display: none" aria-disabled="true"' ?>
-              id="tituloMensagem" class="mensagem__erro">
+              id="titulo__mensagem" class="mensagem__erro">
               <?php if (isset($errors['titulo'])) : ?>
                 <?= $errors['titulo'] ?>
               <?php endif; ?>
@@ -51,7 +51,7 @@
 
           <div class="form__sections__div">
             <label for="corpo">Corpo</label>
-            <textarea name="corpo" id="corpo" rows="8"><?= $aviso['corpo'] ?></textarea>
+            <textarea name="corpo" id="corpo" rows="8"><?= ifOldValid(old('corpo'), $aviso['corpo']) ?></textarea>
           </div>
         </div>
 
@@ -59,13 +59,13 @@
 
           <div id="datapostagem__div" class="form__sections__div">
             <label for="dt_inicio">Data da Postagem</label>
-            <input type="date" name="dt_inicio" id="data1" value="<?= $aviso['dt_inicio'] ?>">
+            <input type="date" name="dt_inicio" id="dt_inicio" value="<?= ifOldValid(old('dt_inicio'), $aviso['dt_inicio']) ?>">
 
             <p
-              <?= isset($errors['data1']) ? '' : 'style="display: none" aria-disabled="true"' ?>
-              id="data1Mensagem" class="mensagem__erro">
-              <?php if (isset($errors['data1'])) : ?>
-                <?= $errors['data1'] ?>
+              <?= isset($errors['dt_inicio']) ? '' : 'style="display: none" aria-disabled="true"' ?>
+              id="dt_inicio__mensagem" class="mensagem__erro">
+              <?php if (isset($errors['dt_inicio'])) : ?>
+                <?= $errors['dt_inicio'] ?>
               <?php else: ?>
                 Adicione a data de postagem
               <?php endif; ?>
@@ -74,13 +74,13 @@
 
           <div id="dataexpiracao__div" class="form__sections__div">
             <label for="dt_fim">Data de expiração</label>
-            <input type="date" name="dt_fim" id="data2" value="<?= $aviso['dt_fim'] ?>">
+            <input type="date" name="dt_fim" id="dt_fim" value="<?= ifOldValid(old('dt_fim'), $aviso['dt_fim']) ?>">
 
             <p
-              <?= isset($errors['data2']) ? '' : 'style="display: none" aria-disabled="true"' ?>
-              id="data2Mensagem" class="mensagem__erro">
-              <?php if (isset($errors['data2'])) : ?>
-                <?= $errors['data2'] ?>
+              <?= isset($errors['dt_fim']) ? '' : 'style="display: none" aria-disabled="true"' ?>
+              id="dt_fim__mensagem" class="mensagem__erro">
+              <?php if (isset($errors['dt_fim'])) : ?>
+                <?= $errors['dt_fim'] ?>
               <?php else: ?>
                 Adicione a data de expiração
               <?php endif; ?>
