@@ -166,5 +166,6 @@ return view('admin/cronograma/index.view.php', [
   'result' => [
     'data' => "<div id='tables'>" . $tables[0] . $tables[1] . "</div>",
     'link' => "<a href='/admin/update'>Atualizar</a>",
-  ]
+  ],
+  'headerSelected' => true
 ]);

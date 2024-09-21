@@ -246,3 +246,15 @@ header::before {
     transform: scale(1.3);
   }
 }
+
+/* footer */
+footer {
+  background-color: var(--bg-color-smooth);
+  text-align: center;
+  padding: 0.5em;
+}
+
+footer a {
+  display: inline-block;
+  margin-bottom: 1em;
+}

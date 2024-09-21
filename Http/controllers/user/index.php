@@ -128,17 +128,17 @@ for ($col = 0; $col < 5; $col++) {
   array_push($classesOnScreen, $current);
 }
 
-
-$lastAdQuery = $db->query('SELECT * FROM `tb_aviso` ORDER BY id_aviso DESC')->get();
+$lastAdQuery = $db->query('SELECT * FROM `tb_aviso` WHERE dt_inicio <= CURDATE() ORDER BY id_aviso DESC')->get();
 
 if (empty($lastAdQuery)) {
-  $lastAd = 'none';
+  $lastWarning = 'none';
 } else {
-  $lastAd = $lastAdQuery[0]["id_aviso"];
+  $lastWarning = $lastAdQuery[0]["id_aviso"];
 }
 
 view('user/index.view.php', [
   'selectClasses' => $selectClasses,
   'classesOnScreen' => $classesOnScreen,
-  'lastAd' => $lastAd,
+  'lastWarning' => $lastWarning,
+  'headerSelected' => true
 ]);

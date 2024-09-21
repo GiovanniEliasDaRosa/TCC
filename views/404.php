@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Editar Avisos Admin</title>
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/css/404error.css">
+<?php require(BASE_PATH . '/views/partials/head.php') ?>
+<title>Editar Avisos Admin</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/404error.css">
 </head>
 
 <body>
@@ -16,6 +11,4 @@
     <h1>Página não encontrada</h1>
     <a href="/">Ir para o menu principal.</a>
   </main>
-</body>
-
-</html>
+  <?php require(BASE_PATH . '/views/partials/footer.php') ?>

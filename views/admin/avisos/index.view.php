@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<?php require(BASE_PATH . '/views/partials/head.php') ?>
+<title>Avisos Admin</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/admin/avisos/style.css">
+<link rel="stylesheet" type="text/css" href="/css/admin/avisos/menu.css">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Avisos Admin</title>
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/css/admin/avisos/style.css">
-  <link rel="stylesheet" type="text/css" href="/css/admin/avisos/menu.css">
-
-  <script src="/js/admin/avisos/popupavisos.js" defer></script>
+<script src="/js/admin/avisos/popupavisos.js" defer></script>
 </head>
 
 <body>
@@ -20,20 +15,7 @@
     </div>
   <?php endif; ?>
 
-  <header>
-    <div class="logo__header">
-      <img src="/img/logo.png" alt="logo" />
-    </div>
-    <h1>Tela administrativa</h1>
-    <div class="navegacao__header">
-      <a class="navegacao__header__button" href="/admin">Horários</a>
-      <a class="navegacao__header__button active" href="/admin/avisos">Avisos</a>
-
-      <form method="post" action="/logout" enctype="multipart/form-data">
-        <button type="submit" class="botao" id="deslog">Sair</button>
-      </form>
-    </div>
-  </header>
+  <?php require(BASE_PATH . '/views/partials/header_admin.php') ?>
 
   <main>
     <a href='/admin/avisos/new' id="adicionar">Adicionar aviso</a>
