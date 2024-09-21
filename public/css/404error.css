@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  image-rendering: pixelated;
+  width: 10em;
+  height: 10em;
+  object-fit: contain;
+  max-width: 100%;
+}
+
+#error {
+  font-size: 3rem;
+}
+
+main {
+  align-items: center;
+}
+
+* {
+  text-align: center;
+}
