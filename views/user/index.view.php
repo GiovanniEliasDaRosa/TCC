@@ -1,9 +1,7 @@
 <?php require(BASE_PATH . '/views/partials/head.php') ?>
-<title>Horários</title>
-<link rel="stylesheet" type="text/css" href="/css/style.css">
 <link rel="stylesheet" type="text/css" href="/css/user/cronograma.css" />
 
-<script src="/js/cronograma.js" defer></script>
+<script src="/js/user/cronograma.js" defer></script>
 </head>
 
 <body>

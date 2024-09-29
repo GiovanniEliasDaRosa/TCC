@@ -1,6 +1,4 @@
 <?php require(BASE_PATH . '/views/partials/head.php') ?>
-<title>Avisos Admin</title>
-<link rel="stylesheet" type="text/css" href="/css/style.css">
 <link rel="stylesheet" type="text/css" href="/css/admin/avisos/style.css">
 <link rel="stylesheet" type="text/css" href="/css/admin/avisos/menu.css">
 

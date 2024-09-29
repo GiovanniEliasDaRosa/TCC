@@ -14,5 +14,6 @@ $aviso = $db->query('SELECT * FROM Tb_aviso WHERE id_aviso=:id', [
 
 view('admin/avisos/edit.view.php', [
   'aviso' => $aviso,
-  'errors' => Session::get('errors')
+  'errors' => Session::get('errors'),
+  'title' => 'Editar Avisos Admin'
 ]);

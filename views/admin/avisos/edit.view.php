@@ -1,6 +1,4 @@
 <?php require(BASE_PATH . '/views/partials/head.php') ?>
-<title>Editar Avisos Admin</title>
-<link rel="stylesheet" type="text/css" href="/css/style.css">
 <link rel="stylesheet" type="text/css" href="/css/admin/avisos/style.css">
 
 <script src="/js/admin/avisos/avisos.js" defer></script>

@@ -1,6 +1,4 @@
 <?php require(BASE_PATH . '/views/partials/head.php') ?>
-<title>Cronograma Admin</title>
-<link rel="stylesheet" type="text/css" href="/css/style.css">
 <link rel="stylesheet" type="text/css" href="/css/admin/cronograma/style.css">
 </head>
 

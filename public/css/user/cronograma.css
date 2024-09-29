@@ -14,12 +14,20 @@ form {
   border-radius: 0.5em;
   padding: 0.5em;
   cursor: pointer;
-  box-shadow: 0.31em 0.31em 0.31em rgba(0, 0, 0, 0.1);
   background-color: var(--primary);
+  overflow: hidden;
 }
 
 .accordion:has(> .active) {
   background-color: var(--bg-color-smooth);
+}
+
+.accordion .icons {
+  transition: transform 0.25s ease-out;
+}
+
+.accordion:has(.active) .icons {
+  transform: rotate(180deg);
 }
 
 .accordion-hearder {
@@ -47,15 +55,43 @@ form {
 }
 
 .accordion-body {
-  font-size: 0.87em;
+  font-size: 1rem;
   opacity: 0;
   height: 0;
   pointer-events: none;
+  overflow: hidden;
+  transition: opacity 0.4s;
 }
 
 .accordion-body.active {
   height: 100%;
   opacity: 1;
-  padding: 0.31em 0em;
+  padding: 0.25em 0em;
   pointer-events: all;
+}
+
+table {
+  border-spacing: 0;
+  width: 100%;
+  padding-top: 1em;
+}
+
+td {
+  padding: 0.5em;
+}
+
+td:nth-child(1) {
+  font-weight: 600;
+}
+
+td:nth-child(2) {
+  border-left: solid 0.25em var(--border-smooth);
+  width: 100%;
+}
+
+tr.break > td {
+  border: solid 0.25em var(--border-smooth);
+  border-left: 0;
+  border-right: 0;
+  font-weight: 600;
 }

@@ -27,4 +27,5 @@ foreach ($avisos as $aviso) {
 
 view('user/avisos.view.php', [
   'avisos' => $avisos,
+  'title' => 'Avisos'
 ]);

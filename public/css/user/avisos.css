@@ -24,13 +24,27 @@
 #popUpAviso {
   position: fixed;
   inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: center;
+  gap: 1em;
+  background-color: var(--bg-color);
+  padding: 0.5em;
+}
 
-  padding: 1em;
+#popUpAviso__div {
+  padding: 0.5em;
+  height: 100vh;
+  height: 100dvh;
+  width: min(80em, 100%);
+  max-width: 100%;
+  border-radius: 0.5em;
 
   display: flex;
   flex-direction: column;
   gap: 1em;
-  background-color: var(--bg-color);
+  box-shadow: 0 0 0.25em 0.125em var(--bg-color-smooth);
 }
 
 #popUpAviso__header {

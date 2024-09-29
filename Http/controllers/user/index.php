@@ -116,7 +116,7 @@ for ($col = 0; $col < 5; $col++) {
 
   for ($time = 0; $time < $classes; $time++) {
     if ($time == $break) {
-      $result .= "<tr><td>$breakHour</td><td>Intervalo</td></tr>";
+      $result .= "<tr class='break'><td>$breakHour</td><td>Intervalo</td></tr>";
     }
 
     $result .= '<tr><td>' . $datagot[$time]['horario'] . '</td>';
@@ -140,5 +140,6 @@ view('user/index.view.php', [
   'selectClasses' => $selectClasses,
   'classesOnScreen' => $classesOnScreen,
   'lastWarning' => $lastWarning,
-  'headerSelected' => true
+  'headerSelected' => true,
+  'title' => 'Horários'
 ]);

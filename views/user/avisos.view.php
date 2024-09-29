@@ -1,9 +1,7 @@
 <?php require(BASE_PATH . '/views/partials/head.php') ?>
-<title>Avisos</title>
-<link rel="stylesheet" type="text/css" href="/css/style.css">
 <link rel="stylesheet" type="text/css" href="/css/user/avisos.css" />
 
-<script src="/js/avisos.js" defer></script>
+<script src="/js/user/avisos.js" defer></script>
 </head>
 
 <body>
@@ -28,10 +26,11 @@
   </main>
 
   <div id="popUpAviso" style="display: none;" aria-disabled="true">
-    <div id="popUpAviso__header">
-      <button class="icons nomargin xmark" id="popUpAviso__header__close"></button>
-      <h2 id="popUpAviso__header__title">Titulo</h2>
+    <div id="popUpAviso__div">
+      <div id="popUpAviso__header">
+        <button class="icons nomargin xmark" id="popUpAviso__header__close"></button>
+        <h2 id="popUpAviso__header__title">Titulo</h2>
+      </div>
+      <p id="popUpAviso__content">Conteudo</p>
     </div>
-    <p id="popUpAviso__content">Conteudo
-    </p>
   </div>

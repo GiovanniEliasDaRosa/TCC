@@ -1,6 +1,4 @@
 <?php require(BASE_PATH . '/views/partials/head.php') ?>
-<title>Adicionar Avisos Admin</title>
-<link rel="stylesheet" type="text/css" href="/css/style.css">
 <link rel="stylesheet" type="text/css" href="/css/admin/avisos/style.css">
 
 <script src="/js/admin/avisos/popupavisos.js" defer></script>
@@ -20,10 +18,6 @@
   <main>
     <form method="post" action="/admin/avisos/new" enctype="multipart/form-data" id="form">
       <h1>Adicionar Aviso</h1>
-
-      <?php
-      old('titulo')
-      ?>
 
       <div id="inputs__div">
         <div id="tituloecorpo" class="form__sections">

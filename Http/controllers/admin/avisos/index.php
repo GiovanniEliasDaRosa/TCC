@@ -24,5 +24,6 @@ $saved = Session::has('saved');
 
 view('admin/avisos/index.view.php', [
   'avisos' => $avisos,
-  'saved' => $saved
+  'saved' => $saved,
+  'title' => 'Avisos Admin'
 ]);
