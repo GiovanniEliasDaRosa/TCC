@@ -9,19 +9,25 @@
 
   <main>
     <div id="avisos">
-      <?php foreach ($avisos as $aviso) : ?>
-        <div class="aviso" data-id="<?= $aviso['id_aviso'] ?>">
-          <p>
-            <strong class="aviso__title"><?= $aviso['titulo'] ?></strong>
-            <span class="aviso__content" style="display: none;" aria-disabled="true"><?= htmlspecialchars($aviso['corpo']) ?></span>
-            <span><?= $aviso['dt_fim'] ?></span>
-          </p>
+      <?php if (isset($noWarnings)) : ?>
+        <p id="noData">
+          <?= $avisos ?>
+        </p>
+      <?php else: ?>
+        <?php foreach ($avisos as $aviso) : ?>
+          <div class="aviso" data-id="<?= $aviso['id_aviso'] ?>">
+            <p>
+              <strong class="aviso__title"><?= $aviso['titulo'] ?></strong>
+              <span class="aviso__content" style="display: none;" aria-disabled="true"><?= htmlspecialchars($aviso['corpo']) ?></span>
+              <span><?= $aviso['dt_fim'] ?></span>
+            </p>
 
-          <?php if ($aviso['corpo'] !== '') : ?>
-            <button class="popUpAviso__header__open">Ler mais</button>
-          <?php endif; ?>
-        </div>
-      <?php endforeach; ?>
+            <?php if ($aviso['corpo'] !== '') : ?>
+              <button class="popUpAviso__header__open">Ler mais</button>
+            <?php endif; ?>
+          </div>
+        <?php endforeach; ?>
+      <?php endif; ?>
     </div>
   </main>
 

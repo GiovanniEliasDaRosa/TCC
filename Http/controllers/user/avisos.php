@@ -8,6 +8,15 @@ date_default_timezone_set('America/Sao_Paulo');
 
 $avisos = $db->query('SELECT * FROM Tb_aviso ORDER BY id_aviso DESC')->get();
 
+if (empty($avisos)) {
+  view('user/avisos.view.php', [
+    'avisos' => 'Nenhum aviso disponível no momento',
+    'title' => 'Avisos',
+    'noWarnings' => true,
+  ]);
+  die();
+}
+
 $date = date('Y-m-d');
 foreach ($avisos as $aviso) {
   $dt_inicio = $aviso['dt_inicio'];

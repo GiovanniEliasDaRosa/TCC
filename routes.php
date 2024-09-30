@@ -1,6 +1,6 @@
 <?php
 $router->get('/', 'user/index.php');
-$router->post('/', 'user/index.php');
+$router->post('/search', 'user/search.php');
 $router->get('/avisos', 'user/avisos.php');
 
 $router->get('/login', 'admin/session/create.php');

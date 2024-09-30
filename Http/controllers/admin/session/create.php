@@ -1,5 +1,8 @@
 <?php
 
+// // [ UNCOMENT THE CODE BELLOW TO CREATE A NEW USER IN THE USERS TABLE ]
+// // name: admin | password: 123
+
 // use Core\App;
 // use Core\Database;
 

@@ -1,6 +1,8 @@
-<?php require(BASE_PATH . '/views/partials/head.php') ?>
-<title>Editar Avisos Admin</title>
-<link rel="stylesheet" type="text/css" href="/css/style.css">
+<?php
+$title = "Página não encontrada";
+require(BASE_PATH . '/views/partials/head.php')
+?>
+
 <link rel="stylesheet" type="text/css" href="/css/404error.css">
 </head>
 

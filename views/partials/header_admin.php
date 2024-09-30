@@ -1,6 +1,6 @@
 <header>
   <div class="logo__header">
-    <img src="/img/logo.png" alt="logo" />
+    <img src="/img/header-logo.png" alt="logo" />
   </div>
   <h1>Tela administrativa</h1>
   <div class="navegacao__header">

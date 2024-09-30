@@ -8,26 +8,35 @@
   <?php require(BASE_PATH . '/views/partials/header_user.php') ?>
 
   <main>
-    <form action="/" method="POST" enctype="multipart/form-data">
-      <select name='selectedClass' id='selectedClass'>
-        <?= $selectClasses ?>
-      </select>
-      <button type="submit">Selecionar</button>
-    </form>
+    <?php if (!isset($emptyDB)) : ?>
+      <form action="/search" method="POST" enctype="multipart/form-data">
+        <select name='selectedClass' id='selectedClass'>
+          <?= $selectClasses ?>
+
+        </select>
+        <button type="submit">Selecionar</button>
+      </form>
+    <?php endif; ?>
 
     <div class="container">
-      <?php foreach ($classesOnScreen as $currentDay) : ?>
-        <div class="accordion">
-          <button class="accordion-hearder">
-            <span><?= $currentDay['day'] ?></span>
-            <i class="icons nomargin down"></i>
-          </button>
+      <?php if (isset($emptyDB)) : ?>
+        <p id="noData">
+          <?= $information ?>
+        </p>
+      <?php else: ?>
+        <?php foreach ($classesOnScreen as $currentDay) : ?>
+          <div class="accordion">
+            <button class="accordion-hearder">
+              <span><?= $currentDay['day'] ?></span>
+              <i class="icons nomargin down"></i>
+            </button>
 
-          <div class="accordion-body <?= $currentDay['open'] ?>">
-            <?= $currentDay['content'] ?>
+            <div class="accordion-body <?= $currentDay['open'] ?>">
+              <?= $currentDay['content'] ?>
+            </div>
           </div>
-        </div>
-      <?php endforeach; ?>
+        <?php endforeach; ?>
+      <?php endif; ?>
     </div>
   </main>
 

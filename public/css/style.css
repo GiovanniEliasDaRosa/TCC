@@ -258,3 +258,14 @@ footer a {
   display: inline-block;
   margin-bottom: 1em;
 }
+
+#noData {
+  margin: 0 auto;
+  width: min(80em, 100%);
+  max-width: 100%;
+  text-align: center;
+  background-color: var(--table-bg-odd);
+  border: dashed 0.25em var(--border-smooth);
+  border-radius: 1em;
+  padding: 1em;
+}

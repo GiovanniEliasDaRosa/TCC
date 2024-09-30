@@ -1,6 +1,6 @@
 <header>
   <div class="logo__header">
-    <img src="/img/logo.png" alt="logo" />
+    <img src="/img/header-logo.png" alt="logo" />
   </div>
   <div class="navegacao__header">
     <a class="navegacao__header__button <?= !empty($headerSelected) ? 'active' : '' ?>" href="/">Horários</a>

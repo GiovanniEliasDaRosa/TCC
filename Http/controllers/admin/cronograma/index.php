@@ -1,5 +1,4 @@
 <?php
-// Import connection to DB, if an error occurs the rest of the whole project will fail
 
 use Core\App;
 use Core\Database;
@@ -7,18 +6,15 @@ use Core\Database;
 $db = App::resolve(Database::class);
 
 $datagot = $db->query('SELECT * FROM Tb_horario')->get();
-// $datagot = array();
-
-// foreach ($db as $line) {
-//   array_push($datagot, $db);
-// }
 
 if (empty($datagot)) {
   return view('admin/cronograma/index.view.php', [
     'result' => [
       'data' => "<p style='font-weight: 900' id='noData'>Não há um cronograma salvo, adicione um</p>",
       'link' => "<a href='/admin/new'>Adicionar</a>",
-    ]
+    ],
+    'headerSelected' => true,
+    'title' => 'Cronograma Admin'
   ]);
   exit();
 }
@@ -33,7 +29,6 @@ $posstartnightclass = 0;
 $lastclass = 0;
 $pos = 0;
 
-
 foreach ($dataclasses as $data) {
   $thisclass = intval(substr($data['turma'], 0, 1));
   if ($thisclass < $lastclass && $posstartnightclass == 0) {
@@ -43,7 +38,6 @@ foreach ($dataclasses as $data) {
   $lastclass = $thisclass;
   $pos++;
 }
-
 
 $days = [
   "segunda",

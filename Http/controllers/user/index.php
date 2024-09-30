@@ -23,6 +23,19 @@ $selectClasses = '';
 $classesOnScreen = array();
 $validCookie = false;
 
+
+// No class to be selected, that means that there is no data on SQL
+if (empty($turmas)) {
+  view('user/index.view.php', [
+    'information' => 'Nenhum cronograma cadastrado',
+    'lastWarning' => 'none',
+    'headerSelected' => true,
+    'title' => 'Horários',
+    'emptyDB' => true
+  ]);
+  die();
+}
+
 if (isset($_POST['selectedClass'])) {
   // Loaded from POST
   if ($_POST['selectedClass'] != null) {
