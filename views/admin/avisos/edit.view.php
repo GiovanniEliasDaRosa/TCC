@@ -12,7 +12,10 @@
       <input type="hidden" name="_method" value="PATCH">
       <input type="hidden" name="id_aviso" value="<?= $aviso['id_aviso'] ?>">
 
-      <h1>Editar Aviso</h1>
+      <div id="title">
+        <a href="/admin/avisos" class="icons nomargin left" title="voltar"></a>
+        <h1>Editar Aviso</h1>
+      </div>
 
       <div id="inputs__div">
         <div id="tituloecorpo" class="form__sections">
@@ -71,7 +74,6 @@
 
       <p id="acoes__div">
         <button type="button" id="deletaraviso__botao">Excluir</button>
-        <a href="/admin/avisos">Voltar</a>
         <input type="submit" value="Salvar">
       </p>
     </form>

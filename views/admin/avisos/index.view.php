@@ -16,14 +16,17 @@
   <?php require(BASE_PATH . '/views/partials/header_admin.php') ?>
 
   <main>
-    <a href='/admin/avisos/new' id="adicionar">Adicionar aviso</a>
+    <a href='/admin/avisos/new' class='icons plus' id="adicionar">Adicionar aviso</a>
 
     <?php foreach ($avisos as $aviso) : ?>
       <div class="avisos__div">
         <div class="avisos__div__info">
           <strong class="avisos__div__info__titulo"><?= $aviso['titulo'] ?></strong>
-          Postagem: <span><?= $aviso['dt_inicio'] ?></span>
-          Exclusão: <span><?= $aviso['dt_fim'] ?></span>
+          <p class="avisos_div_dates">
+            <span class="icons calendar calendar-plus">Postagem: <span class="avisos_div_dates_date"><?= $aviso['dt_inicio'] ?></span></span>
+            <span class="icons calendar calendar-xmark">Exclusão: <span class="avisos_div_dates_date"><?= $aviso['dt_fim'] ?></span></span>
+          </p>
+
         </div>
         <a href="/admin/avisos/edit?id=<?= $aviso['id_aviso'] ?>">Editar</a>
       </div>

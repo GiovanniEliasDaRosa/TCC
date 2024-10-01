@@ -1,0 +1,51 @@
+.icons::before {
+  display: inline-block;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  margin-right: 0.5rem;
+}
+
+.icons.square {
+  width: 2em;
+  height: 2em;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons.nomargin::before {
+  margin-right: 0;
+}
+
+.icons.plus::before {
+  content: "\2b";
+}
+
+.icons.xmark::before {
+  content: "\f00d";
+}
+
+.icons.down::before {
+  content: "\f078";
+}
+
+.icons.exit::before {
+  content: "\f2f5";
+}
+
+.icons.left::before {
+  content: "\f104";
+}
+
+.icons.calendar-plus::before {
+  content: "\f271";
+}
+
+.icons.calendar-xmark::before {
+  content: "\f273";
+}

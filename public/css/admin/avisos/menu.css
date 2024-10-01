@@ -14,6 +14,53 @@
   gap: 1em;
 }
 
+.avisos__div__info {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: 1em;
+}
+
 .avisos__div__info__titulo {
-  padding-right: 1em;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.avisos_div_dates {
+  display: flex;
+  gap: 1em;
+}
+
+.avisos_div_dates_date {
+  font-weight: 600;
+}
+
+@media (max-width: 31em) {
+  .avisos__div {
+    flex-direction: column;
+  }
+  .avisos__div__info__titulo {
+    margin-bottom: 0.5em;
+  }
+  .avisos__div a {
+    width: 10em;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 27em) {
+  .avisos__div {
+    flex-direction: column;
+  }
+  .avisos__div__info__titulo {
+    margin-bottom: 0.5em;
+  }
+  .avisos__div a {
+    width: 10em;
+    max-width: 100%;
+  }
+  .avisos_div_dates {
+    flex-direction: column;
+    align-items: center;
+  }
 }

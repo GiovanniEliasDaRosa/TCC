@@ -8,3 +8,5 @@
 
   <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/header.css">
+  <link rel="stylesheet" type="text/css" href="/css/icons.css">

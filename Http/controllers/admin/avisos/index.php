@@ -9,16 +9,22 @@ date_default_timezone_set('America/Sao_Paulo');
 
 $avisos = $db->query('SELECT * FROM Tb_aviso ORDER BY id_aviso DESC')->get();
 
-$date = date('Y-m-d');
-foreach ($avisos as $aviso) {
-  $dt_fim = $aviso['dt_fim'];
+$today = date('Y-m-d');
+$pos = 0;
 
-  if ($date >= $dt_fim) {
+foreach ($avisos as $aviso) {
+  $dt_inicio = $aviso['dt_inicio'];
+  $dt_fim = $aviso['dt_fim'];
+  $avisos[$pos]['dt_inicio'] = date("d/m/y", strtotime($dt_inicio));
+  $avisos[$pos]['dt_fim'] = date("d/m/y", strtotime($dt_fim));
+
+  if (strtotime($dt_fim) < strtotime($today)) {
     array_splice($avisos, 0, 1);
     $db->query('DELETE FROM Tb_aviso WHERE id_aviso=:id_aviso', [
       ':id_aviso' => $aviso['id_aviso']
     ])->get();
   }
+  $pos++;
 }
 $saved = Session::has('saved');
 

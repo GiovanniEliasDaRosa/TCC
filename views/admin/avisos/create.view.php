@@ -17,7 +17,10 @@
 
   <main>
     <form method="post" action="/admin/avisos/new" enctype="multipart/form-data" id="form">
-      <h1>Adicionar Aviso</h1>
+      <div id="title">
+        <a href="/admin/avisos" class="icons nomargin left" title="voltar"></a>
+        <h1>Adicionar Aviso</h1>
+      </div>
 
       <div id="inputs__div">
         <div id="tituloecorpo" class="form__sections">
@@ -75,7 +78,6 @@
       </div>
 
       <p id="acoes__div">
-        <a href="/admin/avisos">Voltar</a>
         <input type="submit" value="Salvar">
       </p>
     </form>
