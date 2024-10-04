@@ -48,6 +48,7 @@ body {
 
 /* buttons */
 button,
+.buttons,
 a,
 select,
 input[type="submit"] {
@@ -62,7 +63,7 @@ input[type="submit"] {
   text-align: center;
 }
 
-:is(button, a, select, input[type="submit"]):is(:focus-visible, :hover) {
+:is(button, a, .buttons, select, input[type="submit"]):is(:focus-visible, :hover) {
   background-color: var(--primary);
 }
 

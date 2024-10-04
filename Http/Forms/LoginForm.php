@@ -16,7 +16,7 @@ class LoginForm
     }
 
     if (!Validator::string($attributes['password'])) {
-      $this->errors['password'] =  'Por favor informe uma senha válida';
+      $this->errors['password'] = 'Por favor informe uma senha válida';
     }
   }
 

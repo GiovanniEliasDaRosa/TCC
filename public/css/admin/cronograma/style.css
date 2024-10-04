@@ -13,6 +13,28 @@ main {
   width: 100vw;
 }
 
+/* actions */
+#upload__form {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+  align-items: center;
+  margin: 0 auto;
+  width: min(80em, 100%);
+  max-width: 100%;
+}
+
+.error {
+  color: var(--color-error);
+  text-align: right;
+}
+
+#upload__button {
+  flex: 0 0 fit-content;
+}
+
+/* table */
+
 #tables {
   display: grid;
   grid-template-columns: 8fr 2fr;
@@ -24,14 +46,6 @@ table {
   border-spacing: 0;
   border-color: transparent;
   border-collapse: separate;
-}
-
-#action {
-  display: flex;
-  justify-content: flex-end;
-  margin: 0 auto;
-  width: min(80em, 100%);
-  max-width: 100%;
 }
 
 td {
@@ -80,4 +94,47 @@ tr:has(.dayNight, .newday) td {
 
 tr.break td {
   background-color: var(--break);
+}
+
+/* COPIED FROM css/admin/avisos/style.css */
+#popup__saved {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  right: 0;
+  transform: translateX(-50%);
+  width: min(25em, 100%);
+  max-width: 100vw;
+  background-color: var(--primary);
+  padding: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  animation: 3s animateIn ease-out forwards;
+  z-index: 10;
+}
+
+#popup__saved[data-hide="true"] {
+  animation: 1s animateOut ease-out forwards;
+}
+
+@keyframes animateIn {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(-100%);
+  }
+  25%,
+  75% {
+    transform: translateX(-50%) translateY(0%);
+  }
+}
+
+@keyframes animateOut {
+  0% {
+    transform: translateX(-50%) translateY(0%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-100%);
+  }
 }

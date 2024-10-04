@@ -1,4 +1,6 @@
 <?php
+mkdir('../../public/uploads');
+
 echo "  [===========o - -] (3/4) 75%\n";
 echo " - Sistema de roteador pronto!\n";
 echo " - Composer instalado com sucesso.\n";

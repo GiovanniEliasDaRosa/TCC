@@ -8,8 +8,8 @@ $router->post('/login', 'admin/session/store.php')->only('guest');
 $router->post('/logout', 'admin/session/destroy.php')->only('auth');
 
 $router->get('/admin', 'admin/cronograma/index.php')->only('auth');
-$router->get('/admin/new', 'admin/cronograma/store.php')->only('auth');
-$router->get('/admin/update', 'admin/cronograma/update.php')->only('auth');
+$router->post('/admin/new', 'admin/cronograma/store.php')->only('auth');
+$router->patch('/admin/update', 'admin/cronograma/update.php')->only('auth');
 
 $router->get('/admin/avisos', 'admin/avisos/index.php')->only('auth');
 $router->get('/admin/avisos/new', 'admin/avisos/create.php')->only('auth');

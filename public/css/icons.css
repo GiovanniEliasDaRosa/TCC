@@ -49,3 +49,7 @@
 .icons.calendar-xmark::before {
   content: "\f273";
 }
+
+.icons.upload::before {
+  content: "\e09a";
+}

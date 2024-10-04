@@ -2,36 +2,23 @@
 
 use Core\App;
 use Core\Database;
+use Core\Session;
+use Http\Forms\CronogramForm;
 
 $db = App::resolve(Database::class);
 
 $query = $db->query('SELECT * FROM Tb_horario')->get();
 
 if (empty($query)) {
-  header('location: /admin/update');
-  exit();
+  abort();
 }
 
-// autoload file from the library PHPSpreadsheet is already imported on the /public/index.php
+// Validates the uploaded file
+$cronogramForm = new CronogramForm();
 
-// Import coordinate from the libary
-use \PhpOffice\PhpSpreadsheet\Cell\Coordinate;
-// Import ability to read excel files from the libary
-use \PhpOffice\PhpSpreadsheet\IOFactory;
-
-$path = base_path('Http/controllers/admin/cronograma/horario.xlsx');
-$spreadsheet = IOFactory::load($path);
-
-$reader = IOFactory::createReaderForFile($path);
-$reader->setReadDataOnly(true);
-
-$loadedfile = $reader->load($path);
-$work = $loadedfile->getSheet('1');
-
-$lastRow = $work->getHighestRow();
-$columnCount = $work->getHighestDataColumn();
-
-$lastColumn = Coordinate::columnIndexFromString($columnCount);
+$work = $cronogramForm->getWork();
+$lastRow = $cronogramForm->getLastRow();
+$lastColumn = $cronogramForm->getLastColumn();
 
 $queries = array();
 $columnsItems = [
@@ -68,4 +55,10 @@ foreach ($queries as $currentquery) {
   $db->query($currentquery)->get();
 }
 
-header('Location: /admin');
+unlink(base_path("public/uploads/horario.xlsx"));
+
+Session::put('saved', true);
+
+// header('Location: /admin');
+header('location: /admin');
+die();

@@ -2,19 +2,23 @@
 
 use Core\App;
 use Core\Database;
+use Core\Session;
 
 $db = App::resolve(Database::class);
+
+$saved = Session::has('saved');
 
 $datagot = $db->query('SELECT * FROM Tb_horario')->get();
 
 if (empty($datagot)) {
   return view('admin/cronograma/index.view.php', [
-    'result' => [
-      'data' => "<p style='font-weight: 900' id='noData'>Não há um cronograma salvo, adicione um</p>",
-      'link' => "<a href='/admin/new' class='icons plus'>Adicionar</a>",
-    ],
+    'data' => "<p style='font-weight: 900' id='noData'>Não há um cronograma salvo, adicione um</p>",
+    'text' => "Adicionar",
+    'formPath' => 'new',
     'headerSelected' => true,
-    'title' => 'Cronograma Admin'
+    'title' => 'Cronograma Admin',
+    'errors' => Session::get('errors'),
+    'saved' => $saved,
   ]);
   exit();
 }
@@ -157,10 +161,11 @@ for ($i = 0; $i < 2; $i++) {
 $result = [];
 
 return view('admin/cronograma/index.view.php', [
-  'result' => [
-    'data' => "<div id='tables'>" . $tables[0] . $tables[1] . "</div>",
-    'link' => "<a href='/admin/update'>Atualizar</a>",
-  ],
+  'data' => "<div id='tables'>" . $tables[0] . $tables[1] . "</div>",
+  'text' => "Atualizar",
+  'formPath' => 'update',
   'headerSelected' => true,
-  'title' => 'Cronograma Admin'
+  'title' => 'Cronograma Admin',
+  'errors' => Session::get('errors'),
+  'saved' => $saved,
 ]);
