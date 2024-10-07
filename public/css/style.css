@@ -24,6 +24,11 @@
   --new-day: #1d326e;
   --break: #17172a;
   --color-error: #ff8080;
+
+  --link: #9aaee8;
+  --link-hover: #7698ff;
+
+  --footer: #071334;
 }
 
 * {
@@ -38,12 +43,22 @@ body {
   background-color: var(--bg-color);
   min-height: 100vh;
   min-height: 100dvh;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 :focus-visible {
   outline: 0.25em solid var(--acess-outline);
   z-index: 100;
+}
+
+ul,
+ol {
+  margin-left: 1em;
+}
+
+li {
+  margin-bottom: 0.5em;
 }
 
 /* buttons */
@@ -65,6 +80,20 @@ input[type="submit"] {
 
 :is(button, a, .buttons, select, input[type="submit"]):is(:focus-visible, :hover) {
   background-color: var(--primary);
+}
+
+a.link {
+  background: none !important;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  display: inline-block;
+  color: var(--link);
+  text-decoration: underline;
+}
+
+a.link:is(:focus-visible, :hover) {
+  color: var(--link-hover);
 }
 
 /* inputs */
@@ -114,12 +143,68 @@ main {
 
 /* footer */
 footer {
-  background-color: var(--bg-color-smooth);
+  margin-top: auto;
+  background-color: var(--footer);
   text-align: center;
-  padding: 0.5em;
+  padding: 1em;
 }
 
 footer a {
   display: inline-block;
-  margin-bottom: 1em;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer li {
+  margin-bottom: 0;
+}
+
+/* cookie__banner */
+#cookie__banner {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0.5em;
+  width: 50em;
+  max-width: 100%;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: var(--border);
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+#cookie__banner__description {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
+
+#accept__cookies {
+  padding-inline: 2em;
+}
+
+@media (max-width: 50em) {
+  #cookie__banner {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
+    border-radius: 0.5em 0.5em 0 0;
+  }
+}
+
+@media (max-width: 35em) {
+  #cookie__banner {
+    flex-direction: column;
+  }
+
+  #accept__cookies {
+    padding-inline: 1em;
+    width: 10em;
+    max-width: 100%;
+  }
 }

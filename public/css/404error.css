@@ -1,10 +1,4 @@
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-img {
+#error__img {
   image-rendering: pixelated;
   width: 10em;
   height: 10em;
@@ -17,6 +11,9 @@ img {
 }
 
 main {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 

@@ -10,3 +10,5 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/header.css">
   <link rel="stylesheet" type="text/css" href="/css/icons.css">
+
+  <script src="/js/user/cookies.js" defer></script>

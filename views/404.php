@@ -8,7 +8,7 @@ require(BASE_PATH . '/views/partials/head.php')
 
 <body>
   <main>
-    <img src="/img/404error.png" alt="Alguém perdido em pixel art">
+    <img src="/img/404error.png" alt="Alguém perdido em pixel art" id="error__img">
     <h1 id="error">404</h1>
     <h1>Página não encontrada</h1>
     <a href="/">Ir para o menu principal.</a>

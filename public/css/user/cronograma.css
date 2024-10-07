@@ -85,12 +85,12 @@ td:nth-child(1) {
 }
 
 td:nth-child(2) {
-  border-left: solid 0.25em var(--border-smooth);
+  border-left: solid 0.25em var(--border);
   width: 100%;
 }
 
 tr.break > td {
-  border: solid 0.25em var(--border-smooth);
+  border: solid 0.25em var(--border);
   border-left: 0;
   border-right: 0;
   font-weight: 600;

@@ -29,7 +29,7 @@ if (empty($turmas)) {
   view('user/index.view.php', [
     'information' => 'Nenhum cronograma cadastrado',
     'lastWarning' => 'none',
-    'headerSelected' => true,
+    'headerSelected' => 'cronogram',
     'title' => 'Horários',
     'emptyDB' => true
   ]);
@@ -153,6 +153,6 @@ view('user/index.view.php', [
   'selectClasses' => $selectClasses,
   'classesOnScreen' => $classesOnScreen,
   'lastWarning' => $lastWarning,
-  'headerSelected' => true,
+  'headerSelected' => 'cronogram',
   'title' => 'Horários'
 ]);

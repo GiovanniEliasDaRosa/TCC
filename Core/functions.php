@@ -58,3 +58,12 @@ function ifOldValid($old, $default)
 {
   return $old != "" ? $old : $default;
 }
+
+function headerCronogram($headerSelected)
+{
+  if (empty($headerSelected)) {
+    return false;
+  }
+
+  return $headerSelected == 'cronogram' ? 'active' : '';
+}

@@ -40,3 +40,4 @@
       <p id="popUpAviso__content">Conteudo</p>
     </div>
   </div>
+  <?php require(BASE_PATH . '/views/partials/footer.php') ?>
