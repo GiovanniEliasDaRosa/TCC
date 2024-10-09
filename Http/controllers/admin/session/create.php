@@ -21,4 +21,5 @@ if ($_SESSION['user'] ?? false) {
 
 view('session/create.view.php', [
   'errors' => Session::get('errors'),
+  'title' => 'Login'
 ]);

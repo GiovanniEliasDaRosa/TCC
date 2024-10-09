@@ -10,7 +10,14 @@ function saveSelectedClass($selectedClass)
 {
   $days = time() + 60 * 60 * 24 * 30; // 30 days
   $params = session_get_cookie_params();
-  setcookie('selectedClass', $selectedClass, $days, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+  setcookie('selectedClass', $selectedClass, [
+    'expires' => $days,
+    'path' => $params['path'],
+    'domain' => $params['domain'],
+    'secure' => $params['secure'],
+    'httponly' => $params['httponly'],
+    'samesite' => 'Strict',
+  ]);
 }
 
 $turmas = $db->query("SELECT MIN(id_horario) AS id_horario, turma

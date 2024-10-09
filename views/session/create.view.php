@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Log in</title>
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/css/admin/login/login.css">
-  <script src='/js/admin/login/login.js' defer></script>
+<?php require(BASE_PATH . '/views/partials/head.php') ?>
+<link rel="stylesheet" type="text/css" href="/css/admin/login/login.css">
+<script src='/js/admin/login/login.js' defer></script>
 </head>
 
 <body>

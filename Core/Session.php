@@ -41,6 +41,13 @@ class Session
 
     $params = session_get_cookie_params();
     // 3600 = 1hour
-    setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+    setcookie('PHPSESSID', '', [
+      'expires' => time() - 3600,
+      'path' => $params['path'],
+      'domain' => $params['domain'],
+      'secure' => $params['secure'],
+      'httponly' => $params['httponly'],
+      'samesite' => 'Strict',
+    ]);
   }
 }
