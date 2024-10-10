@@ -9,12 +9,11 @@
 
   <main>
     <?php if (!isset($emptyDB)) : ?>
-      <form action="/search" method="POST" enctype="multipart/form-data">
-        <select name='selectedClass' id='selectedClass'>
+      <form action="/search" method="POST" enctype="multipart/form-data" id="form">
+        <p>Selecione uma sala</p>
+        <select name='selectedClass' id='selectedClass' data-selected="<?= $selectedClass ?>">
           <?= $selectClasses ?>
-
         </select>
-        <button type="submit">Selecionar</button>
       </form>
     <?php endif; ?>
 

@@ -38,7 +38,8 @@ if (empty($turmas)) {
     'lastWarning' => 'none',
     'headerSelected' => 'cronogram',
     'title' => 'Horários',
-    'emptyDB' => true
+    'emptyDB' => true,
+    'selectedClass' => $selectedClass
   ]);
   die();
 }
@@ -161,5 +162,6 @@ view('user/index.view.php', [
   'classesOnScreen' => $classesOnScreen,
   'lastWarning' => $lastWarning,
   'headerSelected' => 'cronogram',
-  'title' => 'Horários'
+  'title' => 'Horários',
+  'selectedClass' => $selectedClass
 ]);

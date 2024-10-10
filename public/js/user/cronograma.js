@@ -1,4 +1,6 @@
 const accordions = document.querySelectorAll(".accordion");
+const form = document.querySelector("#form");
+const selectedClass = document.querySelector("#selectedClass");
 
 accordions.forEach((accordion) => {
   accordion.addEventListener("click", () => {
@@ -8,3 +10,7 @@ accordions.forEach((accordion) => {
     body.classList.toggle("active");
   });
 });
+
+selectedClass.onchange = (e) => {
+  form.submit();
+};

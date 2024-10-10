@@ -46,7 +46,8 @@ body {
 }
 
 :focus-visible {
-  outline: 0.25em solid var(--acess-outline);
+  outline: 0.2em solid var(--acess-outline);
+  box-shadow: inset 0 0 0 0.1em var(--acess-outline);
   z-index: 100;
 }
 
