@@ -129,7 +129,7 @@ for ($col = 0; $col < 5; $col++) {
   $current = array();
   $current['open'] = '';
   if ($getpossay == $col) {
-    $current['open'] = 'active';
+    $current['open'] = 'data-active="true"';
   }
 
   $current['day'] = $dayShow[$col];

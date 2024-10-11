@@ -17,21 +17,26 @@ if (empty($avisos)) {
   die();
 }
 
-$date = date('Y-m-d');
+$today = date('Y-m-d');
+$pos = 0;
+
 foreach ($avisos as $aviso) {
   $dt_inicio = $aviso['dt_inicio'];
   $dt_fim = $aviso['dt_fim'];
+  $avisos[$pos]['dt_inicio'] = date("d/m/y", strtotime($dt_inicio));
+  $avisos[$pos]['dt_fim'] = date("d/m/y", strtotime($dt_fim));
 
-  if ($dt_inicio > $date) {
+  if ($dt_inicio > $today) {
     array_splice($avisos, 0, 1);
   }
 
-  if ($date >= $dt_fim) {
+  if (strtotime($dt_fim) < strtotime($today)) {
     array_splice($avisos, 0, 1);
     $db->query('DELETE FROM Tb_aviso WHERE id_aviso=:id_aviso', [
       ':id_aviso' => $aviso['id_aviso']
     ])->get();
   }
+  $pos++;
 }
 
 view('user/avisos.view.php', [

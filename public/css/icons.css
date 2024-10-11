@@ -1,19 +1,31 @@
 @font-face {
-  font-family: "Font Awesome 6 Free";
+  font-family: "FontAwesome900";
   src: url("/fonts/fa-solid-900.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
 }
 
+@font-face {
+  font-family: "FontAwesome400";
+  src: url("/fonts/fa-regular-400.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 .icons::before {
   display: inline-block;
-  font-family: "Font Awesome 6 Free";
+  font-family: "FontAwesome900";
   font-weight: 900;
   font-style: normal;
   font-variant: normal;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   margin-right: 0.5rem;
+}
+
+.icons.outline::before {
+  font-family: "FontAwesome400";
+  font-weight: 400;
 }
 
 .icons.square {
@@ -55,6 +67,10 @@
 
 .icons.calendar-xmark::before {
   content: "\f273";
+}
+
+.icons.calendar-normal::before {
+  content: "\f133";
 }
 
 .icons.upload::before {

@@ -10,7 +10,7 @@
   <main>
     <?php if (!isset($emptyDB)) : ?>
       <form action="/search" method="POST" enctype="multipart/form-data" id="form">
-        <p>Selecione uma sala</p>
+        <p>Selecione uma turma</p>
         <select name='selectedClass' id='selectedClass' data-selected="<?= $selectedClass ?>">
           <?= $selectClasses ?>
         </select>
@@ -24,13 +24,13 @@
         </p>
       <?php else: ?>
         <?php foreach ($classesOnScreen as $currentDay) : ?>
-          <div class="accordion">
+          <div class="accordion" <?= $currentDay['open'] ?>>
             <button class="accordion-hearder">
               <span><?= $currentDay['day'] ?></span>
               <i class="icons nomargin down"></i>
             </button>
 
-            <div class="accordion-body <?= $currentDay['open'] ?>">
+            <div class="accordion-body">
               <?= $currentDay['content'] ?>
             </div>
           </div>

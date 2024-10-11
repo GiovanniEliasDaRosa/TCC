@@ -9,11 +9,15 @@ let popupOpen = false;
 popUpAviso__header__opens.forEach((item) => {
   item.onclick = () => {
     let aviso = item.parentElement;
+    let dateStart = aviso.querySelector(".aviso__date__start");
     let title = aviso.querySelector(".aviso__title");
+    let dateEnd = aviso.querySelector(".aviso__date__end");
     let content = aviso.querySelector(".aviso__content");
 
     popUpAviso__header__title.innerText = title.innerText;
     popUpAviso__content.innerText = content.innerText;
+    popUpAviso__date__start.innerText = dateStart.innerText;
+    popUpAviso__date__end.innerText = dateEnd.innerText;
 
     popUpAviso.style.display = "";
     popUpAviso.removeAttribute("aria-disabled");
@@ -35,5 +39,3 @@ if (avisos.children.length == 0) {
 } else {
   localStorage.setItem("lastWarningSaw", avisos.children[0].dataset.id);
 }
-
-// Um título com mais de 40 caracteres não é necessário

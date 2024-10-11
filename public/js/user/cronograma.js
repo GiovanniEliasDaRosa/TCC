@@ -1,6 +1,11 @@
 const accordions = document.querySelectorAll(".accordion");
 const form = document.querySelector("#form");
 const selectedClass = document.querySelector("#selectedClass");
+const active = document.querySelector(".accordion[data-active='true']");
+
+setTimeout(() => {
+  active.click();
+}, 100);
 
 accordions.forEach((accordion) => {
   accordion.addEventListener("click", () => {

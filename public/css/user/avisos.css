@@ -9,10 +9,21 @@
   border: 0.2em solid var(--border-smooth);
   border-radius: 1em;
   min-height: 3.5em;
+  gap: 0.5em;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.aviso__title {
+  font-weight: 600;
+  margin-right: auto;
+}
+
+.aviso__date__end,
+.popUpAviso__header__open {
+  flex: 0 0 fit-content;
 }
 
 #popUpAviso__header__close {
@@ -28,18 +39,19 @@
   flex-direction: column;
   justify-content: stretch;
   align-items: center;
-  gap: 1em;
   background-color: var(--bg-color);
   padding: 0.5em;
 }
 
 #popUpAviso__div {
-  padding: 0.5em;
+  padding: 1em;
   height: 100vh;
   height: 100dvh;
   width: min(80em, 100%);
   max-width: 100%;
   border-radius: 0.5em;
+  overflow-y: auto;
+  padding-bottom: 4em;
 
   display: flex;
   flex-direction: column;
@@ -48,32 +60,55 @@
 }
 
 #popUpAviso__header {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto 1fr;
   gap: 1em;
+}
+
+#popUpAviso__calendar {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  border-radius: 0.5em;
+  gap: 2em;
 }
 
 #popUpAviso__content {
   white-space: pre-wrap;
+  line-height: 1.5em;
 }
 
-/* button {
-  padding: 7px;
-  color: rgb(252, 251, 251);
-  background-color: #19181d;
-  border: 2px;
-  border-color: rgb(252, 251, 251);
-  margin: 2em;
-  border-style: solid;
-  border-radius: 8px;
-  box-shadow: 1px 4px 8px rgba(252, 251, 251, 0.384);
-  font-weight: bold;
+#popUpAviso__content * {
+  margin-bottom: 0.5em;
 }
 
-a {
-  color: rgb(252, 251, 251);
-  text-decoration: none;
-  background-color: #202b6d;
-  border-radius: 8px;
-  padding: 8px;
-} */
+@media (max-width: 35em) {
+  #popUpAviso__calendar {
+    flex-direction: column;
+    gap: 0.5em;
+    width: 100%;
+  }
+  #popUpAviso__div {
+    gap: 2em;
+  }
+
+  .aviso {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: "title title" "date readmore";
+  }
+
+  .aviso__title {
+    min-height: 1.5em;
+    grid-area: title;
+  }
+
+  .aviso__date__end {
+    grid-area: date;
+  }
+
+  .popUpAviso__header__open {
+    grid-area: readmore;
+  }
+}
