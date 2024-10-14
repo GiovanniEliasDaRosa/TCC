@@ -1,7 +1,7 @@
 <?php require(BASE_PATH . '/views/partials/head.php') ?>
 <link rel="stylesheet" type="text/css" href="/css/user/avisos.css" />
 
-<script src="/js/user/avisos.js" defer></script>
+<script src="/js/user/avisos.js" defer="true"></script>
 </head>
 
 <body>

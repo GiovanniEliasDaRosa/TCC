@@ -1,7 +1,6 @@
 <?php require(BASE_PATH . '/views/partials/head.php') ?>
 <link rel="stylesheet" type="text/css" href="/css/admin/avisos/style.css">
-
-<script src="/js/admin/avisos/avisos.js" defer></script>
+<link rel="stylesheet" type="text/css" href="/css/admin/popup.css">
 </head>
 
 <body>
@@ -41,7 +40,7 @@
         <div id="datas" class="form__sections">
 
           <div id="datapostagem__div" class="form__sections__div">
-            <label for="dt_inicio">Data da Postagem</label>
+            <label for="dt_inicio" class="icons calendar calendar-plus">Data da Postagem</label>
             <input type="date" name="dt_inicio" id="dt_inicio" value="<?= ifOldValid(old('dt_inicio'), $aviso['dt_inicio']) ?>">
 
             <p
@@ -56,7 +55,7 @@
           </div>
 
           <div id="dataexpiracao__div" class="form__sections__div">
-            <label for="dt_fim">Data de expiração</label>
+            <label for="dt_fim" class="icons calendar calendar-xmark">Data de expiração</label>
             <input type="date" name="dt_fim" id="dt_fim" value="<?= ifOldValid(old('dt_fim'), $aviso['dt_fim']) ?>">
 
             <p
@@ -73,8 +72,8 @@
       </div>
 
       <p id="acoes__div">
-        <button type="button" id="deletaraviso__botao">Excluir</button>
-        <input type="submit" value="Salvar">
+        <button type="button" id="deletaraviso__botao" class="icons trash">Excluir</button>
+        <button type="submit" class="icons save">Salvar</button>
       </p>
     </form>
     <form method="post" action="/admin/avisos/delete" enctype="multipart/form-data" style="display: none;" aria-disabled="true" id="deletar">

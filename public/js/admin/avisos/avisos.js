@@ -78,7 +78,11 @@ function disable(element) {
 
 if (deletarAvisoBotao != null) {
   deletarAvisoBotao.onclick = () => {
-    if (confirm("Deseja excluir esse aviso?")) {
+    if (
+      confirm(
+        "Tem certeza de que deseja excluir este aviso? Esta ação é permanente e não poderá ser desfeita."
+      )
+    ) {
       deletar.submit();
     }
   };

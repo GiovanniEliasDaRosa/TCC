@@ -34,9 +34,7 @@ upload__form.onSubmit = (e) => {
 upload__file.oninput = (e) => {
   clearTimeout(timeoutToSave);
   validFile = false;
-  console.log("uploaded! e:", e);
   let file = upload__file.files[0];
-  console.log("file:", file);
 
   lastName = file.name;
   lastType = file.type;
@@ -54,10 +52,6 @@ function disable(element) {
 }
 
 function fileHandler(file, name, type) {
-  console.log("fileHandler:");
-  console.log("file", file);
-  console.log("name", name);
-  console.log("type", type);
   enable(feedbackMessage);
 
   if (type.split("/")[1] !== "vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
@@ -66,21 +60,10 @@ function fileHandler(file, name, type) {
     return false;
   }
 
-  feedbackMessage.classList.remove("error");
-  feedbackMessage.innerText = "Arquivo válido, carregando...";
+  feedbackMessage.classList = "icons after loading";
+  feedbackMessage.innerText = "Arquivo válido, carregando";
 
   timeoutToSave = setTimeout(() => {
-    disable(feedbackMessage);
     upload__form.submit();
   }, 1000);
-}
-
-// copied from js/admin/avisos/popupavisos.js
-const popup__saved = document.querySelector("#popup__saved");
-const popup__button = document.querySelector("#popup__button");
-
-if (popup__button != null) {
-  popup__button.onclick = () => {
-    popup__saved.setAttribute("data-hide", "true");
-  };
 }

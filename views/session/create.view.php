@@ -1,6 +1,6 @@
 <?php require(BASE_PATH . '/views/partials/head.php') ?>
 <link rel="stylesheet" type="text/css" href="/css/admin/login/login.css">
-<script src='/js/admin/login/login.js' defer></script>
+<script src='/js/admin/login/login.js' defer="true"></script>
 </head>
 
 <body>

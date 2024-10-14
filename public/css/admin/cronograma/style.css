@@ -1,6 +1,4 @@
 body {
-  overflow-x: hidden;
-  overflow-y: auto;
   display: grid;
   grid-template-rows: auto 1fr;
   height: 100vh;
@@ -9,7 +7,7 @@ body {
 
 /* main */
 main {
-  overflow: scroll;
+  overflow: hidden;
   width: 100vw;
 }
 
@@ -37,8 +35,9 @@ main {
 
 #tables {
   display: grid;
-  grid-template-columns: 8fr 2fr;
-  gap: 2em;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: 2rem;
   overflow: auto;
 }
 
@@ -56,33 +55,25 @@ tr:nth-child(odd) td {
   background-color: var(--table-bg-odd);
 }
 
-tr,
-td {
-  height: 5rem;
-  min-width: 8rem;
-}
-
 td:first-child {
   border-left: solid 0.2rem var(--border-smooth);
 }
 
 td {
   text-align: center;
-  padding-inline: 0.5rem;
+  padding: 0.4rem;
   border-right: solid 0.2rem var(--border-smooth);
 }
 
 .dayNight {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 900;
-  height: 4em;
   --line-bg-color: var(--day-night);
   color: white;
 }
 
 .newday {
-  margin-top: 2em;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 900;
   --line-bg-color: var(--new-day);
   color: white;
@@ -94,47 +85,4 @@ tr:has(.dayNight, .newday) td {
 
 tr.break td {
   background-color: var(--break);
-}
-
-/* COPIED FROM css/admin/avisos/style.css */
-#popup__saved {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  right: 0;
-  transform: translateX(-50%);
-  width: min(25em, 100%);
-  max-width: 100vw;
-  background-color: var(--primary);
-  padding: 0.5em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1em;
-  animation: 3s animateIn ease-out forwards;
-  z-index: 10;
-}
-
-#popup__saved[data-hide="true"] {
-  animation: 1s animateOut ease-out forwards;
-}
-
-@keyframes animateIn {
-  0%,
-  100% {
-    transform: translateX(-50%) translateY(-100%);
-  }
-  25%,
-  75% {
-    transform: translateX(-50%) translateY(0%);
-  }
-}
-
-@keyframes animateOut {
-  0% {
-    transform: translateX(-50%) translateY(0%);
-  }
-  100% {
-    transform: translateX(-50%) translateY(-100%);
-  }
 }

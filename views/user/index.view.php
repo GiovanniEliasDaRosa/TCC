@@ -1,7 +1,7 @@
 <?php require(BASE_PATH . '/views/partials/head.php') ?>
 <link rel="stylesheet" type="text/css" href="/css/user/cronograma.css" />
 
-<script src="/js/user/cronograma.js" defer></script>
+<script src="/js/user/cronograma.js" defer="true"></script>
 </head>
 
 <body>
@@ -11,9 +11,12 @@
     <?php if (!isset($emptyDB)) : ?>
       <form action="/search" method="POST" enctype="multipart/form-data" id="form">
         <p>Selecione uma turma</p>
-        <select name='selectedClass' id='selectedClass' data-selected="<?= $selectedClass ?>">
-          <?= $selectClasses ?>
-        </select>
+        <div id="custom-select" class="buttons">
+          <select name='selectedClass' id='selectedClass' data-selected="<?= $selectedClass ?>">
+            <?= $selectClasses ?>
+          </select>
+        </div>
+
       </form>
     <?php endif; ?>
 

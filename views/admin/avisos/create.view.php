@@ -1,15 +1,13 @@
 <?php require(BASE_PATH . '/views/partials/head.php') ?>
 <link rel="stylesheet" type="text/css" href="/css/admin/avisos/style.css">
-
-<script src="/js/admin/avisos/popupavisos.js" defer></script>
-<script src="/js/admin/avisos/avisos.js" defer></script>
+<link rel="stylesheet" type="text/css" href="/css/admin/popup.css">
+<script src="/js/admin/avisos/avisos.js" defer="true"></script>
 </head>
 
 <body>
   <?php if ($saved) : ?>
     <div id="popup__saved">
       Aviso adicionado com sucesso!
-      <button class="icons square nomargin xmark" id="popup__button"></button>
     </div>
   <?php endif; ?>
 
@@ -46,7 +44,7 @@
         <div id="datas" class="form__sections">
 
           <div id="datapostagem__div" class="form__sections__div">
-            <label for="dt_inicio">Data da Postagem</label>
+            <label for="dt_inicio" class="icons calendar calendar-plus">Data da Postagem</label>
             <input type="date" name="dt_inicio" id="dt_inicio" value="<?= old('dt_inicio') ?>">
 
             <p
@@ -61,7 +59,7 @@
           </div>
 
           <div id="dataexpiracao__div" class="form__sections__div">
-            <label for="dt_fim">Data de expiração</label>
+            <label for="dt_fim" class="icons calendar calendar-xmark">Data de expiração</label>
             <input type="date" name="dt_fim" id="dt_fim" value="<?= old('dt_fim') ?>">
 
             <p
@@ -78,7 +76,7 @@
       </div>
 
       <p id="acoes__div">
-        <input type="submit" value="Salvar">
+        <button type="submit" class="icons save">Salvar</button>
       </p>
     </form>
   </main>

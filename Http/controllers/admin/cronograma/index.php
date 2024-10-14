@@ -103,7 +103,7 @@ for ($i = 0; $i < 2; $i++) {
     $currentDay = $days[$day];
 
     $tables[$i] .= "<tr><td class='newday' colspan='17'>" . $dayShow[$day] . "</td></tr>";
-    $tables[$i] .= "<td>horario</td>";
+    $tables[$i] .= "<td>Horário</td>";
     for ($class = $classStart; $class < $quantClasses; $class++) {
       $currentClass = $classes[$class];
       $tables[$i] .= "<td>$currentClass</td>";

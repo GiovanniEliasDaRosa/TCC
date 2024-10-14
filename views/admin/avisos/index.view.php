@@ -1,15 +1,13 @@
 <?php require(BASE_PATH . '/views/partials/head.php') ?>
 <link rel="stylesheet" type="text/css" href="/css/admin/avisos/style.css">
 <link rel="stylesheet" type="text/css" href="/css/admin/avisos/menu.css">
-
-<script src="/js/admin/avisos/popupavisos.js" defer></script>
+<link rel="stylesheet" type="text/css" href="/css/admin/popup.css">
 </head>
 
 <body>
   <?php if ($saved) : ?>
     <div id="popup__saved">
       Aviso salvo com sucesso!
-      <button class="icons square nomargin xmark" id="popup__button"></button>
     </div>
   <?php endif; ?>
 
@@ -28,7 +26,7 @@
           </p>
 
         </div>
-        <a href="/admin/avisos/edit?id=<?= $aviso['id_aviso'] ?>">Editar</a>
+        <a href="/admin/avisos/edit?id=<?= $aviso['id_aviso'] ?>" class="icons edit">Editar</a>
       </div>
     <?php endforeach; ?>
 

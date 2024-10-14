@@ -35,32 +35,44 @@
   font-weight: 600;
 }
 
-@media (max-width: 31em) {
+@media (max-width: 32em) {
   .avisos__div {
     flex-direction: column;
   }
+  .avisos__div__info {
+    width: 100%;
+  }
+  .avisos_div_dates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0em;
+  }
+  .avisos_div_dates > :nth-child(1) {
+    padding-right: 0.5em;
+    border-right: solid 0.125em var(--border);
+  }
+  .avisos_div_dates > :nth-child(2) {
+    text-align: right;
+    padding-left: 0.5em;
+    border-left: solid 0.125em var(--border);
+  }
   .avisos__div__info__titulo {
+    padding-bottom: 0.5em;
     margin-bottom: 0.5em;
+    border-bottom: solid 0.25em var(--border);
   }
   .avisos__div a {
     width: 10em;
     max-width: 100%;
+    margin-left: auto;
   }
 }
 
-@media (max-width: 27em) {
-  .avisos__div {
-    flex-direction: column;
-  }
+@media (max-width: 28em) {
   .avisos__div__info__titulo {
     margin-bottom: 0.5em;
   }
   .avisos__div a {
-    width: 10em;
-    max-width: 100%;
-  }
-  .avisos_div_dates {
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
   }
 }

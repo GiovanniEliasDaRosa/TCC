@@ -12,7 +12,8 @@
   font-style: normal;
 }
 
-.icons::before {
+.icons::before,
+.icons.after::after {
   display: inline-block;
   font-family: "FontAwesome900";
   font-weight: 900;
@@ -21,6 +22,11 @@
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   margin-right: 0.5rem;
+}
+
+.icons.after::after {
+  margin-right: 0rem;
+  margin-left: 0.5rem;
 }
 
 .icons.outline::before {
@@ -75,4 +81,34 @@
 
 .icons.upload::before {
   content: "\e09a";
+}
+
+.icons.edit::before {
+  content: "\f044";
+}
+
+.icons.trash::before {
+  content: "\f1f8";
+}
+
+.icons.save::before {
+  content: "\f0c7";
+}
+
+.icons.warn::before {
+  content: "\f071";
+}
+
+.icons.loading::after {
+  content: "\f574";
+  animation: uploadfile 1s ease-out;
+}
+
+@keyframes uploadfile {
+  0% {
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
 }

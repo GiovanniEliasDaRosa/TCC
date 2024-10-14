@@ -65,7 +65,7 @@ if (isset($_POST['selectedClass'])) {
 
 foreach ($turmas as $data) {
   if ($selectedClass == $data['turma']) {
-    $selectClasses .= "<option value='" . $data['turma'] . "' selected>" . $data['turma'] . "</option>";
+    $selectClasses .= "<option value='" . $data['turma'] . "' selected='true'>" . $data['turma'] . "</option>";
   } else {
     $selectClasses .= "<option value='" . $data['turma'] . "'>" . $data['turma'] . "</option>";
   }

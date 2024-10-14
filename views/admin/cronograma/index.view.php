@@ -1,7 +1,7 @@
 <?php require(BASE_PATH . '/views/partials/head.php') ?>
 <link rel="stylesheet" type="text/css" href="/css/admin/cronograma/style.css">
-
-<script src="/js/admin/cronograma/main.js" defer></script>
+<link rel="stylesheet" type="text/css" href="/css/admin/popup.css">
+<script src="/js/admin/cronograma/main.js" defer="true"></script>
 </head>
 
 <body>
@@ -10,7 +10,6 @@
   <?php if ($saved) : ?>
     <div id="popup__saved">
       Cronograma salvo com sucesso!
-      <button class="icons square nomargin xmark" id="popup__button"></button>
     </div>
   <?php endif; ?>
 
@@ -24,7 +23,7 @@
 
       <p
         <?= isset($errors['error']) ? '' : 'style="display: none" aria-disabled="true" disabled="true"' ?>
-        id="feedbackMessage" class="error">
+        id="feedbackMessage" class="error <?= isset($errors['error']) ? 'icons warn' : '' ?> ">
         <?php if (isset($errors['error'])) : ?>
           <?= $errors['error'] ?>
         <?php endif; ?>
