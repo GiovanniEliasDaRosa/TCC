@@ -12,3 +12,7 @@
   <link rel="stylesheet" type="text/css" href="/css/icons.css">
 
   <script src="/js/user/cookies.js" defer="true"></script>
+  <script>
+    /*to prevent Firefox FOUC, this must be here*/
+    let FF_FOUC_FIX;
+  </script>

@@ -5,19 +5,14 @@ img {
 }
 
 header,
-.navegacao__header {
+#navegacao__header {
   display: flex;
   align-items: center;
+  gap: 0.4rem;
 }
 
 header > h1 {
   align-self: center;
-}
-
-@media (max-width: 55em) {
-  header > h1 {
-    display: none;
-  }
 }
 
 #deslog {
@@ -47,7 +42,7 @@ header::before {
   z-index: -1;
 }
 
-.navegacao__header {
+#navegacao__header {
   gap: 1em;
 }
 
@@ -82,11 +77,15 @@ header::before {
   background-color: var(--bg-color);
 }
 
-#navegacao__header__avisos {
+:is(#navegacao__header__avisos, #navegacao__header__openmenu, #navegacao__menu__avisos) {
   position: relative;
 }
 
-#navegacao__header__avisos[data-warning]::before {
+:is(
+    #navegacao__header__avisos,
+    #navegacao__header__openmenu,
+    #navegacao__menu__avisos
+  )[data-warning]::after {
   content: "";
   position: absolute;
   right: -0.25em;
@@ -106,5 +105,85 @@ header::before {
   }
   50% {
     transform: scale(1.3);
+  }
+}
+
+/* extend */
+#navegacao__header__openmenu {
+  margin-right: 0.5em;
+}
+
+#navegacao__menu {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  gap: 1em;
+  z-index: 1;
+
+  --displace: 2.5rem;
+}
+
+#navegacao__header__closemenu {
+  margin-left: auto;
+}
+
+#navegacao__menu #deslog {
+  width: 100%;
+  height: auto;
+
+  margin-top: 2em;
+  padding: 1em;
+}
+
+#admin {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+#admin > #navegacao__header__closemenu {
+  margin: 0;
+}
+
+#admin > h1 {
+  flex: 1 1 fit-content;
+}
+
+@media (max-width: 30em) {
+  header > h1 {
+    font-size: max(1rem, 6vw);
+    text-align: center;
+  }
+}
+
+#navegacao__menu[data-open="true"] {
+  animation: 0.75s headerAppear cubic-bezier(0.2, 0.3, 0.4, 0.8) forwards;
+}
+
+@keyframes headerAppear {
+  0% {
+    clip-path: circle(0% at calc(100% - var(--displace)) var(--displace));
+  }
+  100% {
+    clip-path: circle(200% at calc(100% - var(--displace)) var(--displace));
+  }
+}
+
+#navegacao__menu[data-close="true"] {
+  animation: 0.75s headerDisappear cubic-bezier(0.3, 0.5, 0.6, 0.9) forwards;
+}
+
+@keyframes headerDisappear {
+  0% {
+    clip-path: circle(200% at calc(100% - var(--displace)) var(--displace));
+  }
+  100% {
+    clip-path: circle(0% at calc(100% - var(--displace)) var(--displace));
   }
 }

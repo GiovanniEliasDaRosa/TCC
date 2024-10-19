@@ -108,15 +108,15 @@ tr.break > td {
 }
 
 /* Select menu */
-#custom-select {
+#custom__select {
   position: relative;
   padding: 0;
   cursor: pointer;
   display: block;
 }
 
-#custom-select::before,
-#custom-select::after {
+#custom__select::before,
+#custom__select::after {
   --size: 0.5em;
 
   content: "";
@@ -127,14 +127,15 @@ tr.break > td {
   border-right: var(--size) solid transparent;
   right: 0;
   transform: translateX(-0.5em);
+  pointer-events: none;
 }
 
-#custom-select::before {
+#custom__select::before {
   border-bottom: var(--size) solid var(--text-color);
   top: 0.5em;
 }
 
-#custom-select::after {
+#custom__select::after {
   border-top: var(--size) solid var(--text-color);
   bottom: 0.5em;
 }

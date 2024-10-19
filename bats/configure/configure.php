@@ -8,6 +8,17 @@ function clearScreen()
   echo chr(27) . chr(91) . 'H' . chr(27) . chr(91) . 'J';
 }
 
+
+function showError($type)
+{
+  $GLOBALS['trys'] += 1;
+  echo " \e[101m\e[30m Erro ao tentar conectar com Banco de dados (" . $GLOBALS['trys'] . ") \e[0m \e[101m\e[30m [ $type ] \e[0m\n";
+  echo " Verifique se o XAMPP possui o \e[44m Apache \e[0m e \e[44m MySQL \e[0m ligados\n\n\n";
+  sleep(1);
+}
+
+
+
 const BASE_PATH = __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR;
 require BASE_PATH . 'Core/functions.php';
 require BASE_PATH . '/vendor/autoload.php';
@@ -22,7 +33,7 @@ echo "  \e[44m : Configurações de BANCO DE DADOS : \e[0m\n";
 echo "  \e[44m | - - - - - - - - - - - - - - - - | \e[0m\n";
 echo "\n";
 
-$trys = 0;
+$GLOBALS['trys'] = 0;
 $maxTries = 10;
 $db = null;
 
@@ -31,25 +42,55 @@ do {
 
   try {
     $db = App::resolve(Database::class);
+  } catch (PDOException $e) {
+    if ($e->getCode() == 1049) {
+      // print("Database 'horarioescolardb' not found.");
+      clearScreen();
+      echo "\n";
+      echo "  \e[101m\e[30m | - - - - - - - - - - - - - - - - - - | \e[0m\n";
+      echo "  \e[101m\e[30m : Banco de dados aparenta não existir : \e[0m\n";
+      echo "  \e[101m\e[30m | - - - - - - - - - - - - - - - - - - | \e[0m\n";
+      echo "\n";
+      echo "  Acabando com a execução do arquivo \n";
+      echo "\n";
+      echo "  ||::::.... . ..  \n";
+      echo "  Para resolver \n";
+      echo "\n";
+      echo "  Verifique se o \e[44m XAMPP \e[0m com \e[44m Apache \e[0m e \e[44m MySQL \e[0m estão ligados\n";
+      echo "\n";
+      echo "  1. Acesse \e[44m 127.0.0.1:81/phpmyadmin \e[0m \n";
+      echo "  2. Clique em \e[44m SQL \e[0m \n";
+      echo "  3. Na area de texto cole o seguinte e clique em ( Go / Ir )\n";
+      echo "\n";
+      echo "  \e[104m CREATE DATABASE `HORARIOESCOLARDB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci; \e[0m\n";
+      echo "\n\n";
+      echo "  \e[44m Quando rodar ele \e[0m feche esse terminal e rode \"1 CONFIGURAR.bat\" mais uma vez\n";
+      echo "\n";
+      exit();
+    } else if ($e->getCode() == 2002) {
+      // print("No connection could be made");
+      $db = null;
+      showError('general');
+    } else {
+      $db = null;
+      showError('router');
+    }
+    // print("Database error: " . $e->getMessage());
   } catch (Exception $e) {
-    $trys++;
+    // print("General error: " . $e->getMessage());
     $db = null;
-    echo " \e[101m\e[30m Erro ao tentar conectar com Banco de dados ($trys) \e[0m\n";
-    echo " Verifique se o XAMPP possui o \e[44m Apache \e[0m e \e[44m MySQL \e[0m ligados\n";
-    echo "\n";
-    echo "\n";
-    sleep(1);
+    showError('general');
   }
-} while ($db == null && $trys < $maxTries);
+} while ($db == null && $GLOBALS['trys'] < $maxTries);
 
-if ($trys == $maxTries) {
+if ($GLOBALS['trys'] == $maxTries) {
   clearScreen();
   echo "\n";
   echo "  \e[101m\e[30m | - - - - - - - - - - - - - - - - - - - - - - - - | \e[0m\n";
   echo "  \e[101m\e[30m :  Não foi possível conectar com o Banco de dados : \e[0m\n";
   echo "  \e[101m\e[30m | - - - - - - - - - - - - - - - - - - - - - - - - | \e[0m\n";
   echo "\n";
-  echo "  Número de tentativas: $trys \n";
+  echo "  Número de tentativas: " . $GLOBALS['trys'] . " \n";
   echo "\n";
   echo "  Acabando com a execução do arquivo \n";
   echo "\n";
@@ -199,13 +240,16 @@ date_default_timezone_set('America/Sao_Paulo');
 
 $today = date('Y-m-d');
 $date = date_create(date('Y-m-d'));
+$date2 = date_create(date('Y-m-d'));
 date_add($date, date_interval_create_from_date_string("7 days"));
+date_add($date2, date_interval_create_from_date_string("8 days"));
 $expireDate = date_format($date, 'Y-m-d');
+$expireDate2 = date_format($date2, 'Y-m-d');
 
 $db->query(
-  "INSERT INTO `Tb_aviso` (`id_aviso`, `dt_inicio`, `dt_fim`, `titulo`, `corpo`) VALUES
+  "INSERT INTO `tb_aviso` (`id_aviso`, `dt_inicio`, `dt_fim`, `titulo`, `corpo`) VALUES
   (1, '$today', '$expireDate', 'Não haverá aula', ''),
-  (2, '$today', '$expireDate', 'Viagem pra FETESP', 'O Flávio tem medo do motorista');"
+  (2, '$today', '$expireDate2', 'Excursão ao Museu de Arte de São Paulo', 'Prezados estudantes e responsáveis,\r\n\r\nTemos o prazer de anunciar a emocionante excursão ao Museu de Arte de São Paulo (MASP)! Esta é uma oportunidade única para explorar a rica história da arte e apreciar obras-primas de artistas renomados. Aqui estão os detalhes importantes:\r\n\r\n- Data: 15 de outubro de 2024 (terça)\r\n- Horário de saída: 8h00\r\n- Local de partida: Escola\r\n- Preço por aluno: R$ 30,00 (inclui transporte e ingresso)\r\n- Professores orientadores: Prof.ª Maria Silva e Prof. João Santos\r\n- Horário de retorno: Previsto para as 17h00 (chegada à escola)\r\n\r\nAtenciosamente,\r\nEquipe Escolar');"
 )->find();
 
 echo "   Adicionando usuário ao banco de dados...\n";

@@ -1,6 +1,8 @@
 <?php require(BASE_PATH . '/views/partials/head.php') ?>
 <link rel="stylesheet" type="text/css" href="/css/admin/avisos/style.css">
 <link rel="stylesheet" type="text/css" href="/css/admin/popup.css">
+
+<script src="/js/admin/avisos/avisos.js" defer="true"></script>
 </head>
 
 <body>

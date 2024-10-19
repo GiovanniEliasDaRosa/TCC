@@ -19,6 +19,9 @@
 .aviso__title {
   font-weight: 600;
   margin-right: auto;
+
+  word-break: break-word;
+  text-wrap: balance;
 }
 
 .aviso__date__end,
@@ -94,7 +97,7 @@
 
   .aviso {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     grid-template-areas: "title title" "date readmore";
   }

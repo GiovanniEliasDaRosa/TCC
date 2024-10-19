@@ -11,7 +11,7 @@
     <?php if (!isset($emptyDB)) : ?>
       <form action="/search" method="POST" enctype="multipart/form-data" id="form">
         <p>Selecione uma turma</p>
-        <div id="custom-select" class="buttons">
+        <div id="custom__select" class="buttons">
           <select name='selectedClass' id='selectedClass' data-selected="<?= $selectedClass ?>">
             <?= $selectClasses ?>
           </select>
@@ -43,13 +43,4 @@
   </main>
 
   <p style="display: none;" aria-disabled="true" id="lastWarning"><?= $lastWarning ?></p>
-
-  <script>
-    let lastWarning = document.querySelector('#lastWarning')
-    let lastWarningSaw = localStorage.getItem("lastWarningSaw");
-
-    if (lastWarning.textContent != lastWarningSaw && lastWarning.textContent != 'none') {
-      navegacao__header__avisos.setAttribute("data-warning", "true");
-    }
-  </script>
   <?php require(BASE_PATH . '/views/partials/footer.php') ?>

@@ -49,8 +49,6 @@ form.addEventListener("submit", (e) => {
   let expiracao = new Date(dt_fim.value + "T00:00:00").setHours(0, 0, 0, 0);
   let agora = new Date().setHours(0, 0, 0, 0);
 
-  console.table([postagem, expiracao, agora]);
-
   if (expiracao < postagem) {
     e.preventDefault();
     dt_fim__mensagem.innerText =
