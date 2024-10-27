@@ -1,3 +1,4 @@
+// cookies
 if (localStorage.getItem("accepted-cookies") == null) {
   // style="display: none;" aria-disabled="true" disabled="true"
   document.body.innerHTML += `<div id="cookie__banner">
@@ -19,56 +20,56 @@ if (localStorage.getItem("accepted-cookies") == null) {
   };
 }
 
-const header = document.querySelector("header");
+// header
+const header = document.querySelector("#header");
 const main = document.querySelector("main");
-const navegacao__header = document.querySelector("#navegacao__header");
-const navegacao__header__openmenu = document.querySelector("#navegacao__header__openmenu");
-const navegacao__menu = document.querySelector("#navegacao__menu");
-const navegacao__header__closemenu = document.querySelector("#navegacao__header__closemenu");
+const header__options = document.querySelector("#header__options");
+const header__options__openmenu = document.querySelector("#header__options__openmenu");
+const header__popupmenu = document.querySelector("#header__popupmenu");
+const header__popupmenu__closemenu = document.querySelector("#header__popupmenu__closemenu");
 let size = 25;
 let headerMenuTimeout = "";
+let headerH1Timeout = "";
 
-if (navegacao__header.dataset.admin == "true") {
+if (header__options.dataset.admin == "true") {
   size = 42;
 }
 
-navegacao__header__openmenu.onclick = () => {
+header__options__openmenu.onclick = () => {
   clearTimeout(headerMenuTimeout);
 
-  enable(navegacao__menu);
+  enable(header__popupmenu);
   document.body.style.overflow = "hidden";
-  navegacao__header__closemenu.focus();
+  header__popupmenu__closemenu.focus();
 
-  navegacao__menu.setAttribute("data-open", "true");
-  navegacao__menu.removeAttribute("data-close");
+  header__popupmenu.setAttribute("data-open", "true");
+  header__popupmenu.removeAttribute("data-close");
   headerMenuTimeout = setTimeout(() => {
-    navegacao__menu.removeAttribute("data-open");
-    disable(navegacao__header__openmenu);
+    header__popupmenu.removeAttribute("data-open");
+    disable(header__options__openmenu);
     disable(main);
   }, 750);
 };
 
-navegacao__header__closemenu.onclick = () => {
+header__popupmenu__closemenu.onclick = () => {
   clearTimeout(headerMenuTimeout);
 
   document.body.style.overflow = "";
-  navegacao__header__openmenu.focus();
+  header__options__openmenu.focus();
 
-  enable(navegacao__header__openmenu);
+  enable(header__options__openmenu);
   enable(main);
 
-  navegacao__menu.setAttribute("data-close", "true");
-  navegacao__menu.removeAttribute("data-open");
+  header__popupmenu.setAttribute("data-close", "true");
+  header__popupmenu.removeAttribute("data-open");
   headerMenuTimeout = setTimeout(() => {
-    navegacao__menu.removeAttribute("data-close");
-    disable(navegacao__menu);
+    header__popupmenu.removeAttribute("data-close");
+    disable(header__popupmenu);
   }, 750);
 };
 
-let headerH1Timeout = "";
-
 function checkHeader() {
-  let buttons = Array.from(navegacao__header.children).filter((child) =>
+  let buttons = Array.from(header__options.children).filter((child) =>
     child.classList.contains("normal__nav")
   );
 
@@ -77,13 +78,13 @@ function checkHeader() {
   let screenWidth = window.innerWidth;
 
   if (screenWidth > size * responsive) {
-    disable(navegacao__header__openmenu);
+    disable(header__options__openmenu);
     for (let i = 0; i < buttons.length; i++) {
       enable(buttons[i]);
     }
     document.body.style.overflow = "";
 
-    disable(navegacao__menu);
+    disable(header__popupmenu);
     enable(main);
     return;
   }
@@ -91,12 +92,13 @@ function checkHeader() {
   for (let i = 0; i < buttons.length; i++) {
     disable(buttons[i]);
   }
-  enable(navegacao__header__openmenu);
+  enable(header__options__openmenu);
+  header__options__openmenu.disabled = false;
 
   // Get root element styles, and get font size
 
   // Header admin
-  if (navegacao__header.dataset.admin == "true") {
+  if (header__options.dataset.admin == "true") {
     // header can't fit, and will overflow
     if (header.getBoundingClientRect().width > screenWidth) {
       disable(header.querySelector("h1"));
@@ -114,10 +116,21 @@ function checkHeader() {
   }
 }
 
+window.onresize = () => {
+  checkHeader();
+};
+
+checkHeader();
+
+// Enable for testing on mobile, double tap to reset stylesheets
+window.ondblclick = (e) => {
+  window.location.reload(true);
+};
+
+// functions
 function enable(element) {
   element.removeAttribute("aria-disabled");
   element.removeAttribute("disabled");
-  navegacao__header__openmenu.disabled = false;
   element.style.display = "";
 }
 
@@ -126,13 +139,3 @@ function disable(element) {
   element.setAttribute("disabled", "true");
   element.style.display = "none";
 }
-
-window.ondblclick = (e) => {
-  window.location.reload(true);
-};
-
-window.onresize = () => {
-  checkHeader();
-};
-
-checkHeader();

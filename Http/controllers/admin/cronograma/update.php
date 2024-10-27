@@ -55,7 +55,7 @@ foreach ($queries as $currentquery) {
   $db->query($currentquery)->get();
 }
 
-unlink(base_path("public/uploads/horario.xlsx"));
+$cronogramForm->deleteFile();
 
 Session::put('saved', true);
 

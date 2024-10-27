@@ -18,7 +18,7 @@ form {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 0fr;
-  /* transition: grid-template-rows 0.35s ease-out, background-color 0.35s; */
+
   transition: grid-template-rows 0.5s cubic-bezier(0.3, 0.6, 0.6, 1),
     background-color 0.5s cubic-bezier(0.3, 0.6, 0.6, 1);
 }
@@ -46,6 +46,7 @@ form {
   font-weight: 600;
   padding: 1em;
   cursor: pointer;
+  height: 3.5em;
 
   transition: 0.5s border-radius;
 }

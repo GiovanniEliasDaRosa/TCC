@@ -23,7 +23,7 @@
 
       <p
         <?= isset($errors['error']) ? '' : 'style="display: none" aria-disabled="true" disabled="true"' ?>
-        id="feedbackMessage" class="error <?= isset($errors['error']) ? 'icons warn' : '' ?> ">
+        id="feedbackMessage" class="error icons warn">
         <?php if (isset($errors['error'])) : ?>
           <?= $errors['error'] ?>
         <?php endif; ?>

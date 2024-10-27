@@ -1,26 +1,15 @@
-img {
-  width: 3em;
-  height: 3em;
-  border-radius: 50%;
-}
-
-header,
-#navegacao__header {
+#header,
+#header__options {
   display: flex;
   align-items: center;
   gap: 0.4rem;
 }
 
-header > h1 {
+#header > h1 {
   align-self: center;
 }
 
-#deslog {
-  width: 3em;
-  height: 3em;
-}
-
-header {
+#header {
   background-color: var(--header-bg);
   justify-content: space-between;
   align-items: stretch;
@@ -31,22 +20,30 @@ header {
   max-width: 100%;
 }
 
-header::before {
+#header::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 4.25em;
+  height: 4.125em;
   background-color: var(--bg-color-smooth);
   z-index: -1;
 }
 
-#navegacao__header {
+#header__options {
   gap: 1em;
 }
 
-.navegacao__header__button {
+#header__options__img {
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  display: block;
+}
+
+/* header buttons */
+.header__options__button {
   background-color: var(--secundary);
   color: var(--header-option-text-color);
   text-decoration: none;
@@ -56,18 +53,19 @@ header::before {
   padding: 1em 1.5em;
 }
 
-.navegacao__header__button:hover {
+.header__options__button:is(:hover, :focus-visible) {
   background-color: var(--terciary);
+  border-color: transparent;
 }
 
-.navegacao__header__button.active {
+.header__options__button.active {
   background-color: var(--bg-color) !important;
   color: var(--text-color);
   transform: translateY(0.25em);
   border-radius: 0.5em 0.5em 0 0;
 }
 
-.navegacao__header__button.active::after {
+.header__options__button.active::after {
   content: "";
   position: absolute;
   bottom: -0.7em;
@@ -77,14 +75,19 @@ header::before {
   background-color: var(--bg-color);
 }
 
-:is(#navegacao__header__avisos, #navegacao__header__openmenu, #navegacao__menu__avisos) {
+.header__popupmenu__active {
+  background-color: var(--bg-color);
+  border: solid 0.1em hsla(0, 0%, 100%, 0.2);
+}
+
+:is(#header__options__warnings, #header__options__openmenu, #header__popupmenu__warnings) {
   position: relative;
 }
 
 :is(
-    #navegacao__header__avisos,
-    #navegacao__header__openmenu,
-    #navegacao__menu__avisos
+    #header__options__warnings,
+    #header__options__openmenu,
+    #header__popupmenu__warnings
   )[data-warning]::after {
   content: "";
   position: absolute;
@@ -108,12 +111,17 @@ header::before {
   }
 }
 
+#header__options .normal__nav .deslog {
+  width: 3em;
+  height: 3em;
+}
+
 /* extend */
-#navegacao__header__openmenu {
+#header__options__openmenu {
   margin-right: 0.5em;
 }
 
-#navegacao__menu {
+#header__popupmenu {
   position: fixed;
   inset: 0;
   background-color: var(--bg-color);
@@ -126,11 +134,11 @@ header::before {
   --displace: 2.5rem;
 }
 
-#navegacao__header__closemenu {
+#header__popupmenu__closemenu {
   margin-left: auto;
 }
 
-#navegacao__menu #deslog {
+#header__popupmenu .deslog {
   width: 100%;
   height: auto;
 
@@ -147,7 +155,7 @@ header::before {
   gap: 1em;
 }
 
-#admin > #navegacao__header__closemenu {
+#admin > #header__popupmenu__closemenu {
   margin: 0;
 }
 
@@ -162,28 +170,33 @@ header::before {
   }
 }
 
-#navegacao__menu[data-open="true"] {
+#header__popupmenu[data-open="true"] {
   animation: 0.75s headerAppear cubic-bezier(0.2, 0.3, 0.4, 0.8) forwards;
 }
 
 @keyframes headerAppear {
   0% {
     clip-path: circle(0% at calc(100% - var(--displace)) var(--displace));
+    /* background-color: var(--bg-color); */
+    background-color: var(--bg-color-smooth);
   }
   100% {
     clip-path: circle(200% at calc(100% - var(--displace)) var(--displace));
+    background-color: var(--bg-color);
   }
 }
 
-#navegacao__menu[data-close="true"] {
+#header__popupmenu[data-close="true"] {
   animation: 0.75s headerDisappear cubic-bezier(0.3, 0.5, 0.6, 0.9) forwards;
 }
 
 @keyframes headerDisappear {
   0% {
     clip-path: circle(200% at calc(100% - var(--displace)) var(--displace));
+    background-color: var(--bg-color);
   }
   100% {
     clip-path: circle(0% at calc(100% - var(--displace)) var(--displace));
+    background-color: var(--table-bg-odd);
   }
 }

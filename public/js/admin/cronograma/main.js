@@ -8,6 +8,7 @@ let lastName = "";
 let lastType = "";
 
 upload__button.onclick = () => {
+  disable(feedbackMessage);
   upload__file.click();
 };
 
@@ -56,7 +57,7 @@ function fileHandler(file, name, type) {
 
   if (type.split("/")[1] !== "vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
     feedbackMessage.innerText = "Faça upload de um arquivo EXCEL";
-    feedbackMessage.classList.add("error");
+    feedbackMessage.classList = "error icons warn";
     return false;
   }
 

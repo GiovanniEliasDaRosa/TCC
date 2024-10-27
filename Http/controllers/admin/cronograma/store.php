@@ -42,7 +42,7 @@ for ($row = 2; $row <= $lastRow; $row++) {
 
 $response = $db->query($query)->get();
 
-unlink(base_path("public/uploads/horario.xlsx"));
+$cronogramForm->deleteFile();
 
 Session::put('saved', true);
 

@@ -85,6 +85,11 @@ class CronogramForm
     $this->error("Erro ao tentar ler arquivo EXCEL");
   }
 
+  public function deleteFile()
+  {
+    unlink(base_path("public/uploads/horario.xlsx"));
+  }
+
   public function throw()
   {
     ValidationException::throw($this->errors);
@@ -93,6 +98,7 @@ class CronogramForm
   public function error($message)
   {
     $this->errors['error'] = $message;
+    $this->deleteFile();
     return $this->throw();
   }
 }

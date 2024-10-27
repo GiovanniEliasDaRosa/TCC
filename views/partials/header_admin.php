@@ -1,26 +1,25 @@
-<header>
-  <div class="logo__header">
-    <img src="/img/headerlogo.png" alt="Logo escola" />
-  </div>
+<header id="header">
+  <a class="notButton" href="/admin/">
+    <img src="/img/headerlogo.png" alt="Logo escola" id="header__options__img">
+  </a>
+
   <h1>Tela administrativa</h1>
-  <div id="navegacao__header" data-admin="true">
-    <a class="navegacao__header__button normal__nav <?= headerCronogram($headerSelected) ?>" href="/admin/">Horários</a>
-    <a class="navegacao__header__button normal__nav <?= empty($headerSelected) ? 'active' : '' ?>" href="/admin/avisos" id="navegacao__header__avisos">Avisos</a>
+
+  <div id="header__options" data-admin="true">
+    <a class="header__options__button normal__nav <?= headerCronogram($headerSelected) ?>" href="/admin">Horários</a>
+    <a class="header__options__button normal__nav <?= empty($headerSelected) ? 'active' : '' ?>" href="/admin/avisos" id="header__options__warnings">Avisos</a>
     <form class="normal__nav" method="post" action="/logout" enctype="multipart/form-data">
-      <button type="submit" class="icons nomargin exit" id="deslog"></button>
+      <button type="submit" class="deslog icons nomargin exit"></button>
     </form>
 
-    <button class="navegacao__header__button icons square nomargin bars" id="navegacao__header__openmenu" title="Abrir menu"></button>
+    <button class="header__options__button icons square nomargin bars" id="header__options__openmenu" title="Abrir menu"></button>
 
-    <nav id="navegacao__menu" style="display: none;" aria-disabled="true" disabled="true">
-      <div id="admin">
-        <button class="navegacao__header__button icons square nomargin xmark" id="navegacao__header__closemenu" title="Fechar menu"></button>
-        <h1>Tela administrativa</h1>
-      </div>
-      <a class="navegacao__header__button" href="/admin">Horários</a>
-      <a class="navegacao__header__button" href="/admin/avisos" id="navegacao__header__avisos">Avisos</a>
+    <nav id="header__popupmenu" style="display: none;" aria-disabled="true" disabled="true">
+      <button class="header__options__button icons square nomargin xmark" id="header__popupmenu__closemenu" title="Fechar menu"></button>
+      <a class="header__options__button <?= headerCronogram($headerSelected, 'header__popupmenu__active') ?>" href="/admin">Horários</a>
+      <a class="header__options__button <?= empty($headerSelected) ? 'header__popupmenu__active' : '' ?>" href="/admin/avisos" id="header__popupmenu__warnings">Avisos</a>
       <form method="post" action="/logout" enctype="multipart/form-data">
-        <button type="submit" class="icons exit" id="deslog">Sair</button>
+        <button type="submit" class="deslog icons exit">Sair</button>
       </form>
     </nav>
   </div>

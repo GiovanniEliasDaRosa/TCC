@@ -27,8 +27,8 @@ if (lastWarning.textContent != lastWarningSaw && lastWarning.textContent != "non
   // The next if check if the last warning is greater than the one the user last saw
   // If the administrator deleted one warning and the user saw we don't continue for visual
   if (lastWarning.textContent > lastWarningSaw) {
-    document.querySelector("#navegacao__header__avisos").setAttribute("data-warning", "true");
-    document.querySelector("#navegacao__menu__avisos").setAttribute("data-warning", "true");
-    document.querySelector("#navegacao__header__openmenu").setAttribute("data-warning", "true");
+    document.querySelector("#header__options__warnings").setAttribute("data-warning", "true");
+    document.querySelector("#header__options__openmenu").setAttribute("data-warning", "true");
+    document.querySelector("#header__popupmenu__warnings").setAttribute("data-warning", "true");
   }
 }

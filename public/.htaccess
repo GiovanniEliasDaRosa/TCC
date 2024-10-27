@@ -1,5 +1,9 @@
 RewriteEngine On
 
+# Deny access to the /uploads directory
+RewriteCond %{REQUEST_URI} ^/uploads/ [NC]
+RewriteRule ^ - [F,L]
+
 # Allow access to files in the public directory
 RewriteCond %{REQUEST_URI} ^/css/ [OR]
 RewriteCond %{REQUEST_URI} ^/js/ [OR]
