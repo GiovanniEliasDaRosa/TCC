@@ -1,10 +1,12 @@
 const popUpAviso = document.querySelector("#popUpAviso");
+const popUpAviso__div = document.querySelector("#popUpAviso__div");
 const popUpAviso__header__title = popUpAviso.querySelector("#popUpAviso__header__title");
 const popUpAviso__content = popUpAviso.querySelector("#popUpAviso__content");
 
 const popUpAviso__header__close = document.querySelector("#popUpAviso__header__close");
 const popUpAviso__header__opens = document.querySelectorAll(".popUpAviso__header__open");
 let popupOpen = false;
+let animatePopUp = "";
 
 popUpAviso__header__opens.forEach((item) => {
   item.onclick = () => {
@@ -19,16 +21,40 @@ popUpAviso__header__opens.forEach((item) => {
     popUpAviso__date__start.innerText = dateStart.innerText;
     popUpAviso__date__end.innerText = dateEnd.innerText;
 
-    popUpAviso.style.display = "";
-    popUpAviso.removeAttribute("aria-disabled");
+    enable(popUpAviso);
     popupOpen = true;
+    clearTimeout(animatePopUp);
+
+    popUpAviso.classList.remove("close");
+    popUpAviso__div.classList.remove("close");
+
+    popUpAviso.classList.add("open");
+    popUpAviso__div.classList.add("open");
+
+    animatePopUp = setTimeout(() => {
+      popUpAviso.classList.remove("open");
+      popUpAviso__div.classList.remove("open");
+    }, 1000);
   };
 });
 
 popUpAviso__header__close.onclick = () => {
-  popUpAviso.style.display = "none";
-  popUpAviso.setAttribute("aria-disabled", "true");
   popupOpen = false;
+
+  clearTimeout(animatePopUp);
+
+  popUpAviso.classList.remove("open");
+  popUpAviso__div.classList.remove("open");
+
+  popUpAviso.classList.add("close");
+  popUpAviso__div.classList.add("close");
+
+  animatePopUp = setTimeout(() => {
+    popUpAviso.classList.remove("close");
+    popUpAviso__div.classList.remove("close");
+
+    disable(popUpAviso);
+  }, 1000);
 };
 
 const avisos = document.querySelector("#avisos");
