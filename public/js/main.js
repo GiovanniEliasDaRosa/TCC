@@ -1,6 +1,5 @@
-// cookies
+// #region Cookies
 if (localStorage.getItem("accepted-cookies") == null) {
-  // style="display: none;" aria-disabled="true" disabled="true"
   document.body.innerHTML += `<div id="cookie__banner">
     <div id="cookie__banner__description">
       <img src="/img/cookies.png" alt="Imagem de cookies" id="cookie__banner__img"/>
@@ -19,20 +18,21 @@ if (localStorage.getItem("accepted-cookies") == null) {
     cookie__banner.setAttribute("disabled", "true");
   };
 }
+// #endregion
 
-// header
+// #region Header
 const header = document.querySelector("#header");
 const main = document.querySelector("main");
 const header__options = document.querySelector("#header__options");
 const header__options__openmenu = document.querySelector("#header__options__openmenu");
 const header__popupmenu = document.querySelector("#header__popupmenu");
 const header__popupmenu__closemenu = document.querySelector("#header__popupmenu__closemenu");
-let size = 25;
+let size = 24;
 let headerMenuTimeout = "";
 let headerH1Timeout = "";
 
 if (header__options.dataset.admin == "true") {
-  size = 42;
+  size = 47;
 }
 
 header__options__openmenu.onclick = () => {
@@ -121,13 +121,85 @@ window.onresize = () => {
 };
 
 checkHeader();
+// #endregion
+
+// #region Themes
+const root = document.querySelector(":root");
+const changetheme__button = Array.from(document.querySelectorAll(".changetheme__button"));
+
+changetheme__button.forEach((changeThemeButton) => {
+  changeThemeButton.onclick = () => {
+    darkTheme = !darkTheme;
+    saveTheme();
+    updateTheme();
+  };
+});
+
+let darkTheme = true;
+loadTheme();
+
+function loadTheme() {
+  let rootTheme = root.getAttribute("data-theme");
+  if (rootTheme == "light") {
+    darkTheme = false;
+  }
+
+  // Try to get the saved theme from localStorage
+  let savedTheme = localStorage.getItem("theme");
+
+  // If there is no saved theme in localStorage, check the cookie
+  if (savedTheme == null) {
+    savedTheme = getCookie("theme");
+  }
+
+  // If prefers Light Theme
+  if (savedTheme == null && window.matchMedia("(prefers-color-scheme: light)").matches) {
+    darkTheme = false;
+    saveTheme();
+  }
+
+  updateTheme();
+}
+
+function updateTheme() {
+  if (darkTheme) {
+    root.setAttribute("data-theme", "dark");
+
+    changetheme__button.forEach((changeThemeButton) => {
+      changeThemeButton.classList.remove("moon");
+    });
+  } else {
+    root.setAttribute("data-theme", "light");
+
+    changetheme__button.forEach((changeThemeButton) => {
+      changeThemeButton.classList.add("moon");
+    });
+  }
+}
+
+function saveTheme() {
+  let theme = darkTheme ? "dark" : "light";
+
+  document.cookie = `theme=${theme}; SameSite=Strict; path=/;`;
+
+  // Save the theme in localStorage
+  localStorage.setItem("theme", theme);
+}
+
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(";").shift();
+}
+// #endregion
 
 // Enable for testing on mobile, double tap to reset stylesheets
-window.ondblclick = (e) => {
-  window.location.reload(true);
-};
+// window.ondblclick = (e) => {
+//   localStorage.clear();
+//   window.location.reload(true);
+// };
 
-// functions
+// #region Functions
 function enable(element) {
   element.removeAttribute("aria-disabled");
   element.removeAttribute("disabled");
@@ -139,3 +211,4 @@ function disable(element) {
   element.setAttribute("disabled", "true");
   element.style.display = "none";
 }
+// #endregion

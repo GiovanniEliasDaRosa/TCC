@@ -25,7 +25,7 @@ upload__form.onSubmit = (e) => {
     type.split("/")[1] !== "vnd.openxmlformats-officedocument.spreadsheetml.sheet"
   ) {
     feedbackMessage.innerText = "Faça upload de um arquivo EXCEL .xlsx";
-    feedbackMessage.classList.add("error");
+    feedbackMessage.classList = "error icons warn";
     enable(feedbackMessage);
     e.preventDefault();
     return;

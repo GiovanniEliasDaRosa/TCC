@@ -43,6 +43,11 @@
   align-items: center;
 }
 
+.icons.square.big {
+  width: 3em;
+  height: 3em;
+}
+
 .icons.nomargin::before {
   margin-right: 0;
 }
@@ -101,6 +106,22 @@
 
 .icons.bars::before {
   content: "\f0c9";
+}
+
+.icons.sun::before {
+  content: "\f185";
+}
+
+.icons.moon::before {
+  content: "\f186";
+}
+
+.icons.cookie-bite::before {
+  content: "\f564";
+}
+
+.icons.copyright::before {
+  content: "\f1f9";
 }
 
 .icons.loading::after {

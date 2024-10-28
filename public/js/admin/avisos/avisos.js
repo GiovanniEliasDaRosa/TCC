@@ -40,11 +40,7 @@ form.addEventListener("submit", (e) => {
     enable(dt_fim__mensagem);
   }
 
-  // if (dt_inicio.value == "" || dt_fim.value == "") {
-  //   return;
-  // }
-
-  // Converte a string para um objeto Date em UTC
+  // Converts the string into Date object (in UTC)
   let postagem = new Date(dt_inicio.value + "T00:00:00").setHours(0, 0, 0, 0);
   let expiracao = new Date(dt_fim.value + "T00:00:00").setHours(0, 0, 0, 0);
   let agora = new Date().setHours(0, 0, 0, 0);
@@ -63,16 +59,6 @@ form.addEventListener("submit", (e) => {
     enable(dt_inicio__mensagem);
   }
 });
-
-function enable(element) {
-  element.style.display = "";
-  element.removeAttribute("aria-disabled");
-}
-
-function disable(element) {
-  element.style.display = "none";
-  element.setAttribute("aria-disabled", "true");
-}
 
 if (deletarAvisoBotao != null) {
   deletarAvisoBotao.onclick = () => {

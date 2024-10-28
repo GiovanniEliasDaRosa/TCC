@@ -24,6 +24,9 @@
   text-wrap: balance;
 }
 
+/* MARK: Popup aviso
+*/
+/* #region */
 .aviso__date__end,
 .popUpAviso__header__open {
   flex: 0 0 fit-content;
@@ -121,6 +124,7 @@
 #popUpAviso__div.close {
   animation: 0.75s popUpAvisoDiv cubic-bezier(0.3, 0.9, 0.7, 1.3) reverse forwards;
 }
+/*#endregion*/
 
 @media (max-width: 35em) {
   #popUpAviso__calendar {

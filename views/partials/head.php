@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-theme="<?= getTheme() ?>">
 
 <head>
   <meta charset="UTF-8">
@@ -11,8 +11,7 @@
   <link rel="stylesheet" type="text/css" href="/css/header.css">
   <link rel="stylesheet" type="text/css" href="/css/icons.css">
 
-  <script src="/js/user/main.js" defer="true"></script>
+  <script src="/js/main.js" defer="true"></script>
   <script>
-    /*to prevent Firefox FOUC, this must be here*/
-    let FF_FOUC_FIX;
+    let FF_FOUC_FIX; // to prevent Firefox FOUC, this must be here
   </script>

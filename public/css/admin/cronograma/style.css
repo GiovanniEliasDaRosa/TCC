@@ -11,7 +11,9 @@ main {
   width: 100vw;
 }
 
-/* actions */
+/* MARK: Action
+*/
+/* #region */
 #upload__form {
   display: flex;
   justify-content: flex-end;
@@ -30,9 +32,11 @@ main {
 #upload__button {
   flex: 0 0 fit-content;
 }
+/* #endregion */
 
-/* table */
-
+/* MARK: Table
+*/
+/* #region */
 #tables {
   display: grid;
   grid-template-columns: 1fr;
@@ -65,18 +69,20 @@ td {
   border-right: solid 0.2rem var(--border-smooth);
 }
 
+.dayNight,
+.newday {
+  color: var(--table-header-color);
+  font-weight: 900;
+}
+
 .dayNight {
   font-size: 1.4rem;
-  font-weight: 900;
   --line-bg-color: var(--day-night);
-  color: white;
 }
 
 .newday {
   font-size: 1.25rem;
-  font-weight: 900;
   --line-bg-color: var(--new-day);
-  color: white;
 }
 
 tr:has(.dayNight, .newday) td {
@@ -86,3 +92,4 @@ tr:has(.dayNight, .newday) td {
 tr.break td {
   background-color: var(--break);
 }
+/* #endregion */

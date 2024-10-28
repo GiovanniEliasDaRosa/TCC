@@ -1,2 +1,0 @@
-<a href="/" style="background: <?= urlIs('/') ? "hsl(0, 50%, 50%)" :  "hsl(120, 50%, 50%)" ?> ">Home</a>
-<a href="/avisos" style="background: <?= urlIs('/avisos') ? "hsl(0, 50%, 50%)" :  "hsl(120, 50%, 50%)" ?> " aria-current="page">About</a>

@@ -4,6 +4,8 @@
 </head>
 
 <body>
+  <?php require(BASE_PATH . '/views/partials/header_user.php') ?>
+
   <main>
     <form action="/login" method="POST" id="enviar">
       <h1>Login</h1>

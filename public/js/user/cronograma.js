@@ -4,16 +4,14 @@ const selectedClass = document.querySelector("#selectedClass");
 const active = document.querySelector(".accordion[data-active='true']");
 
 setTimeout(() => {
-  active.click();
+  active.querySelector(".accordion-hearder").click();
 }, 100);
 
 accordions.forEach((accordion) => {
-  accordion.addEventListener("click", () => {
-    console.log(accordion);
-    console.log(accordion.querySelector(".accordion-body"));
+  accordion.querySelector(".accordion-hearder").onclick = () => {
     const body = accordion.querySelector(".accordion-body");
     body.classList.toggle("active");
-  });
+  };
 });
 
 selectedClass.onchange = (e) => {

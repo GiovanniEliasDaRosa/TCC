@@ -1,16 +1,19 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
 }
 
 main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
   width: 20em;
-  max-width: 100%;
+  max-width: 100vw;
 }
 
 form {
-  width: 100%;
   border: solid 0.25em var(--border-smooth);
   padding: 1em;
   border-radius: 0.5em;

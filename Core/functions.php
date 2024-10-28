@@ -67,3 +67,12 @@ function headerCronogram($headerSelected, $wanted = 'active')
 
   return $headerSelected == 'cronogram' ? $wanted : '';
 }
+
+function getTheme()
+{
+  if (isset($_COOKIE['theme']) && $_COOKIE['theme'] == 'light') {
+    return "light";
+  }
+
+  return "dark";
+}
