@@ -30,6 +30,8 @@ const header__popupmenu__closemenu = document.querySelector("#header__popupmenu_
 let size = 24;
 let headerMenuTimeout = "";
 let headerH1Timeout = "";
+let headerMenuShown = false;
+let fontSize = parseFloat(window.getComputedStyle(document.documentElement).fontSize);
 
 if (header__options.dataset.admin == "true") {
   size = 47;
@@ -74,10 +76,9 @@ function checkHeader() {
   );
 
   clearTimeout(headerH1Timeout);
-  let responsive = parseFloat(window.getComputedStyle(document.documentElement).fontSize);
   let screenWidth = window.innerWidth;
 
-  if (screenWidth > size * responsive) {
+  if (screenWidth > size * fontSize) {
     disable(header__options__openmenu);
     for (let i = 0; i < buttons.length; i++) {
       enable(buttons[i]);
@@ -86,8 +87,10 @@ function checkHeader() {
 
     disable(header__popupmenu);
     enable(main);
+    headerMenuShown = true;
     return;
   }
+  headerMenuShown = false;
 
   for (let i = 0; i < buttons.length; i++) {
     disable(buttons[i]);
@@ -194,10 +197,132 @@ function getCookie(name) {
 // #endregion
 
 // Enable for testing on mobile, double tap to reset stylesheets
-// window.ondblclick = (e) => {
-//   localStorage.clear();
-//   window.location.reload(true);
-// };
+window.ondblclick = () => {
+  localStorage.clear();
+  window.location.reload(true);
+};
+
+let currentX = 0;
+let startTouchX = 0;
+let thresh = window.innerWidth / 14;
+let canDragPage = false;
+let invalidTouch = false;
+
+let currentPage = null;
+let pathname = window.location.pathname;
+if (pathname == "/") {
+  currentPage = "cronogram";
+} else if (pathname == "/avisos") {
+  currentPage = "warnings";
+}
+
+setTimeout(() => {
+  canDragPage = true;
+}, 1000);
+
+window.ontouchstart = (e) => {
+  startTouchX = e.changedTouches[0].clientX;
+  currentX = 0;
+  canDragPage = true;
+  invalidTouch = false;
+
+  if (inValidTouch()) {
+    stopDrag();
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    return;
+  }
+
+  document.body.style.width = "100vw";
+  document.body.style.overflow = "hidden";
+};
+
+window.ontouchmove = (e) => {
+  currentX = e.changedTouches[0].clientX;
+
+  if (inValidTouch()) {
+    stopDrag();
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    return;
+  }
+
+  if (currentPage == "cronogram" && currentX < startTouchX) {
+    main.classList.add("pullAction");
+    main.classList.add("warnings");
+  } else if (currentPage == "warnings" && currentX > startTouchX) {
+    main.classList.add("pullAction");
+    main.classList.add("cronogram");
+  } else {
+    stopDrag();
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    return;
+  }
+
+  let percent = (currentX - startTouchX) / thresh;
+  main.style.transform = `translateX(${percent}%)`;
+  main.style.transition = `none`;
+};
+
+window.ontouchcancel = (e) => {
+  ontouchend(e);
+};
+
+window.ontouchend = (e) => {
+  if (inValidTouch()) {
+    stopDrag();
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    return;
+  }
+
+  currentX = e.changedTouches[0].clientX;
+  stopDrag();
+
+  if (currentPage == "cronogram") {
+    if (currentX < startTouchX) {
+      if (Math.abs(startTouchX - currentX) > thresh) {
+        header__options.children[1].click();
+      }
+    }
+  }
+  if (currentPage == "warnings") {
+    if (currentX > startTouchX) {
+      if (Math.abs(startTouchX - currentX) > thresh) {
+        header__options.children[0].click();
+      }
+    }
+  }
+
+  startTouchX = 0;
+  currentX = 0;
+};
+
+function inValidTouch() {
+  return (
+    !canDragPage ||
+    (currentPage != "cronogram" && currentPage != "warnings") ||
+    window.innerWidth > 40 * fontSize ||
+    invalidTouch
+  );
+}
+
+function stopDrag() {
+  main.classList.remove("pullAction");
+  main.classList.remove("cronogram");
+  main.classList.remove("warnings");
+
+  document.body.style.width = "";
+  document.body.style.overflow = "";
+
+  main.style.transform = `translateX(0%))`;
+  main.style.transition = `0.2s transform`;
+
+  // let testingA = document.createElement("div");
+  // testingA.innerText = main.style.transform + " || " + main.style.transition;
+  // main.appendChild(testingA);
+}
 
 // #region Functions
 function enable(element) {

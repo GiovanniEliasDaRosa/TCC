@@ -107,12 +107,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   min-height: 100vh;
   min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-}
+  /* display: flex; */
+  /* flex-direction: column; */
 
-.test {
-  background: red !important;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
 }
 
 :focus-visible {
@@ -211,6 +211,35 @@ main {
   margin: 0 auto;
   width: min(50em, 100%);
   max-width: 100%;
+  transition: 0.2s transform;
+  position: relative;
+}
+
+main.pullAction.cronogram::before,
+main.pullAction.warnings::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  font-size: 1rem;
+  font-weight: 900;
+  padding-top: 1em;
+  background: var(--bg-color-smooth);
+}
+
+main.cronogram::before {
+  content: "Horários";
+  left: -4em;
+  writing-mode: sideways-lr;
+  text-align: right;
+  padding-left: 3em;
+}
+
+main.warnings::after {
+  content: "Avisos";
+  right: -4em;
+  writing-mode: sideways-rl;
+  text-align: left;
+  padding-right: 3em;
 }
 
 #noData {
