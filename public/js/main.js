@@ -129,6 +129,7 @@ checkHeader();
 // #region Themes
 const root = document.querySelector(":root");
 const changetheme__button = Array.from(document.querySelectorAll(".changetheme__button"));
+const error__img = document.querySelector("#error__img");
 
 changetheme__button.forEach((changeThemeButton) => {
   changeThemeButton.onclick = () => {
@@ -165,18 +166,22 @@ function loadTheme() {
 }
 
 function updateTheme() {
+  let type = "light";
   if (darkTheme) {
-    root.setAttribute("data-theme", "dark");
-
+    type = "dark";
     changetheme__button.forEach((changeThemeButton) => {
       changeThemeButton.classList.remove("moon");
     });
   } else {
-    root.setAttribute("data-theme", "light");
-
     changetheme__button.forEach((changeThemeButton) => {
       changeThemeButton.classList.add("moon");
     });
+  }
+
+  root.setAttribute("data-theme", type);
+
+  if (error__img != null) {
+    error__img.src = `/img/404error-${type}.png`;
   }
 }
 
@@ -202,11 +207,15 @@ window.ondblclick = () => {
   window.location.reload(true);
 };
 
+// #region Tab Swipe
 let currentX = 0;
 let startTouchX = 0;
 let thresh = window.innerWidth / 14;
 let canDragPage = false;
 let invalidTouch = false;
+
+main.classList.add("icons");
+main.classList.add("outline");
 
 let currentPage = null;
 let pathname = window.location.pathname;
@@ -226,7 +235,7 @@ window.ontouchstart = (e) => {
   canDragPage = true;
   invalidTouch = false;
 
-  if (inValidTouch()) {
+  if (inValidTouch(e)) {
     stopDrag();
     e.preventDefault();
     e.stopImmediatePropagation();
@@ -240,23 +249,21 @@ window.ontouchstart = (e) => {
 window.ontouchmove = (e) => {
   currentX = e.changedTouches[0].clientX;
 
-  if (inValidTouch()) {
+  if (inValidTouch(e)) {
     stopDrag();
-    e.preventDefault();
-    e.stopImmediatePropagation();
     return;
   }
 
   if (currentPage == "cronogram" && currentX < startTouchX) {
     main.classList.add("pullAction");
     main.classList.add("warnings");
+    main.classList.add("after");
   } else if (currentPage == "warnings" && currentX > startTouchX) {
     main.classList.add("pullAction");
     main.classList.add("cronogram");
+    main.classList.remove("after");
   } else {
     stopDrag();
-    e.preventDefault();
-    e.stopImmediatePropagation();
     return;
   }
 
@@ -270,15 +277,11 @@ window.ontouchcancel = (e) => {
 };
 
 window.ontouchend = (e) => {
-  if (inValidTouch()) {
-    stopDrag();
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    return;
-  }
+  stopDrag();
+
+  if (inValidTouch(e)) return;
 
   currentX = e.changedTouches[0].clientX;
-  stopDrag();
 
   if (currentPage == "cronogram") {
     if (currentX < startTouchX) {
@@ -299,12 +302,16 @@ window.ontouchend = (e) => {
   currentX = 0;
 };
 
-function inValidTouch() {
+function inValidTouch(e) {
+  let eChangedTouchTarget = e.changedTouches[0].target;
   return (
     !canDragPage ||
     (currentPage != "cronogram" && currentPage != "warnings") ||
     window.innerWidth > 40 * fontSize ||
-    invalidTouch
+    invalidTouch ||
+    eChangedTouchTarget.closest("#popUpAviso") != null ||
+    eChangedTouchTarget.closest("#cookie__banner") != null ||
+    eChangedTouchTarget.closest("#header") != null
   );
 }
 
@@ -318,11 +325,8 @@ function stopDrag() {
 
   main.style.transform = `translateX(0%))`;
   main.style.transition = `0.2s transform`;
-
-  // let testingA = document.createElement("div");
-  // testingA.innerText = main.style.transform + " || " + main.style.transition;
-  // main.appendChild(testingA);
 }
+// #endregion
 
 // #region Functions
 function enable(element) {

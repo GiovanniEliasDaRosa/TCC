@@ -224,22 +224,20 @@ main.pullAction.warnings::after {
   font-weight: 900;
   padding-top: 1em;
   background: var(--bg-color-smooth);
+  margin: 0;
+  padding-inline: 0.5em;
 }
 
 main.cronogram::before {
-  content: "Horários";
-  left: -4em;
-  writing-mode: sideways-lr;
-  text-align: right;
-  padding-left: 3em;
+  left: -5.5em;
+  padding-left: 4em !important;
+  content: "\f073";
 }
 
 main.warnings::after {
-  content: "Avisos";
-  right: -4em;
-  writing-mode: sideways-rl;
-  text-align: left;
-  padding-right: 3em;
+  right: -5.5em;
+  padding-right: 4em !important;
+  content: "\f071";
 }
 
 #noData {
