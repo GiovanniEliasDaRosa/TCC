@@ -4,7 +4,13 @@ RewriteEngine On
 RewriteCond %{REQUEST_URI} ^/uploads/ [NC]
 RewriteRule ^ - [F,L]
 
-# Allow access to files in the public directory
+# Deny access to the /css/, /js/, and /img/ directories but allow access to files within them
+RewriteCond %{REQUEST_URI} ^/css/$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^/js/$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^/img/$ [NC]
+RewriteRule ^ - [F,L]
+
+# Allow access to files in the /css/, /js/, and /img/ directories
 RewriteCond %{REQUEST_URI} ^/css/ [OR]
 RewriteCond %{REQUEST_URI} ^/js/ [OR]
 RewriteCond %{REQUEST_URI} ^/img/
