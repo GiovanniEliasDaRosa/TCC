@@ -1,6 +1,6 @@
 <header id="header">
   <a class="notButton" href="/">
-    <img src="/img/headerlogo.png" alt="Logo escola" id="header__options__img">
+    <img src="/img/headerlogo.png" alt="Logo escola" id="header__options__img" data-loading="true">
   </a>
 
   <div id="header__options">

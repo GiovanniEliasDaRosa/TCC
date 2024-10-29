@@ -2,7 +2,7 @@
 if (localStorage.getItem("accepted-cookies") == null) {
   document.body.innerHTML += `<div id="cookie__banner">
     <div id="cookie__banner__description">
-      <img src="/img/cookies.png" alt="Imagem de cookies" id="cookie__banner__img"/>
+      <img src="/img/cookies.png" alt="Imagem de cookies" id="cookie__banner__img" data-loading="true"/>
       <p>Este site utiliza cookies para melhorar sua experiência. Ao continuar navegando, você concorda com o uso de cookies. <a href="/politica-de-cookies" class="link">Saiba mais</a>.</p>
     </div>
     <button id="accept__cookies">Aceitar</button>
@@ -10,12 +10,17 @@ if (localStorage.getItem("accepted-cookies") == null) {
 
   const cookie__banner = document.querySelector("#cookie__banner");
   const accept__cookies = document.querySelector("#accept__cookies");
+  const cookie__banner__img = document.querySelector("#cookie__banner__img");
 
   accept__cookies.onclick = () => {
     localStorage.setItem("accepted-cookies", "true");
     cookie__banner.style.display = "none";
     cookie__banner.setAttribute("aria-disabled", "true");
     cookie__banner.setAttribute("disabled", "true");
+  };
+
+  cookie__banner__img.onload = () => {
+    cookie__banner__img.removeAttribute("data-loading");
   };
 }
 // #endregion
@@ -27,9 +32,14 @@ const header__options = document.querySelector("#header__options");
 const header__options__openmenu = document.querySelector("#header__options__openmenu");
 const header__popupmenu = document.querySelector("#header__popupmenu");
 const header__popupmenu__closemenu = document.querySelector("#header__popupmenu__closemenu");
+const header__options__img = document.querySelector("#header__options__img");
 let size = 24;
 let headerMenuTimeout = "";
 let headerH1Timeout = "";
+
+header__options__img.onload = () => {
+  header__options__img.removeAttribute("data-loading");
+};
 
 if (header__options.dataset.admin == "true") {
   size = 47;

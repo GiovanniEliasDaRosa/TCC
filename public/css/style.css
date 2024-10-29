@@ -265,6 +265,17 @@ footer li {
   align-items: center;
 }
 
+#cookie__banner__img {
+  width: 2em;
+  height: 2em;
+}
+
+#cookie__banner__img[data-loading="true"] {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAMAAADz0U65AAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAGNQTFRFAAAAf0U0hk4+iVFChk09f0U0i1RFhVBBiVRGg04/jVdJilJEh1JEd0Q2hU9AdkI0hE9BhEs7dUEzilRGgU0/hk4/bzwtfko8h1FDcj8xiVNFfUo8g0s6gEs8f0s8iFFCf0U0dUGEfgAAACF0Uk5TAEXC/70u9f/////w//////+j/////////////5z//+gfMQXO/wAAAEZJREFUeJwVi0EKgDAQxJp21wVdVKz/f5s/EPUgKFjbgYRchgBUXlDaHmJfbTXTBOUOA8m+6JyOrBwz+4J2JV9ju6pLMNl+jjEMhT3RjtgAAAAASUVORK5CYII=);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
 #cookie__banner__description {
   display: flex;
   gap: 0.5em;
