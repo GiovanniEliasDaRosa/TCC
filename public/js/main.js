@@ -373,7 +373,9 @@ function inValidTouch(e) {
 }
 
 function stopDrag() {
-  disable(tab__swipe);
+  if (tab__swipe != null) {
+    disable(tab__swipe);
+  }
   main.classList.remove("pullAction");
   main.classList.remove("cronogram");
   main.classList.remove("warnings");
