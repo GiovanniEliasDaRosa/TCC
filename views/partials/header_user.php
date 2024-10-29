@@ -2,7 +2,10 @@
   <a class="notButton" href="/">
     <img src="/img/headerlogo.png" alt="Logo escola" id="header__options__img">
   </a>
-
+  <div id="tab__swipe" style="display: none;" aria-disabled="true" disabled="true">
+    <h1 id="tab__swipe__current"></h1>
+    <h1 id="tab__swipe__next"></h1>
+  </div>
   <div id="header__options">
     <a class="header__options__button normal__nav <?= headerCronogram($headerSelected) ?>" href="/" style="display: none;" aria-disabled="true" disabled="true">Horários</a>
     <a class="header__options__button normal__nav <?= empty($headerSelected) ? 'active' : '' ?>" href="/avisos" id="header__options__warnings" style="display: none;" aria-disabled="true" disabled="true">Avisos</a>

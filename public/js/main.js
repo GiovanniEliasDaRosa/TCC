@@ -214,6 +214,10 @@ let thresh = window.innerWidth / 14;
 let canDragPage = false;
 let invalidTouch = false;
 
+const tab__swipe = document.querySelector("#tab__swipe");
+const tab__swipe__current = document.querySelector("#tab__swipe__current");
+const tab__swipe__next = document.querySelector("#tab__swipe__next");
+
 main.classList.add("icons");
 main.classList.add("outline");
 
@@ -221,8 +225,13 @@ let currentPage = null;
 let pathname = window.location.pathname;
 if (pathname == "/") {
   currentPage = "cronogram";
+  tab__swipe.setAttribute("data-current-page", "Horários");
+  tab__swipe.setAttribute("data-next-page", "Avisos");
 } else if (pathname == "/avisos") {
   currentPage = "warnings";
+  tab__swipe.setAttribute("data-current-page", "Avisos");
+  tab__swipe.setAttribute("data-next-page", "Horários");
+  tab__swipe.insertBefore(tab__swipe__next, tab__swipe__current);
 }
 
 setTimeout(() => {
@@ -244,6 +253,16 @@ window.ontouchstart = (e) => {
 
   document.body.style.width = "100vw";
   document.body.style.overflow = "hidden";
+
+  tab__swipe__current.innerText = tab__swipe.dataset.currentPage;
+  tab__swipe__next.innerText = tab__swipe.dataset.nextPage;
+
+  if (!headerMenuShown) {
+    enable(tab__swipe);
+    tab__swipe__current.style.opacity = 0;
+    tab__swipe__next.style.opacity = 0;
+    tab__swipe.style = `--x: ${-1000}%`;
+  }
 };
 
 window.ontouchmove = (e) => {
@@ -253,6 +272,9 @@ window.ontouchmove = (e) => {
     stopDrag();
     return;
   }
+
+  document.body.style.width = "100vw";
+  document.body.style.overflow = "hidden";
 
   if (currentPage == "cronogram" && currentX < startTouchX) {
     main.classList.add("pullAction");
@@ -267,9 +289,44 @@ window.ontouchmove = (e) => {
     return;
   }
 
-  let percent = (currentX - startTouchX) / thresh;
-  main.style.transform = `translateX(${percent}%)`;
+  let percentMove = (currentX - startTouchX) / thresh;
+  let percent = (currentX - startTouchX) / (window.innerWidth / 2);
+  main.style.transform = `translateX(${percentMove}%)`;
   main.style.transition = `none`;
+
+  if (headerMenuShown) return;
+
+  enable(tab__swipe);
+
+  let calcCulatedPercentMove = percentMove * 10;
+  console.log(calcCulatedPercentMove);
+
+  if (calcCulatedPercentMove > 100) {
+    calcCulatedPercentMove = 100;
+  } else if (calcCulatedPercentMove < -100) {
+    calcCulatedPercentMove = -100;
+  }
+
+  if (calcCulatedPercentMove < 0) {
+    calcCulatedPercentMove *= -1;
+  } else {
+    calcCulatedPercentMove *= -1;
+    calcCulatedPercentMove += 100;
+  }
+
+  tab__swipe.style = `--x: ${calcCulatedPercentMove}% `;
+
+  main.style.transition = `none`;
+
+  let percentAbs = Math.abs(percent);
+
+  if (percentAbs > 0.5) {
+    tab__swipe__current.style.opacity = 1 - percentAbs;
+    tab__swipe__next.style.opacity = percentAbs;
+  } else {
+    tab__swipe__current.style.opacity = 1 - percentAbs;
+    tab__swipe__next.style.opacity = percentAbs;
+  }
 };
 
 window.ontouchcancel = (e) => {
@@ -316,6 +373,7 @@ function inValidTouch(e) {
 }
 
 function stopDrag() {
+  disable(tab__swipe);
   main.classList.remove("pullAction");
   main.classList.remove("cronogram");
   main.classList.remove("warnings");
