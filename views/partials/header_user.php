@@ -1,6 +1,6 @@
 <header id="header" class="hasBG">
   <a class="notButton" href="/">
-    <img src="/img/headerlogo.png" alt="Logo escola" id="header__options__img" data-loading="true">
+    <img src="/img/headerlogo.png" alt="Logo da escola" id="header__options__img" data-loading="true">
   </a>
   <div id="tab__swipe" style="display: none;" aria-disabled="true" disabled="true">
     <h1 id="tab__swipe__current"></h1>

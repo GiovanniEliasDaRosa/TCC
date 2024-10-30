@@ -6,10 +6,13 @@ const popUpAviso__content = popUpAviso.querySelector("#popUpAviso__content");
 const popUpAviso__header__close = document.querySelector("#popUpAviso__header__close");
 const popUpAviso__header__opens = document.querySelectorAll(".popUpAviso__header__open");
 let popupOpen = false;
+let animatingPopUp = false;
 let animatePopUp = "";
 
 popUpAviso__header__opens.forEach((item) => {
   item.onclick = () => {
+    if (animatingPopUp) return;
+
     let aviso = item.parentElement;
     let dateStart = aviso.querySelector(".aviso__date__start");
     let title = aviso.querySelector(".aviso__title");
@@ -25,20 +28,24 @@ popUpAviso__header__opens.forEach((item) => {
     popupOpen = true;
     clearTimeout(animatePopUp);
 
-    popUpAviso.classList.remove("close");
-    popUpAviso__div.classList.remove("close");
-
     popUpAviso.classList.add("open");
     popUpAviso__div.classList.add("open");
+
+    popUpAviso.classList.remove("close");
+    popUpAviso__div.classList.remove("close");
+    animatingPopUp = true;
 
     animatePopUp = setTimeout(() => {
       popUpAviso.classList.remove("open");
       popUpAviso__div.classList.remove("open");
+      animatingPopUp = false;
     }, 1000);
   };
 });
 
 popUpAviso__header__close.onclick = () => {
+  if (animatingPopUp) return;
+
   popupOpen = false;
 
   clearTimeout(animatePopUp);
@@ -49,10 +56,14 @@ popUpAviso__header__close.onclick = () => {
   popUpAviso.classList.add("close");
   popUpAviso__div.classList.add("close");
 
+  popUpAviso.classList.remove("open");
+  popUpAviso__div.classList.remove("open");
+  animatingPopUp = true;
+
   animatePopUp = setTimeout(() => {
     popUpAviso.classList.remove("close");
     popUpAviso__div.classList.remove("close");
-
+    animatingPopUp = false;
     disable(popUpAviso);
   }, 1000);
 };

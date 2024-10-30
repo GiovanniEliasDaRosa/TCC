@@ -2,7 +2,7 @@
 if (localStorage.getItem("accepted-cookies") == null) {
   document.body.innerHTML += `<div id="cookie__banner">
     <div id="cookie__banner__description">
-      <img src="/img/cookies.png" alt="Imagem de cookies" id="cookie__banner__img" data-loading="true"/>
+      <img src="/img/cookies.png" alt="Imagem de cookies" id="cookie__banner__img"/>
       <p>Este site utiliza cookies para melhorar sua experiência. Ao continuar navegando, você concorda com o uso de cookies. <a href="/politica-de-cookies" class="link">Saiba mais</a>.</p>
     </div>
     <button id="accept__cookies">Aceitar</button>
@@ -10,17 +10,12 @@ if (localStorage.getItem("accepted-cookies") == null) {
 
   const cookie__banner = document.querySelector("#cookie__banner");
   const accept__cookies = document.querySelector("#accept__cookies");
-  const cookie__banner__img = document.querySelector("#cookie__banner__img");
 
   accept__cookies.onclick = () => {
     localStorage.setItem("accepted-cookies", "true");
     cookie__banner.style.display = "none";
     cookie__banner.setAttribute("aria-disabled", "true");
     cookie__banner.setAttribute("disabled", "true");
-  };
-
-  cookie__banner__img.onload = () => {
-    cookie__banner__img.removeAttribute("data-loading");
   };
 }
 // #endregion
@@ -261,8 +256,8 @@ window.ontouchstart = (e) => {
     return;
   }
 
-  document.body.style.width = "100vw";
-  document.body.style.overflow = "hidden";
+  root.style.width = "100vw";
+  root.style.overflow = "hidden";
 
   tab__swipe__current.innerText = tab__swipe.dataset.currentPage;
   tab__swipe__next.innerText = tab__swipe.dataset.nextPage;
@@ -390,8 +385,8 @@ function stopDrag() {
   main.classList.remove("cronogram");
   main.classList.remove("warnings");
 
-  document.body.style.width = "";
-  document.body.style.overflow = "";
+  root.style.width = "";
+  root.style.overflow = "";
 
   main.style.transform = `translateX(0%))`;
   main.style.transition = `0.2s transform`;
