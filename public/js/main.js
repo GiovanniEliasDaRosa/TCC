@@ -36,6 +36,8 @@ const header__options__img = document.querySelector("#header__options__img");
 let size = 24;
 let headerMenuTimeout = "";
 let headerH1Timeout = "";
+let headerMenuShown = false;
+let fontSize = parseFloat(window.getComputedStyle(document.documentElement).fontSize);
 
 header__options__img.onload = () => {
   header__options__img.removeAttribute("data-loading");
@@ -84,10 +86,9 @@ function checkHeader() {
   );
 
   clearTimeout(headerH1Timeout);
-  let responsive = parseFloat(window.getComputedStyle(document.documentElement).fontSize);
   let screenWidth = window.innerWidth;
 
-  if (screenWidth > size * responsive) {
+  if (screenWidth > size * fontSize) {
     disable(header__options__openmenu);
     for (let i = 0; i < buttons.length; i++) {
       enable(buttons[i]);
@@ -96,8 +97,10 @@ function checkHeader() {
 
     disable(header__popupmenu);
     enable(main);
+    headerMenuShown = true;
     return;
   }
+  headerMenuShown = false;
 
   for (let i = 0; i < buttons.length; i++) {
     disable(buttons[i]);
@@ -136,6 +139,7 @@ checkHeader();
 // #region Themes
 const root = document.querySelector(":root");
 const changetheme__button = Array.from(document.querySelectorAll(".changetheme__button"));
+const error__img = document.querySelector("#error__img");
 
 changetheme__button.forEach((changeThemeButton) => {
   changeThemeButton.onclick = () => {
@@ -172,18 +176,22 @@ function loadTheme() {
 }
 
 function updateTheme() {
+  let type = "light";
   if (darkTheme) {
-    root.setAttribute("data-theme", "dark");
-
+    type = "dark";
     changetheme__button.forEach((changeThemeButton) => {
       changeThemeButton.classList.remove("moon");
     });
   } else {
-    root.setAttribute("data-theme", "light");
-
     changetheme__button.forEach((changeThemeButton) => {
       changeThemeButton.classList.add("moon");
     });
+  }
+
+  root.setAttribute("data-theme", type);
+
+  if (error__img != null) {
+    error__img.src = `/img/404error-${type}.png`;
   }
 }
 
@@ -204,10 +212,191 @@ function getCookie(name) {
 // #endregion
 
 // Enable for testing on mobile, double tap to reset stylesheets
-// window.ondblclick = (e) => {
-//   localStorage.clear();
-//   window.location.reload(true);
-// };
+window.ondblclick = () => {
+  localStorage.clear();
+  window.location.reload(true);
+};
+
+// #region Tab Swipe
+let currentX = 0;
+let startTouchX = 0;
+let thresh = window.innerWidth / 14;
+let canDragPage = false;
+let invalidTouch = false;
+
+const tab__swipe = document.querySelector("#tab__swipe");
+const tab__swipe__current = document.querySelector("#tab__swipe__current");
+const tab__swipe__next = document.querySelector("#tab__swipe__next");
+
+main.classList.add("icons");
+main.classList.add("outline");
+
+let currentPage = null;
+let pathname = window.location.pathname;
+if (pathname == "/") {
+  currentPage = "cronogram";
+  tab__swipe.setAttribute("data-current-page", "Horários");
+  tab__swipe.setAttribute("data-next-page", "Avisos");
+} else if (pathname == "/avisos") {
+  currentPage = "warnings";
+  tab__swipe.setAttribute("data-current-page", "Avisos");
+  tab__swipe.setAttribute("data-next-page", "Horários");
+  tab__swipe.insertBefore(tab__swipe__next, tab__swipe__current);
+}
+
+setTimeout(() => {
+  canDragPage = true;
+}, 1000);
+
+window.ontouchstart = (e) => {
+  startTouchX = e.changedTouches[0].clientX;
+  currentX = 0;
+  canDragPage = true;
+  invalidTouch = false;
+
+  if (inValidTouch(e)) {
+    stopDrag();
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    return;
+  }
+
+  document.body.style.width = "100vw";
+  document.body.style.overflow = "hidden";
+
+  tab__swipe__current.innerText = tab__swipe.dataset.currentPage;
+  tab__swipe__next.innerText = tab__swipe.dataset.nextPage;
+
+  if (!headerMenuShown) {
+    enable(tab__swipe);
+    tab__swipe__current.style.opacity = 0;
+    tab__swipe__next.style.opacity = 0;
+    tab__swipe.style = `--x: ${-1000}%`;
+  }
+};
+
+window.ontouchmove = (e) => {
+  currentX = e.changedTouches[0].clientX;
+
+  if (inValidTouch(e)) {
+    stopDrag();
+    return;
+  }
+
+  document.body.style.width = "100vw";
+  document.body.style.overflow = "hidden";
+
+  if (currentPage == "cronogram" && currentX < startTouchX) {
+    main.classList.add("pullAction");
+    main.classList.add("warnings");
+    main.classList.add("after");
+  } else if (currentPage == "warnings" && currentX > startTouchX) {
+    main.classList.add("pullAction");
+    main.classList.add("cronogram");
+    main.classList.remove("after");
+  } else {
+    stopDrag();
+    return;
+  }
+
+  let percentMove = (currentX - startTouchX) / thresh;
+  let percent = (currentX - startTouchX) / (window.innerWidth / 2);
+  main.style.transform = `translateX(${percentMove}%)`;
+  main.style.transition = `none`;
+
+  if (headerMenuShown) return;
+
+  enable(tab__swipe);
+
+  let calcCulatedPercentMove = percentMove * 10;
+  console.log(calcCulatedPercentMove);
+
+  if (calcCulatedPercentMove > 100) {
+    calcCulatedPercentMove = 100;
+  } else if (calcCulatedPercentMove < -100) {
+    calcCulatedPercentMove = -100;
+  }
+
+  if (calcCulatedPercentMove < 0) {
+    calcCulatedPercentMove *= -1;
+  } else {
+    calcCulatedPercentMove *= -1;
+    calcCulatedPercentMove += 100;
+  }
+
+  tab__swipe.style = `--x: ${calcCulatedPercentMove}% `;
+
+  main.style.transition = `none`;
+
+  let percentAbs = Math.abs(percent);
+
+  if (percentAbs > 0.5) {
+    tab__swipe__current.style.opacity = 1 - percentAbs;
+    tab__swipe__next.style.opacity = percentAbs;
+  } else {
+    tab__swipe__current.style.opacity = 1 - percentAbs;
+    tab__swipe__next.style.opacity = percentAbs;
+  }
+};
+
+window.ontouchcancel = (e) => {
+  ontouchend(e);
+};
+
+window.ontouchend = (e) => {
+  stopDrag();
+
+  if (inValidTouch(e)) return;
+
+  currentX = e.changedTouches[0].clientX;
+
+  if (currentPage == "cronogram") {
+    if (currentX < startTouchX) {
+      if (Math.abs(startTouchX - currentX) > thresh) {
+        header__options.children[1].click();
+      }
+    }
+  }
+  if (currentPage == "warnings") {
+    if (currentX > startTouchX) {
+      if (Math.abs(startTouchX - currentX) > thresh) {
+        header__options.children[0].click();
+      }
+    }
+  }
+
+  startTouchX = 0;
+  currentX = 0;
+};
+
+function inValidTouch(e) {
+  let eChangedTouchTarget = e.changedTouches[0].target;
+  return (
+    !canDragPage ||
+    (currentPage != "cronogram" && currentPage != "warnings") ||
+    window.innerWidth > 40 * fontSize ||
+    invalidTouch ||
+    eChangedTouchTarget.closest("#popUpAviso") != null ||
+    eChangedTouchTarget.closest("#cookie__banner") != null ||
+    eChangedTouchTarget.closest("#header") != null
+  );
+}
+
+function stopDrag() {
+  if (tab__swipe != null) {
+    disable(tab__swipe);
+  }
+  main.classList.remove("pullAction");
+  main.classList.remove("cronogram");
+  main.classList.remove("warnings");
+
+  document.body.style.width = "";
+  document.body.style.overflow = "";
+
+  main.style.transform = `translateX(0%))`;
+  main.style.transition = `0.2s transform`;
+}
+// #endregion
 
 // #region Functions
 function enable(element) {

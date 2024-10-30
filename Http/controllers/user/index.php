@@ -78,6 +78,7 @@ $datagot = $db->query(
   ]
 )->get();
 
+
 $days = [
   "segunda",
   "terca",

@@ -19,8 +19,9 @@
             <p class="aviso__date__end icons outline calendar calendar-normal"><?= $aviso['dt_fim'] ?></p>
             <p class="aviso__title"><?= $aviso['titulo'] ?></p>
 
+
             <p class="aviso__date__start" style="display: none;" aria-disabled="true"><?= $aviso['dt_inicio'] ?></p>
-            <p class="aviso__content" style="display: none;" aria-disabled="true"><?= htmlspecialchars($aviso['corpo']) ?></p>
+            <p class="aviso__content" style="display: none;" aria-disabled="true"><?= $aviso['corpo'] !== '' ? htmlspecialchars($aviso['corpo']) : '' ?></p>
 
             <?php if ($aviso['corpo'] !== '') : ?>
               <button class="popUpAviso__header__open">Ler mais</button>

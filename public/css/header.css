@@ -20,17 +20,6 @@
   max-width: 100%;
 }
 
-#header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4.125em;
-  background-color: var(--bg-color-smooth);
-  z-index: -1;
-}
-
 #header__options {
   gap: 1em;
 }
@@ -178,7 +167,7 @@
 }
 
 @media (max-width: 30em) {
-  header > h1 {
+  #header > h1 {
     font-size: max(1rem, 6vw);
     text-align: center;
   }
