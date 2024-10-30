@@ -17,6 +17,7 @@ if (empty($avisos)) {
   die();
 }
 
+
 $today = date('Y-m-d');
 $pos = 0;
 

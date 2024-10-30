@@ -1,4 +1,4 @@
-<footer>
+<footer class="hasBG">
   <p class="link icons outline copyright">2024 E. E. Prof. Clodoveu Barbosa.</p>
   <nav>
     <ul>

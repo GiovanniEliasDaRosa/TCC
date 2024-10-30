@@ -1,4 +1,4 @@
-<header id="header">
+<header id="header" class="hasBG">
   <a class="notButton" href="/">
     <img src="/img/headerlogo.png" alt="Logo escola" id="header__options__img">
   </a>

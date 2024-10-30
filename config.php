@@ -7,4 +7,5 @@ return [
     'dbname' => 'HORARIOESCOLARDB',
     'charset' => 'utf8mb4',
   ],
+  'maintenece' => false
 ];
