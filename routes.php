@@ -3,6 +3,7 @@ $router->get('/', 'user/index.php');
 $router->post('/search', 'user/search.php');
 $router->get('/avisos', 'user/avisos.php');
 $router->get('/politica-de-cookies', 'user/cookiespolicy.php');
+$router->get('/autores', 'user/authors.php');
 
 $router->get('/login', 'admin/session/create.php');
 $router->post('/login', 'admin/session/store.php')->only('guest');

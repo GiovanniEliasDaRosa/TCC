@@ -12,6 +12,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "FontAwesomeBrands400";
+  src: url("/fonts/fa-brands-400.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 .icons::before,
 .icons.after::after {
   display: inline-block;
@@ -24,19 +31,23 @@
   margin-right: 0.5rem;
 }
 
-.icons.after::after {
-  margin-right: 0rem;
-  margin-left: 0.5rem;
-}
-
 .icons.outline::before {
   font-family: "FontAwesome400";
   font-weight: 400;
 }
 
+.icons.brands::before {
+  font-family: "FontAwesomeBrands400";
+}
+
+.icons.after::after {
+  margin-right: 0rem;
+  margin-left: 0.5rem;
+}
+
 .icons.square {
-  width: 2.5em;
-  height: 2.5em;
+  width: 2.5rem;
+  height: 2.5rem;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -44,8 +55,8 @@
 }
 
 .icons.square.big {
-  width: 3em;
-  height: 3em;
+  width: 3rem;
+  height: 3rem;
 }
 
 .icons.nomargin::before {
@@ -124,9 +135,17 @@
   content: "\f1f9";
 }
 
+.icons.users::before {
+  content: "\f0c0";
+}
+
+.icons.extern {
+  position: relative;
+}
+
 .icons.loading::after {
   content: "\f574";
-  animation: uploadfile 1s ease-out;
+  animation: 1s uploadfile ease-out;
 }
 
 @keyframes uploadfile {
@@ -136,4 +155,45 @@
   100% {
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   }
+}
+
+.icons.extern::after {
+  content: "\f08e";
+  position: absolute;
+  font-size: 1rem;
+  top: -0.5rem;
+  right: -0.5rem;
+  text-shadow: 0.1em 0.1em 0 var(--bg-color);
+  margin-left: 0;
+
+  transform-origin: 50% 50%;
+  transform: translate(-20%, 20%);
+  transition: 0.4s transform cubic-bezier(0.8, 0.2, 0.4, 0.8);
+}
+
+.icons.extern:is(:hover, :focus-visible)::after {
+  text-shadow: 0 0 0.1em var(--bg-color);
+  transform: translate(10%, -10%);
+  transition: 0.7s transform cubic-bezier(0.6, 0.1, 0.4, 1.4);
+}
+
+/* brands */
+.brands.linkedin::before {
+  content: "\f08c";
+}
+
+.brands.github::before {
+  content: "\f092";
+}
+
+.brands.instagram::before {
+  content: "\f16d";
+}
+
+.brands.whatsapp::before {
+  content: "\f232";
+}
+
+.envelope::before {
+  content: "\f0e0";
 }

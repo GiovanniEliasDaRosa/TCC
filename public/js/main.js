@@ -123,7 +123,6 @@ function checkHeader() {
     }
   }
 }
-
 window.onresize = () => {
   checkHeader();
 };
@@ -208,13 +207,16 @@ function getCookie(name) {
 
 // Enable for testing on mobile, double tap to reset stylesheets
 window.ondblclick = () => {
-  localStorage.clear();
+  // localStorage.clear();
   window.location.reload(true);
 };
 
 // #region Tab Swipe
 let currentX = 0;
+let currentY = 0;
 let startTouchX = 0;
+let startTouchY = 0;
+
 let thresh = window.innerWidth / 14;
 let canDragPage = false;
 let invalidTouch = false;
@@ -244,20 +246,19 @@ setTimeout(() => {
 }, 1000);
 
 window.ontouchstart = (e) => {
-  startTouchX = e.changedTouches[0].clientX;
-  currentX = 0;
   canDragPage = true;
   invalidTouch = false;
 
-  if (inValidTouch(e)) {
+  if (inValidTouch(e) || window.scrollY > fontSize) {
     stopDrag();
-    e.preventDefault();
     e.stopImmediatePropagation();
     return;
   }
 
-  root.style.width = "100vw";
-  root.style.overflow = "hidden";
+  let changedTouche = e.changedTouches[0];
+  startTouchY = changedTouche.clientY;
+  startTouchX = changedTouche.clientX;
+  currentX = 0;
 
   tab__swipe__current.innerText = tab__swipe.dataset.currentPage;
   tab__swipe__next.innerText = tab__swipe.dataset.nextPage;
@@ -271,15 +272,18 @@ window.ontouchstart = (e) => {
 };
 
 window.ontouchmove = (e) => {
-  currentX = e.changedTouches[0].clientX;
+  let changedTouche = e.changedTouches[0];
+  currentX = changedTouche.clientX;
+  currentY = changedTouche.clientY;
 
-  if (inValidTouch(e)) {
+  if (Math.abs(currentX - startTouchX) < 8 || window.scrollY > fontSize || inValidTouch(e)) {
     stopDrag();
+    e.stopImmediatePropagation();
     return;
   }
 
-  document.body.style.width = "100vw";
-  document.body.style.overflow = "hidden";
+  root.style.width = "100vw";
+  root.style.overflowX = "hidden";
 
   if (currentPage == "cronogram" && currentX < startTouchX) {
     main.classList.add("pullAction");
@@ -304,19 +308,28 @@ window.ontouchmove = (e) => {
   enable(tab__swipe);
 
   let calcCulatedPercentMove = percentMove * 10;
+  let startPercent = calcCulatedPercentMove;
   console.log(calcCulatedPercentMove);
 
-  if (calcCulatedPercentMove > 100) {
-    calcCulatedPercentMove = 100;
-  } else if (calcCulatedPercentMove < -100) {
-    calcCulatedPercentMove = -100;
-  }
+  if (Math.abs(percent) < 0.8) {
+    if (startPercent > 100) {
+      calcCulatedPercentMove = 100;
+    } else if (startPercent < -100) {
+      calcCulatedPercentMove = -100;
+    }
 
-  if (calcCulatedPercentMove < 0) {
-    calcCulatedPercentMove *= -1;
+    if (startPercent < 0) {
+      calcCulatedPercentMove *= -1;
+    } else {
+      calcCulatedPercentMove *= -1;
+      calcCulatedPercentMove += 100;
+    }
   } else {
-    calcCulatedPercentMove *= -1;
-    calcCulatedPercentMove += 100;
+    if (startPercent < 0) {
+      calcCulatedPercentMove = 100;
+    } else {
+      calcCulatedPercentMove = 0;
+    }
   }
 
   tab__swipe.style = `--x: ${calcCulatedPercentMove}% `;
@@ -328,9 +341,11 @@ window.ontouchmove = (e) => {
   if (percentAbs > 0.5) {
     tab__swipe__current.style.opacity = 1 - percentAbs;
     tab__swipe__next.style.opacity = percentAbs;
+    root.style.overflow = "hidden";
   } else {
     tab__swipe__current.style.opacity = 1 - percentAbs;
     tab__swipe__next.style.opacity = percentAbs;
+    root.style.overflowX = "hidden";
   }
 };
 
@@ -339,11 +354,18 @@ window.ontouchcancel = (e) => {
 };
 
 window.ontouchend = (e) => {
+  currentX = e.changedTouches[0].clientX;
   stopDrag();
 
-  if (inValidTouch(e)) return;
+  if (Math.abs(currentX - startTouchX) < 8 || window.scrollY > fontSize || inValidTouch(e)) {
+    e.stopImmediatePropagation();
+    return;
+  }
 
   currentX = e.changedTouches[0].clientX;
+  let percent = Math.abs((currentX - startTouchX) / (window.innerWidth / 2));
+
+  if (percent < 0.8) return;
 
   if (currentPage == "cronogram") {
     if (currentX < startTouchX) {
@@ -360,8 +382,10 @@ window.ontouchend = (e) => {
     }
   }
 
+  startTouchY = 0;
   startTouchX = 0;
   currentX = 0;
+  currentY = 0;
 };
 
 function inValidTouch(e) {
@@ -381,15 +405,14 @@ function stopDrag() {
   if (tab__swipe != null) {
     disable(tab__swipe);
   }
-  main.classList.remove("pullAction");
-  main.classList.remove("cronogram");
-  main.classList.remove("warnings");
-
   root.style.width = "";
   root.style.overflow = "";
 
-  main.style.transform = `translateX(0%))`;
-  main.style.transition = `0.2s transform`;
+  main.classList.remove("pullAction");
+  main.classList.remove("cronogram");
+  main.classList.remove("warnings");
+  main.style.transform = "";
+  main.style.transition = "0.2s transform";
 }
 // #endregion
 

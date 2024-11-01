@@ -1,14 +1,13 @@
 body {
-  display: grid;
-  grid-template-rows: auto 1fr;
   height: 100vh;
   height: 100dvh;
+  /* overflow: hidden; */
 }
 
 /* main */
 main {
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
 }
 
 /* MARK: Action

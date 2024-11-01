@@ -1,0 +1,34 @@
+#authors {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.author__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.author__item__contact {
+  margin-top: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.author__item__contact > .icons {
+  font-size: 2rem;
+}
+
+.author__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.tag__item {
+  padding: 0.2em 0.4em;
+  border-radius: 0.5em;
+  background-color: var(--table-bg-odd);
+}
