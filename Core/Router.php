@@ -64,6 +64,18 @@ class Router
       if ($normalizedRouteUri === $normalizedUri && $route['method'] == strtoupper($method)) {
         Middleware::resolve($route['middleware']);
 
+        if ($route['middleware'] == 'auth') {
+          if ($route['method'] != 'GET') {
+            date_default_timezone_set('America/Sao_Paulo');
+            $today = date('Y-m-d H:i:s');
+            $logEntry = "$today;$method;$uri" . PHP_EOL;
+
+            if (file_put_contents(base_path('changes.log'), $logEntry, FILE_APPEND | LOCK_EX) === false) {
+              error_log("Failed to write to log file: a");
+            }
+          }
+        }
+
         return require base_path('Http/controllers/' . $route['controller']);
       }
     }
