@@ -1,2 +1,0 @@
-I'm creating a PHP, MYSQL, CSS, JS site. And testing on mobile emulator from firefox (devtools), it runs smoothly, but on my phone it's lagging.
-I remove almost every event listener from `window`,and It seems to be lagging the same amout

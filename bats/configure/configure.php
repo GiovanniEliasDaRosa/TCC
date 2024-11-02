@@ -58,7 +58,7 @@ do {
       echo "\n";
       echo "  Verifique se o \e[44m XAMPP \e[0m com \e[44m Apache \e[0m e \e[44m MySQL \e[0m estão ligados\n";
       echo "\n";
-      echo "  1. Acesse \e[44m 127.0.0.1:81/phpmyadmin \e[0m \n";
+      echo "  1. Acesse \e[44m 127.0.0.1/phpmyadmin \e[0m \n";
       echo "  2. Clique em \e[44m SQL \e[0m \n";
       echo "  3. Na area de texto cole o seguinte e clique em ( Go / Ir )\n";
       echo "\n";
@@ -99,11 +99,13 @@ if ($GLOBALS['trys'] == $maxTries) {
   exit();
 }
 
-echo "   Adicionando horário ao banco de dados...\n";
+echo "   Limpando banco de dados...\n";
 
 $db->query("DROP TABLE IF EXISTS `Tb_horario`")->get();
 $db->query("DROP TABLE IF EXISTS `Tb_aviso`")->get();
 $db->query("DROP TABLE IF EXISTS `Tb_usuario`")->get();
+
+echo "   Adicionando tabelas: 'horário, aviso, usuário' ao banco de dados...\n";
 
 $db->query(
   "CREATE TABLE `Tb_horario` (
@@ -254,10 +256,12 @@ $db->query(
 
 echo "   Adicionando usuário ao banco de dados...\n";
 
+$user = 'admin';
 $password = password_hash('123', PASSWORD_BCRYPT);
+
 $db->query(
   "INSERT INTO `Tb_usuario` (`id_usuario`, `nome`, `senha`) VALUES
-  (1, 'admin', '{$password}')"
+  (1, '{$user}', '{$password}')"
 )->find();
 
 sleep(1);

@@ -17,7 +17,7 @@
     <a href='/admin/avisos/new' class='icons plus' id="adicionar">Adicionar aviso</a>
 
     <?php foreach ($avisos as $aviso) : ?>
-      <div class="avisos__div">
+      <div class="avisos__div <?= $aviso['activeforusers'] ?>">
         <div class="avisos__div__info">
           <strong class="avisos__div__info__titulo"><?= $aviso['titulo'] ?></strong>
           <p class="avisos_div_dates">

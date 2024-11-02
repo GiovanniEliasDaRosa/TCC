@@ -70,9 +70,28 @@ popUpAviso__header__close.onclick = () => {
 
 const avisos = document.querySelector("#avisos");
 const navegacao__header__avisos = document.querySelector("#navegacao__header__avisos");
+let lastWarningSaw = localStorage.getItem("lastWarningSaw");
+
+if (lastWarningSaw == null) {
+  lastWarningSaw = 0;
+}
 
 if (avisos.children.length == 0) {
+  console.log("removeItem");
   localStorage.removeItem("lastWarningSaw");
 } else {
+  console.log("setItem");
+  let childs = Array.from(avisos.children);
+  let addedTime = 0;
+  childs.forEach((child) => {
+    if (child.dataset.id > lastWarningSaw) {
+      child.classList.add("willNewWarn");
+      setTimeout(() => {
+        child.classList.add("newWarn");
+        child.classList.remove("willNewWarn");
+      }, 100 * addedTime);
+      addedTime++;
+    }
+  });
   localStorage.setItem("lastWarningSaw", avisos.children[0].dataset.id);
 }

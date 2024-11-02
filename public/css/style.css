@@ -14,6 +14,7 @@
   --header-option-text-color: hsl(0, 0%, 90%);
   --header-popupmenu-active-border-color: hsla(0, 0%, 100%, 0.2);
   --header-notification-color: hsla(0, 100%, 50%, 0.8);
+  --header-notification-color-alpha: hsla(0, 100%, 50%, 0.5);
   --header-h1-color: hsl(0, 0%, 100%);
 
   --border: hsl(240, 10%, 40%);
@@ -60,6 +61,7 @@
   --header-option-text-color: hsl(0, 0%, 10%);
   --header-popupmenu-active-border-color: hsla(0, 0%, 0%, 0.2);
   --header-notification-color: hsla(0, 100%, 50%, 0.8);
+  --header-notification-color-alpha: hsla(0, 100%, 50%, 0.5);
   --header-h1-color: hsl(0, 0%, 0%);
 
   --border: hsl(240, 20%, 64%);

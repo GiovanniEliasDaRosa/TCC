@@ -14,6 +14,11 @@
   gap: 1em;
 }
 
+.inactivewarning {
+  border: solid 0.25em var(--secundary);
+  box-shadow: inset 0 0 0.25em var(--secundary);
+}
+
 .avisos__div__info {
   display: grid;
   grid-template-columns: 1fr;
