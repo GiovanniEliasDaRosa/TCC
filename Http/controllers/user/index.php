@@ -150,7 +150,7 @@ for ($col = 0; $col < 5; $col++) {
   array_push($classesOnScreen, $current);
 }
 
-$lastAdQuery = $db->query('SELECT * FROM `tb_aviso` WHERE dt_inicio <= CURDATE() ORDER BY id_aviso DESC')->get();
+$lastAdQuery = $db->query('SELECT * FROM `Tb_aviso` WHERE dt_inicio <= CURDATE() ORDER BY id_aviso DESC')->get();
 
 if (empty($lastAdQuery)) {
   $lastWarning = 'none';

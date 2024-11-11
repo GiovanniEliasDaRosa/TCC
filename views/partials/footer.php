@@ -9,7 +9,10 @@
         <a href="/politica-de-cookies" class="link icons cookie-bite">Política de Cookies</a>
       </li>
       <li>
-        <a href="/autores" class="link icons users">Conheça nossos Criadores</a>
+        <a href="/desenvolvedores" class="link icons users">Desenvolvedores</a>
+      </li>
+      <li>
+        <a href="/onde-estamos" class="link icons location-dot">Onde estamos</a>
       </li>
       <li>
         <p class="link icons outline copyright">Copyright 2024</p>

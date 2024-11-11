@@ -143,6 +143,34 @@
   position: relative;
 }
 
+.icons.envelope::before {
+  content: "\f0e0";
+}
+
+.icons.location-dot::before {
+  content: "\f3c5";
+}
+
+.icons.phone::before {
+  content: "\f095";
+}
+
+.icons.headset::before {
+  content: "\f590";
+}
+
+.icons.phone::before {
+  content: "\f095";
+}
+
+.icons.phone::before {
+  content: "\f095";
+}
+
+.icons.map-location-dot::before {
+  content: "\f5a0";
+}
+
 .icons.loading::after {
   content: "\f574";
   animation: 1s uploadfile ease-out;
@@ -192,8 +220,4 @@
 
 .brands.whatsapp::before {
   content: "\f232";
-}
-
-.envelope::before {
-  content: "\f0e0";
 }

@@ -206,10 +206,10 @@ function getCookie(name) {
 // #endregion
 
 // Enable for testing on mobile, double tap to reset stylesheets
-// window.ondblclick = () => {
-//   localStorage.clear();
-//   window.location.reload(true);
-// };
+window.ondblclick = () => {
+  localStorage.clear();
+  window.location.reload(true);
+};
 
 // #region Tab Swipe
 let currentX = 0;

@@ -249,7 +249,7 @@ $expireDate = date_format($date, 'Y-m-d');
 $expireDate2 = date_format($date2, 'Y-m-d');
 
 $db->query(
-  "INSERT INTO `tb_aviso` (`id_aviso`, `dt_inicio`, `dt_fim`, `titulo`, `corpo`) VALUES
+  "INSERT INTO `Tb_aviso` (`id_aviso`, `dt_inicio`, `dt_fim`, `titulo`, `corpo`) VALUES
   (1, '$today', '$expireDate', 'Não haverá aula', ''),
   (2, '$today', '$expireDate2', 'Excursão ao Museu de Arte de São Paulo', 'Prezados estudantes e responsáveis,\r\n\r\nTemos o prazer de anunciar a emocionante excursão ao Museu de Arte de São Paulo (MASP)! Esta é uma oportunidade única para explorar a rica história da arte e apreciar obras-primas de artistas renomados. Aqui estão os detalhes importantes:\r\n\r\n- Data: 15 de outubro de 2024 (terça)\r\n- Horário de saída: 8h00\r\n- Local de partida: Escola\r\n- Preço por aluno: R$ 30,00 (inclui transporte e ingresso)\r\n- Professores orientadores: Prof.ª Maria Silva e Prof. João Santos\r\n- Horário de retorno: Previsto para as 17h00 (chegada à escola)\r\n\r\nAtenciosamente,\r\nEquipe Escolar');"
 )->find();

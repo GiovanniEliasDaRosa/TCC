@@ -22,7 +22,7 @@ $aviso = $db->query('SELECT * FROM Tb_aviso WHERE id_aviso=:id_aviso', [
   ':id_aviso' => $id_aviso
 ])->findOrFail();
 
-$db->query('UPDATE `tb_aviso` SET id_aviso = :id_aviso, dt_inicio = :dt_inicio, dt_fim = :dt_fim, titulo = :titulo, corpo = :corpo WHERE id_aviso = :id_aviso', [
+$db->query('UPDATE `Tb_aviso` SET id_aviso = :id_aviso, dt_inicio = :dt_inicio, dt_fim = :dt_fim, titulo = :titulo, corpo = :corpo WHERE id_aviso = :id_aviso', [
   ':id_aviso' => $id_aviso,
   ':titulo' => $attributes['titulo'],
   ':corpo' => $attributes['corpo'],
