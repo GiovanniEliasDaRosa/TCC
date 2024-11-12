@@ -10,7 +10,7 @@ require(BASE_PATH . '/views/partials/head.php')
 <body>
   <?php require(BASE_PATH . '/views/partials/header_user.php') ?>
   <main>
-    <img src="/img/404error-<?= getTheme() ?>.png" alt="Alguém perdido em pixel art" id="error__img">
+    <img src="/img/icons/404error-<?= getTheme() ?>.png" alt="Alguém perdido em pixel art" id="error__img">
     <h1 id="error">404</h1>
     <h1>Página não encontrada</h1>
     <a href="/">Ir para o menu principal.</a>

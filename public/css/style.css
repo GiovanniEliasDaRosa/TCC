@@ -39,6 +39,7 @@
   --link-hover: hsl(225, 100%, 94%);
 
   --footer: hsl(225, 75%, 15%);
+  --footer--copyright: hsl(225, 50%, 39%);
 
   --cookies-bg-color: hsl(240, 10%, 30%);
 
@@ -82,12 +83,13 @@
   --button-delete: hsl(0, 76%, 84%);
   --button-delete-hover: hsl(0, 80%, 68%);
 
-  --link: #092669;
-  --link-hover: #132144;
+  --link: hsl(222, 84%, 22%);
+  --link-hover: hsl(223, 56%, 17%);
 
   --footer: hsl(226, 25%, 77%);
+  --footer--copyright: hsl(227, 89%, 71%);
 
-  --cookies-bg-color: #fafbff;
+  --cookies-bg-color: hsl(228, 100%, 99%);
 
   --calendar-added: hsl(145, 82%, 18%);
   --calendar-day: hsl(0, 81%, 33%);
@@ -331,14 +333,14 @@ main.warnings::after {
 footer {
   margin-top: auto;
   background-color: var(--footer);
-  padding: 1em;
+  padding-top: 1em;
   margin: 0 auto;
   width: min(80em, 100%);
   max-width: 100%;
 
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 1rem;
 }
 
 #footer__logoandtext {
@@ -347,7 +349,7 @@ footer {
   align-items: center;
   gap: 1em;
   text-align: left;
-  margin-bottom: 1em;
+  padding-inline: 1rem;
 }
 
 #footer__logoandtext__img {
@@ -373,6 +375,7 @@ footer a {
 #footer__nav {
   display: flex;
   justify-content: center;
+  padding-inline: 1rem;
 }
 
 #footer__nav__ul {
@@ -388,6 +391,13 @@ footer a {
 
 footer li {
   margin-bottom: 0;
+}
+
+#footer__copyright {
+  display: flex;
+  justify-content: center;
+  background-color: var(--footer--copyright);
+  padding: 0.5rem;
 }
 /* #endregion */
 
@@ -447,6 +457,7 @@ footer li {
   }
 
   #footer__nav__ul {
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
   }

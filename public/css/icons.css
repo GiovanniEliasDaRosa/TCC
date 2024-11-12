@@ -171,6 +171,10 @@
   content: "\f5a0";
 }
 
+.icons.screwdriver-wrench::before {
+  content: "\f7d9";
+}
+
 .icons.loading::after {
   content: "\f574";
   animation: 1s uploadfile ease-out;

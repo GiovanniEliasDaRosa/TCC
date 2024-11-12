@@ -2,7 +2,7 @@
 if (localStorage.getItem("accepted-cookies") == null) {
   document.body.innerHTML += `<div id="cookie__banner">
     <div id="cookie__banner__description">
-      <img src="/img/cookies.png" alt="Imagem de cookies" id="cookie__banner__img"/>
+      <img src="/img/icons/cookies.png" alt="Imagem de cookies" id="cookie__banner__img"/>
       <p>Este site utiliza cookies para melhorar sua experiência. Ao continuar navegando, você concorda com o uso de cookies. <a href="/politica-de-cookies" class="link">Saiba mais</a>.</p>
     </div>
     <button id="accept__cookies">Aceitar</button>
@@ -27,16 +27,11 @@ const header__options = document.querySelector("#header__options");
 const header__options__openmenu = document.querySelector("#header__options__openmenu");
 const header__popupmenu = document.querySelector("#header__popupmenu");
 const header__popupmenu__closemenu = document.querySelector("#header__popupmenu__closemenu");
-const header__options__img = document.querySelector("#header__options__img");
 let size = 24;
 let headerMenuTimeout = "";
 let headerH1Timeout = "";
 let headerMenuShown = false;
 let fontSize = parseFloat(window.getComputedStyle(document.documentElement).fontSize);
-
-header__options__img.onload = () => {
-  header__options__img.removeAttribute("data-loading");
-};
 
 if (header__options.dataset.admin == "true") {
   size = 47;
@@ -123,6 +118,7 @@ function checkHeader() {
     }
   }
 }
+
 window.onresize = () => {
   checkHeader();
 };
@@ -185,7 +181,7 @@ function updateTheme() {
   root.setAttribute("data-theme", type);
 
   if (error__img != null) {
-    error__img.src = `/img/404error-${type}.png`;
+    error__img.src = `/img/icons/404error-${type}.png`;
   }
 }
 
@@ -206,10 +202,10 @@ function getCookie(name) {
 // #endregion
 
 // Enable for testing on mobile, double tap to reset stylesheets
-window.ondblclick = () => {
-  localStorage.clear();
-  window.location.reload(true);
-};
+// window.ondblclick = () => {
+//   localStorage.clear();
+//   window.location.reload(true);
+// };
 
 // #region Tab Swipe
 let currentX = 0;

@@ -4,16 +4,18 @@ RewriteEngine On
 RewriteCond %{REQUEST_URI} ^/uploads/ [NC]
 RewriteRule ^ - [F,L]
 
-# Deny access to the /css/, /js/, and /img/ directories but allow access to files within them
+# Deny access to the /css/, /js/, /img/ and /fonts/ directories but allow access to files within them
 RewriteCond %{REQUEST_URI} ^/css/$ [NC,OR]
 RewriteCond %{REQUEST_URI} ^/js/$ [NC,OR]
-RewriteCond %{REQUEST_URI} ^/img/$ [NC]
+RewriteCond %{REQUEST_URI} ^/img/$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^/fonts/$ [NC]
 RewriteRule ^ - [F,L]
 
-# Allow access to files in the /css/, /js/, and /img/ directories
+# Allow access to files wihtin /css/, /js/, /img/ and /fonts/ directories
 RewriteCond %{REQUEST_URI} ^/css/ [OR]
 RewriteCond %{REQUEST_URI} ^/js/ [OR]
-RewriteCond %{REQUEST_URI} ^/img/
+RewriteCond %{REQUEST_URI} ^/img/ [OR]
+RewriteCond %{REQUEST_URI} ^/fonts/
 RewriteRule ^ - [L]
 
 # Route all other requests to index.php

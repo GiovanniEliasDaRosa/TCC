@@ -1,6 +1,9 @@
 <header id="header" class="hasBG">
   <a class="notButton" href="/admin/">
-    <img src="/img/headerlogo.png" alt="Logo da escola" id="header__options__img" data-loading="true">
+    <img
+      src="/img/icons/headerlogo-small.png"
+      alt="Logo da escola"
+      id="header__options__img" />
   </a>
 
   <h1>Tela administrativa</h1>
