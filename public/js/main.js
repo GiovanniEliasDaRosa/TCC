@@ -181,7 +181,7 @@ function updateTheme() {
   root.setAttribute("data-theme", type);
 
   if (error__img != null) {
-    error__img.src = `/img/icons/404error-${type}.png`;
+    error__img.src = `/img/404/404error-${type}.png`;
   }
 }
 
