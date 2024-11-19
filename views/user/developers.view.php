@@ -1,5 +1,5 @@
 <?php require(BASE_PATH . '/views/partials/head.php') ?>
-<link rel="stylesheet" type="text/css" href="/css/user/authors.css" />
+<link rel="stylesheet" type="text/css" href="/css/user/developers.css" />
 
 </head>
 
@@ -12,7 +12,50 @@
     <h2>Desenvolvedores</h2>
     <ul id="authors">
       <li class="author__item">
-        <h3>Giovanni Elias da Rosa</h3>
+        <div class="author__logoandname">
+          <img src="/img/developers/beatriz.png" alt="Imagem de Beatriz" class="author__logoandname__img">
+          <h3>Beatriz Leonardi Oragio Corsi</h3>
+        </div>
+        <p class="author__tags"><span class="tag__item">documentação</span></p>
+        <div class="author__item__contact">
+          <a
+            href="https://wa.me/+5519998548633"
+            class="icons nomargin square big brands whatsapp after extern"
+            title="Conversar com Beatriz no WhatsApp">
+          </a>
+          <a
+            href="mailto:beatrizleonardi27@gmail.com"
+            class="icons nomargin square big outline envelope after extern"
+            title="Enviar email para Beatriz">
+          </a>
+        </div>
+      </li>
+
+      <li class="author__item">
+        <div class="author__logoandname">
+          <img src="/img/developers/eduardo.png" alt="Imagem de Eduardo" class="author__logoandname__img">
+          <h3>Eduardo Henrique de Godoi</h3>
+        </div>
+        <p class="author__tags"><span class="tag__item">front-end</span></p>
+        <div class="author__item__contact">
+          <a
+            href="https://wa.me/+551999932-3805"
+            class="icons nomargin square big brands whatsapp after extern"
+            title="Conversar com Eduardo no WhatsApp">
+          </a>
+          <a
+            href="mailto:eduardogodoi100407@gmail.com"
+            class="icons nomargin square big outline envelope after extern"
+            title="Enviar email para Eduardo">
+          </a>
+        </div>
+      </li>
+
+      <li class="author__item">
+        <div class="author__logoandname">
+          <img src="/img/developers/giovanni.png" alt="Imagem de Giovanni" class="author__logoandname__img">
+          <h3>Giovanni Elias da Rosa</h3>
+        </div>
         <p class="author__tags"><span class="tag__item">front-end</span><span class="tag__item">back-end</span></p>
         <div class="author__item__contact">
           <a
@@ -39,24 +82,10 @@
       </li>
 
       <li class="author__item">
-        <h3>Otávio Azevedo Botelho</h3>
-        <p class="author__tags"><span class="tag__item">back-end</span><span class="tag__item">documentação</span></p>
-        <div class="author__item__contact">
-          <a
-            href="https://wa.me/+5519984191111"
-            class="icons nomargin square big brands whatsapp after extern"
-            title="Conversar com Otávio no WhatsApp">
-          </a>
-          <a
-            href="mailto:otavio.azevedo.botelho@gmail.com"
-            class="icons nomargin square big outline envelope after extern"
-            title="Enviar email para Otávio">
-          </a>
+        <div class="author__logoandname">
+          <img src="/img/developers/lais.png" alt="Imagem de Laís" class="author__logoandname__img">
+          <h3>Laís Vitória Stafocher Lopes</h3>
         </div>
-      </li>
-
-      <li class="author__item">
-        <h3>Laís Vitória Stafocher Lopes</h3>
         <p class="author__tags"><span class="tag__item">front-end</span><span class="tag__item">documentação</span></p>
         <div class="author__item__contact">
           <a
@@ -73,35 +102,21 @@
       </li>
 
       <li class="author__item">
-        <h3>Eduardo Henrique de Godoi</h3>
-        <p class="author__tags"><span class="tag__item">front-end</span></p>
-        <div class="author__item__contact">
-          <a
-            href="https://wa.me/+551999932-3805"
-            class="icons nomargin square big brands whatsapp after extern"
-            title="Conversar com Eduardo no WhatsApp">
-          </a>
-          <a
-            href="mailto:eduardogodoi100407@gmail.com"
-            class="icons nomargin square big outline envelope after extern"
-            title="Enviar email para Eduardo">
-          </a>
+        <div class="author__logoandname">
+          <img src="/img/developers/otavio.png" alt="Imagem de Otávio" class="author__logoandname__img">
+          <h3>Otávio Azevedo Botelho</h3>
         </div>
-      </li>
-
-      <li class="author__item">
-        <h3>Beatriz Leonardi Oragio Corsi</h3>
-        <p class="author__tags"><span class="tag__item">documentação</span></p>
+        <p class="author__tags"><span class="tag__item">back-end</span><span class="tag__item">documentação</span></p>
         <div class="author__item__contact">
           <a
-            href="https://wa.me/+5519998548633"
+            href="https://wa.me/+5519984191111"
             class="icons nomargin square big brands whatsapp after extern"
-            title="Conversar com Beatriz no WhatsApp">
+            title="Conversar com Otávio no WhatsApp">
           </a>
           <a
-            href="mailto:beatrizleonardi27@gmail.com"
+            href="mailto:otavio.azevedo.botelho@gmail.com"
             class="icons nomargin square big outline envelope after extern"
-            title="Enviar email para Beatriz">
+            title="Enviar email para Otávio">
           </a>
         </div>
       </li>

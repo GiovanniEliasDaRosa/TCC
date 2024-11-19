@@ -2,12 +2,27 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  margin-left: 0;
 }
 
 .author__item {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  border: solid 0.1em var(--border-smooth);
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+.author__logoandname {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.author__logoandname__img {
+  width: 3rem;
+  border-radius: 50%;
 }
 
 .author__item__contact {
