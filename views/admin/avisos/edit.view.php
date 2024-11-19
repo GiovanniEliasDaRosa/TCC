@@ -9,7 +9,7 @@
   <?php require(BASE_PATH . '/views/partials/header_admin.php') ?>
 
   <main>
-    <form method="post" action="/admin/avisos/update" enctype="multipart/form-data" id="form">
+    <form method="post" action="/admin/avisos/update" enctype="multipart/form-data" id="form" data-editing="true">
       <input type="hidden" name="_method" value="PATCH">
       <input type="hidden" name="id_aviso" value="<?= $aviso['id_aviso'] ?>">
 
@@ -43,16 +43,10 @@
 
           <div id="datapostagem__div" class="form__sections__div">
             <label for="dt_inicio" class="icons calendar calendar-plus">Data da Postagem</label>
-            <input type="date" name="dt_inicio" id="dt_inicio" value="<?= ifOldValid(old('dt_inicio'), $aviso['dt_inicio']) ?>">
+            <input type="date" name="dt_inicio" id="dt_inicio" value="<?= ifOldValid(old('dt_inicio'), $aviso['dt_inicio']) ?>" disabled>
 
-            <p
-              <?= isset($errors['dt_inicio']) ? '' : 'style="display: none" aria-disabled="true"' ?>
-              id="dt_inicio__mensagem" class="mensagem__erro">
-              <?php if (isset($errors['dt_inicio'])) : ?>
-                <?= $errors['dt_inicio'] ?>
-              <?php else: ?>
-                Adicione a data de postagem
-              <?php endif; ?>
+            <p id="dt_inicio__mensagem" class="mensagem__erro">
+              Você não pode mudar a data de postagem
             </p>
           </div>
 

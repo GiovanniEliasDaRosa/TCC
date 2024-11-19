@@ -20,8 +20,11 @@ class WarnForm
       $this->errors['titulo'] =  'Adicione um título';
     }
 
-    if (Validator::dateIsLessThan($attributes['dt_inicio'], date('Y-m-d'))) {
-      $this->errors['dt_inicio'] =  'A data de postagem não pode ser no passado. Selecione uma data de hoje ou futura';
+    if (empty($attributes['updating'])) {
+      // Creating warning
+      if (Validator::dateIsLessThan($attributes['dt_inicio'], date('Y-m-d'))) {
+        $this->errors['dt_inicio'] =  'A data de postagem não pode ser no passado. Selecione uma data de hoje ou futura';
+      }
     }
 
     $invalidStartDate = Validator::empty($attributes['dt_inicio']);

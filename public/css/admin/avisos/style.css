@@ -9,6 +9,12 @@
   gap: 1em;
 }
 
+:disabled,
+[disabled="true"] {
+  filter: grayscale(1);
+  pointer-events: none;
+}
+
 #title {
   display: grid;
   grid-template-columns: auto 1fr;

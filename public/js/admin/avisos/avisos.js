@@ -52,6 +52,9 @@ form.addEventListener("submit", (e) => {
     enable(dt_fim__mensagem);
   }
 
+  if (form.dataset.editing == "true") {
+    return;
+  }
   if (postagem < agora) {
     e.preventDefault();
     dt_inicio__mensagem.innerText =
