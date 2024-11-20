@@ -7,7 +7,7 @@
     }
   ],
   "require": {
-    "phpoffice/phpspreadsheet": "^2.2"
+    "phpoffice/phpspreadsheet": "^3.4"
   },
   "autoload": {
     "psr-4": {
