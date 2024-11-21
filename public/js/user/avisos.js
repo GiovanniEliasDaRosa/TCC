@@ -1,3 +1,5 @@
+const body = document.body;
+
 const popUpAviso = document.querySelector("#popUpAviso");
 const popUpAviso__div = document.querySelector("#popUpAviso__div");
 const popUpAviso__header__title = popUpAviso.querySelector("#popUpAviso__header__title");
@@ -34,19 +36,23 @@ popUpAviso__header__opens.forEach((item) => {
     popUpAviso.classList.remove("close");
     popUpAviso__div.classList.remove("close");
     animatingPopUp = true;
+    body.style.overflow = "hidden";
 
     animatePopUp = setTimeout(() => {
       popUpAviso.classList.remove("open");
       popUpAviso__div.classList.remove("open");
       animatingPopUp = false;
+      somePopUpOpen(true);
     }, 1000);
   };
 });
 
 popUpAviso__header__close.onclick = () => {
   if (animatingPopUp) return;
-
+  body.style.overflow = "";
   popupOpen = false;
+
+  somePopUpOpen(false);
 
   clearTimeout(animatePopUp);
 

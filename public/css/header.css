@@ -111,7 +111,7 @@
   flex-direction: column;
   padding: 0.5em;
   gap: 1em;
-  z-index: 1;
+  z-index: 20;
 
   --displace: 2rem;
 }

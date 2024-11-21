@@ -79,6 +79,7 @@
   align-items: center;
   background-color: var(--bg-color);
   padding: 0.5em;
+  z-index: 10;
 }
 
 #popUpAviso__div {

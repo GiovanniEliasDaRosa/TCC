@@ -23,6 +23,7 @@ if (localStorage.getItem("accepted-cookies") == null) {
 // #region Header
 const header = document.querySelector("#header");
 const main = document.querySelector("main");
+const footer = document.querySelector("footer");
 const header__options = document.querySelector("#header__options");
 const header__options__openmenu = document.querySelector("#header__options__openmenu");
 const header__popupmenu = document.querySelector("#header__popupmenu");
@@ -41,7 +42,9 @@ header__options__openmenu.onclick = () => {
   clearTimeout(headerMenuTimeout);
 
   enable(header__popupmenu);
-  document.body.style.overflow = "hidden";
+  if (window.location.pathname != "/avisos") {
+    document.body.style.overflow = "hidden";
+  }
   header__popupmenu__closemenu.focus();
 
   header__popupmenu.setAttribute("data-open", "true");
@@ -49,18 +52,21 @@ header__options__openmenu.onclick = () => {
   headerMenuTimeout = setTimeout(() => {
     header__popupmenu.removeAttribute("data-open");
     disable(header__options__openmenu);
-    disable(main);
+    somePopUpOpen(true);
   }, 750);
 };
 
 header__popupmenu__closemenu.onclick = () => {
   clearTimeout(headerMenuTimeout);
 
-  document.body.style.overflow = "";
+  if (window.location.pathname != "/avisos") {
+    document.body.style.overflow = "";
+  }
+
   header__options__openmenu.focus();
 
   enable(header__options__openmenu);
-  enable(main);
+  somePopUpOpen(false);
 
   header__popupmenu.setAttribute("data-close", "true");
   header__popupmenu.removeAttribute("data-open");
@@ -83,10 +89,13 @@ function checkHeader() {
     for (let i = 0; i < buttons.length; i++) {
       enable(buttons[i]);
     }
-    document.body.style.overflow = "";
+    if (window.location.pathname != "/avisos") {
+      document.body.style.overflow = "";
+    }
 
     disable(header__popupmenu);
-    enable(main);
+    somePopUpOpen(false);
+
     headerMenuShown = true;
     return;
   }
@@ -122,6 +131,46 @@ function checkHeader() {
 window.onresize = () => {
   checkHeader();
 };
+
+function somePopUpOpen(open = true) {
+  if (open) {
+    if (footer != null) {
+      disable(footer);
+    }
+    disable(main);
+    let headerChildren = Array.from(header.children);
+    headerChildren.forEach((child) => {
+      if (child.tagName == "A") {
+        disable(child);
+      }
+    });
+    let subChilds = Array.from(header.querySelector("#header__options").children);
+    subChilds.forEach((subChild) => {
+      if (subChild.id != "header__popupmenu" && subChild.ariaDisabled == null) {
+        subChild.setAttribute("data-re-enable", "true");
+        disable(subChild);
+      }
+    });
+  } else {
+    if (footer != null) {
+      enable(footer);
+    }
+    enable(main);
+    let headerChildren = Array.from(header.children);
+    headerChildren.forEach((child) => {
+      if (child.tagName == "A") {
+        enable(child);
+      }
+    });
+    let subChilds = Array.from(header.querySelector("#header__options").children);
+    subChilds.forEach((subChild) => {
+      if (subChild.dataset.reEnable == "true") {
+        enable(subChild);
+      }
+      subChild.removeAttribute("data-re-enable");
+    });
+  }
+}
 
 checkHeader();
 // #endregion
