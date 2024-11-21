@@ -6,7 +6,7 @@ use Core\Database;
 $db = App::resolve(Database::class);
 date_default_timezone_set('America/Sao_Paulo');
 
-$avisos = $db->query('SELECT * FROM Tb_aviso WHERE dt_inicio <= CURDATE() ORDER BY id_aviso DESC')->get();
+$avisos = $db->query('SELECT * FROM Tb_aviso WHERE dt_inicio <= CURDATE() ORDER BY dt_fim')->get();
 
 if (empty($avisos)) {
   view('user/avisos.view.php', [

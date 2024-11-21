@@ -7,7 +7,7 @@ use Core\Session;
 $db = App::resolve(Database::class);
 date_default_timezone_set('America/Sao_Paulo');
 
-$avisos = $db->query('SELECT * FROM Tb_aviso ORDER BY id_aviso DESC')->get();
+$avisos = $db->query('SELECT * FROM Tb_aviso ORDER BY dt_inicio')->get();
 
 $today =  date("Y-m-d");
 $pos = 0;

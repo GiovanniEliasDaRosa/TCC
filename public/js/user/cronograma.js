@@ -14,7 +14,7 @@ accordions.forEach((accordion) => {
   };
 });
 
-selectedClass.onchange = (e) => {
+selectedClass.onchange = () => {
   form.submit();
 };
 

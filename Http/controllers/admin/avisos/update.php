@@ -7,6 +7,7 @@ use Core\Session;
 
 date_default_timezone_set('America/Sao_Paulo');
 
+
 $form = WarnForm::validate($attributes = [
   'titulo' => $_POST['titulo'],
   'corpo' => $_POST['corpo'],

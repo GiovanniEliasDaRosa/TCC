@@ -83,8 +83,14 @@ if (avisos.children.length == 0) {
   console.log("setItem");
   let childs = Array.from(avisos.children);
   let addedTime = 0;
+  let lastId = 0;
   childs.forEach((child) => {
-    if (child.dataset.id > lastWarningSaw) {
+    let childId = child.dataset.id;
+    if (childId > lastId) {
+      lastId = childId;
+    }
+
+    if (childId > lastWarningSaw) {
       child.classList.add("willNewWarn");
       setTimeout(() => {
         child.classList.add("newWarn");
@@ -93,5 +99,5 @@ if (avisos.children.length == 0) {
       addedTime++;
     }
   });
-  localStorage.setItem("lastWarningSaw", avisos.children[0].dataset.id);
+  localStorage.setItem("lastWarningSaw", lastId);
 }
