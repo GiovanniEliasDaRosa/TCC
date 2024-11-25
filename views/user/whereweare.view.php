@@ -22,13 +22,13 @@
       <div id="description">
         <h2 class="icons location-dot">Localização</h2>
         <p class="description__p">
-          <span class="icons location-dot">Av. Viriato Valente, 538 - Monte Alegre do Sul, SP, 13910-000</span>
+          <span class="icons location-dot">Av. Viriato Valente, 538 - Monte Alegre do Sul, SP, 13820-000</span>
           <span class="icons phone">(19) 3899-1215</span>
         </p>
 
         <h2 class="icons headset">Suporte</h2>
         <p class="description__p">
-          <span class="icons envelope">e017425a@educa cao.sp.gov.</span>
+          <span class="icons envelope">e017425a@educacao.sp.gov</span>
           <span class="icons phone">(19) 3899-1276</span>
           <span class="icons map-location-dot">CEP: 13820-000</span>
         </p>
