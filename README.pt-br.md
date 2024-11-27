@@ -2,7 +2,7 @@
 
 Este projeto foi desenvolvido para uso em português, mas você pode clicar no botão abaixo para acessar a explicação em inglês.
 
-[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/GiovanniEliasDaRosa/Card-Game/blob/main/README.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/GiovanniEliasDaRosa/TCC/blob/main/README.md)
 
 ## Explicação do Projeto
 
