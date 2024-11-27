@@ -1,34 +1,45 @@
-# TCC
+# TCC ETEC
 
-Este projeto é uma aplicação web que utiliza XAMPP para o servidor local e um banco de dados para armazenar informações. Abaixo está uma descrição detalhada de cada pasta e subpasta do projeto.
+This project was developed for use in Portuguese, but you can click the button below to access the explanation in Portuguese.
 
-## bats
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/GiovanniEliasDaRosa/TCC/blob/main/README.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/GiovanniEliasDaRosa/TCC/blob/main/README.pt-br.md)
 
-Esta pasta contém scripts para configurar e desconfigurar o ambiente de desenvolvimento, incluindo o XAMPP e o banco de dados.
+## Project Explanation
 
-- **CONFIGURAR**: Script para configurar o XAMPP e o banco de dados.
-- **DESCONFIGURAR**: Script para desconfigurar o XAMPP e o banco de dados.
+This website was developed as part of the 2024 Final Project (TCC) for the Computer Science for the Internet course at ETEC João Berlamino, in collaboration with the school E. E. Prof. Clodoveu Barbosa. The goal of the project is to facilitate communication regarding schedule changes and announcements from Clodoveu school, promoting the transition to a digital format. This allows the school community to access information from anywhere, at any time.
 
-## Http
+## Project Structure
 
-Esta pasta contém a lógica do sistema, organizada na subpasta **controllers**.
+The web application uses XAMPP as a local server and a database to store information. Below is a detailed description of the project's folders and subfolders:
 
-- **controllers**: Os controladores são responsáveis pela lógica do sistema. Eles processam as requisições e determinam quais dados serão exibidos nas _views_.
+### 1. bats
 
-## public
+This folder contains scripts to set up and tear down the development environment.
 
-Esta pasta contém todos os arquivos públicos, como estilos, imagens e scripts JavaScript. As subpastas são:
+- **CONFIGURAR (English: CONFIGURE)**: Script that automates the setup of XAMPP and the database.
+- **DESCONFIGURAR (English: TEAR DOWN)**: Script that removes the configurations of XAMPP and the database.
 
-- **css**: Arquivos de estilo (CSS).
-- **img**: Imagens.
-- **js**: Scripts JavaScript.
+This is necessary because I am not using a framework; instead, I am creating a custom router system, and to function correctly, it is necessary to modify some XAMPP files.
 
-> **Todos os arquivos de estilo, imagem ou JavaScript devem ser colocados aqui.**
+### 2. Http
 
-## views
+This folder contains the system logic, organized in the **controllers** subfolder.
 
-Esta pasta contém as views, que são as páginas exibidas ao usuário. As views são controladas pelos controladores localizados em `Http/controllers`. As subpastas são:
+The controllers manage the system logic, processing requests and determining which data will be displayed in the views.
 
-- **admin**: Contém todas as views relacionadas ao administrador.
-- **user**: Contém todas as views relacionadas ao usuário.
-- **session**: Contém as views relacionadas ao login e à sessão do administrador.
+### 3. public
+
+This folder contains all publicly accessible files, such as styles, images, and JavaScript scripts. The subfolders are:
+
+- **css**: Style files (CSS).
+- **img**: Images used on the site.
+- **js**: JavaScript scripts that add interactivity.
+
+### 4. views
+
+This folder contains the views, which are the pages displayed to the user. The views are controlled by the controllers located in `Http/controllers`. The subfolders are:
+
+- **admin**: Contains all views related to the system administrator.
+- **user**: Contains all views aimed at users.
+- **session**: Contains views related to login and session management for the administrator.
