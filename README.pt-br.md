@@ -8,6 +8,16 @@ Este projeto foi desenvolvido para uso em português, mas você pode clicar no b
 
 Este website foi desenvolvido como parte do Trabalho de Conclusão de Curso (TCC) de 2024 do curso de Informática para Internet da ETEC João Berlamino, em colaboração com a escola E. E. Prof. Clodoveu Barbosa. O objetivo do projeto é facilitar a comunicação de mudanças de horários e avisos da escola Clodoveu, promovendo a migração para um formato digital. Isso permite que a comunidade escolar acesse informações de qualquer lugar, a qualquer momento.
 
+## Equipe de Desenvolvimento
+
+| Nome                            | Função                                   |
+| ------------------------------- | ---------------------------------------- |
+| Giovanni (GiovanniEliasDaRosa)  | Desenvolvimento Full-Stack               |
+| Lais (LaisVitoriaS)             | Desenvolvimento Front-End e Documentação |
+| Otávio (CarambolasDeCatapimbas) | Desenvolvimento Back-End e Documentação  |
+| Eduardo (bla4k10)               | Desenvolvimento Front-End e Documentação |
+| Beatriz (BiaCorsi)              | Documentação                             |
+
 ## Estrutura do Projeto
 
 A aplicação web utiliza o XAMPP como servidor local e um banco de dados para armazenar informações. Abaixo, apresentamos uma descrição detalhada das pastas e subpastas do projeto:

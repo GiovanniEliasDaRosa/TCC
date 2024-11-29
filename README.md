@@ -9,6 +9,16 @@ This project was developed for use in Portuguese, but you can click the button b
 
 This website was developed as part of the 2024 Final Project (TCC) for the Computer Science for the Internet course at ETEC João Berlamino, in collaboration with the school E. E. Prof. Clodoveu Barbosa. The goal of the project is to facilitate communication regarding schedule changes and announcements from Clodoveu school, promoting the transition to a digital format. This allows the school community to access information from anywhere, at any time.
 
+## Development Team
+
+| Name                            | Role                                    |
+| ------------------------------- | --------------------------------------- |
+| Giovanni (GiovanniEliasDaRosa)  | Full-Stack Development                  |
+| Lais (LaisVitoriaS)             | Front-End Development and Documentation |
+| Otávio (CarambolasDeCatapimbas) | Back-End Development and Documentation  |
+| Eduardo (bla4k10)               | Front-End Development and Documentation |
+| Beatriz (BiaCorsi)              | Documentation                           |
+
 ## Project Structure
 
 The web application uses XAMPP as a local server and a database to store information. Below is a detailed description of the project's folders and subfolders:
